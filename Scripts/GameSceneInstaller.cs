@@ -5,10 +5,16 @@ public class GameSceneInstaller : MonoInstaller
 {
     [SerializeField] private GameSettings settings;
     [SerializeField] private TickSetter tickSetter;
+    [SerializeField] private ItemsManager itemsManager;
+    [SerializeField] private GameEnder gameEnder;
+    [SerializeField] private PlayerController player;
 
     public override void InstallBindings()
     {
         Container.Bind<GameSettings>().FromInstance(settings).AsSingle();
         Container.Bind<TickSetter>().FromInstance(tickSetter).AsSingle();
+        Container.Bind<GameEnder>().FromInstance(gameEnder).AsSingle();
+        Container.Bind<ItemsManager>().FromInstance(itemsManager).AsSingle();
+        Container.Bind<PlayerController>().FromInstance(player).AsSingle();
     }
 }

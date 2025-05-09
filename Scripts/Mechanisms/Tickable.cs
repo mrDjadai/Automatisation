@@ -18,6 +18,18 @@ public abstract class Tickable : MonoBehaviour
         settings = s;
     }
 
+    public bool IsBroken()
+    {
+        foreach (var item in breackables)
+        {
+            if (item.IsBroken)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     protected virtual void OnDestroy()
     {
         tick.OnTick -= HandleTick;
@@ -25,12 +37,9 @@ public abstract class Tickable : MonoBehaviour
 
     private void HandleTick()
     {
-        foreach (var item in breackables)
+        if (IsBroken())
         {
-            if (item.IsBroken)
-            {
-                return;
-            }
+            return;
         }
         if (tickForUse == 1)
         {

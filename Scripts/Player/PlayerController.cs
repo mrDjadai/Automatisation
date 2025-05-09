@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravity;
     [SerializeField] private float minCameraAngle;
     [SerializeField] private float maxCameraAngle;
+    [SerializeField] private Transform raycastPoint;
+    [SerializeField] private float raycastLength;
 
     private CharacterController controller;
     private Transform cameraTransform;
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = inputVelocity;
 
-        if (controller.isGrounded)
+        if (IsGrounded())
         {
             verticalVelocity = -gravity * Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.Space))
@@ -63,6 +65,10 @@ public class PlayerController : MonoBehaviour
         controller.Move(move * Time.deltaTime);
     }
 
+    private bool IsGrounded()
+    {
+        return controller.isGrounded || (Physics.Raycast(raycastPoint.position, Vector3.down, raycastLength));
+    }    
     private void RotateCamera()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;

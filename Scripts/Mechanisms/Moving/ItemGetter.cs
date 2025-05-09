@@ -1,11 +1,17 @@
 using UnityEngine;
-using System.Collections.Generic;
+using Zenject;
 
 public class ItemGetter : Tickable
 {
     [SerializeField] private ItemPoint input;
     [SerializeField] private ItemPoint endPoint;
-    private Dictionary<int, int> count = new Dictionary<int, int>();
+    private ItemsManager manager;
+
+    [Inject]
+    private void Construct(ItemsManager itemsManager)
+    {
+        manager = itemsManager;
+    }
 
     protected override void OnTick()
     {
@@ -18,14 +24,7 @@ public class ItemGetter : Tickable
         Item item = input.Pop();
         if (item != null)
         {
-            if (count.ContainsKey(item.ID))
-            {
-                count[item.ID]++;
-            }
-            else
-            {
-                count[item.ID] = 1;
-            }
+            manager.Add(item.ID, item.ColorID);
             item.Move(endPoint);
         }
     }

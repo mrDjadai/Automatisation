@@ -9774,6 +9774,7 @@ MonoBehaviour:
   fireLight: {fileID: 8057977662733209129}
   fireObject: {fileID: 163892731010156632}
   deltaPower: 0.5
+  appearTime: 0.6
 --- !u!136 &911734050970324014
 CapsuleCollider:
   m_ObjectHideFlags: 0

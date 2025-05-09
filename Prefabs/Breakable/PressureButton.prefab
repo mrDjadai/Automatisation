@@ -454,7 +454,7 @@ MonoBehaviour:
   angleOffset: 7
   rotatable: {fileID: 3868025956185675266}
   rotateAxis: {x: 0, y: 0, z: 1}
-  disableSpeed: 2
+  disableSpeed: 8
   steam: {fileID: 8228047238872795764}
 --- !u!1 &8408605712754887860
 GameObject:
@@ -582,6 +582,7 @@ MonoBehaviour:
   outlineRenderers:
   - {fileID: 4171085712816686855}
   - {fileID: 1601548784325744216}
+  canUnfocus: 1
   onPress:
     m_PersistentCalls:
       m_Calls:

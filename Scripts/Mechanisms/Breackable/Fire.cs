@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Fire : PeriodicalBreackable
 {
@@ -6,6 +7,7 @@ public class Fire : PeriodicalBreackable
     [SerializeField] private Light fireLight;
     [SerializeField] private Transform fireObject;
     [SerializeField] private float deltaPower;
+    [SerializeField] private float appearTime;
 
     private float Power
     {
@@ -37,6 +39,8 @@ public class Fire : PeriodicalBreackable
     {
         fireLight.enabled = true;
         Power = maxPower;
+        fireObject.localScale = Vector3.zero;
+        fireObject.DOScale(Vector3.one, appearTime);
     }
 
     protected override void OnRepair()

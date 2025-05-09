@@ -5,8 +5,10 @@ using System;
 public class Instrument : Interactable
 {
     public int DefaultLayer { get; private set; }
+    public int ID => id;
 
     [SerializeField] private Vector3 itemRotation;
+    [SerializeField] private int id;
 
     private Transform _transform;
     protected Rigidbody rb;

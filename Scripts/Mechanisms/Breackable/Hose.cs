@@ -9,6 +9,8 @@ public class Hose : Interactable
     [SerializeField] private float targetDistance;
     [SerializeField] private float pushForce;
     [SerializeField] private ParticleSystem steam;
+    [SerializeField] private float minY;
+    [SerializeField, Range(0, 1)] private float returnPercent;
 
     [SerializeField] private Collider interactCollider;
     
@@ -65,7 +67,7 @@ public class Hose : Interactable
                 }
                 if (Vector3.Distance(startPoint.position, lookPoint) > length)
                 {
-                    tr.position = startPoint.position + (lookPoint - startPoint.position).normalized * length;
+                    tr.position = startPoint.position + (lookPoint - startPoint.position).normalized * length * returnPercent;
                     Interactor.instance.InteractionEnd();
                 }
                 else
@@ -89,6 +91,10 @@ public class Hose : Interactable
                 if (Vector3.Distance(tr.position, startPoint.position) > length)
                 {
                     tr.position = startPoint.position + (tr.position - startPoint.position).normalized * length;
+                }
+                if (tr.position.y < minY)
+                {
+                    tr.position = new Vector3(tr.position.x, minY, tr.position.z);
                 }
             }
             

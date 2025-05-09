@@ -3825,7 +3825,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 2
     inside: 1
     outside: 0
@@ -5447,4 +5447,5 @@ MonoBehaviour:
   - {fileID: 2465433069702091641}
   canUnfocus: 1
   itemRotation: {x: 0, y: 0, z: 0}
+  id: 0
   pSystem: {fileID: 1223726672384713079}

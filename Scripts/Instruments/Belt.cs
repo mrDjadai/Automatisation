@@ -1,0 +1,61 @@
+using UnityEngine;
+
+public class Belt : Instrument, IResourse
+{
+    [SerializeField] private LineRenderer renderer1;
+    [SerializeField] private LineRenderer renderer2;
+
+    private BeltPoint point1;
+    private bool inHand;
+
+    public override void Use()
+    {
+        base.Use();
+        Ray ray = new Ray(Interactor.instance.CameraTransform.position, Interactor.instance.CameraTransform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.rigidbody && hit.rigidbody.TryGetComponent<BeltPoint>(out BeltPoint p))
+            {
+                if (point1 == null)
+                {
+                    point1 = p;
+                    renderer1.enabled = true;
+                    renderer1.SetPosition(0, p.Points[0].position);
+                    renderer2.SetPosition(0, p.Points[1].position);
+                }
+                else if(point1.IsPare(p))
+                {
+                    point1.Repair();
+                    Interactor.instance.DropItem();
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
+
+    protected override void OnTake()
+    {
+        base.OnTake();
+        inHand = true;
+    }
+
+    private void Update()
+    {
+        if (inHand)
+        {
+            renderer1.SetPosition(1, transform.position);
+            renderer2.SetPosition(1, transform.position);
+        }
+    }
+
+    protected override void OnDrop()
+    {
+        base.OnDrop();
+        renderer1.enabled = false;
+        renderer2.enabled = false;
+        inHand = false;
+
+
+        point1 = null;
+    }
+}

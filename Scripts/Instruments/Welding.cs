@@ -24,6 +24,16 @@ public class Welding : Instrument
         }
     }
 
+    protected override void OnDrop()
+    {
+        base.OnDrop();
+        if (isActive)
+        {
+            Use();
+        }
+    }
+
+
     private void Update()
     {
         if (isActive)

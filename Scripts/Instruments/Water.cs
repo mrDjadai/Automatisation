@@ -15,6 +15,12 @@ public class Water : Instrument
         SetActiveMode(!curMode);
     }
 
+    protected override void OnDrop()
+    {
+        base.OnDrop();
+        SetActiveMode(false);
+    }
+
     private void SetActiveMode(bool mode)
     {
         curMode = mode;
