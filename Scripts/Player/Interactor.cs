@@ -8,7 +8,6 @@ public class Interactor : MonoBehaviour
     public Transform CameraTransform => cameraTransform;
     public LayerMask InteractLayers => interactLayers;
     public Vector3 LookPoint => lookPoint;
-    public SimpleAction OnInteractionEnd = new SimpleAction(() => {});
 
     [SerializeField] private Image interactIndicator;
     [SerializeField] private Color defaultIndicatorColor;
@@ -17,9 +16,10 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask interactLayers;
     [SerializeField] private LayerMask lookLayers;
 
-    private IInteractable currentInteractable;
+    private Interactable currentInteractable;
     private bool canInteract;
     private Vector3 lookPoint;
+    private bool interacting;
 
     private void Awake()
     {
@@ -35,11 +35,11 @@ public class Interactor : MonoBehaviour
 
     public void DropItem()
     {
-      /*  if (PlayerInventory.instance.InHandItem != null)
+        if (PlayerInventory.instance.InHandItem != null)
         {
             PlayerInventory.instance.DropItem();
             return;
-        }*/
+        }
     }
 
     public void TryInteract()
@@ -48,6 +48,7 @@ public class Interactor : MonoBehaviour
         {
             if (currentInteractable != null)
             {
+                interacting = true;
                 currentInteractable.Interact();
             }
         }
@@ -55,7 +56,11 @@ public class Interactor : MonoBehaviour
 
     public void InteractionEnd()
     {
-        OnInteractionEnd.Invoke();
+        if (currentInteractable != null)
+        {
+            interacting = false;
+            currentInteractable.EndInteract();
+        }
     }
 
     private void FixedUpdate()
@@ -63,16 +68,45 @@ public class Interactor : MonoBehaviour
         Color indicatorColor = defaultIndicatorColor;
         canInteract = false;
 
+        if (interacting && currentInteractable.CanUnfocus == false)
+        {
+            return;
+        }
+
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, interactLayers))
         {
-            currentInteractable = raycastHit.transform.GetComponent<IInteractable>();
+            Interactable newInteractable;
+            newInteractable = raycastHit.transform.GetComponent<Interactable>();
+
+            if (currentInteractable != newInteractable)
+            {
+                InteractionEnd();
+                if (currentInteractable != null)
+                {
+                    currentInteractable.SetOutline(false);
+                }
+            }
+            currentInteractable = newInteractable;
+
+            if (currentInteractable != null)
+            {
+                currentInteractable.SetOutline(true);
+            }
             if (currentInteractable != null)
             {
                 if (raycastHit.distance <= interactDistance)
                 {
                     indicatorColor = Color.white;
                     canInteract = true;
+                }
+            }
+            else
+            {
+                InteractionEnd();
+                if (currentInteractable != null)
+                {
+                    currentInteractable.SetOutline(false);
                 }
             }
         }

@@ -12,7 +12,7 @@ public class ItemGenerator : Tickable
         if (point.IsEmpty)
         {
             Item item = Instantiate(generatedPrefab, spawnPoint.position, spawnPoint.rotation);
-            item.Init(settings.TickTime);
+            item.Init(settings);
             item.Move(point);
         }
     }

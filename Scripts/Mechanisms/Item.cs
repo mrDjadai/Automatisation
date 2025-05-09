@@ -5,21 +5,26 @@ public class Item : MonoBehaviour
 {
     public int ID => id;
     public bool IsMoving => isMoving;
+    public GameSettings Settings => settings;
     [SerializeField] private int id;
+    public int ColorID;
 
     private float movingTime;
     private bool isMoving;
     private Transform tr;
     private ItemPoint curPoint;
+    private GameSettings settings;
 
     private void Awake()
     {
         tr = transform;
     }
 
-    public void Init(float mTime)
+    public void Init(GameSettings s)
     {
-        movingTime = mTime;
+        settings = s;
+        movingTime = s.TickTime;
+        GetComponent<Colorizable>().Init();
     }
 
     public bool Move(ItemPoint point)

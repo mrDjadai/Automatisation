@@ -3,14 +3,14 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public Transform HandPoint => handPoint;
-   // public Item InHandItem => inHandItem;
+    public Instrument InHandItem => inHandItem;
     public static PlayerInventory instance;
 
     [SerializeField] private CharacterController player;
     [SerializeField] private Transform handPoint;
     [SerializeField] private int inHandLayer;
 
-    //private Item inHandItem;
+    private Instrument inHandItem;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-   /* public void SetInHandItem(Item item)
+    public void SetInHandItem(Instrument item)
     {
         if (inHandItem != null)
         {
@@ -66,5 +66,5 @@ public class PlayerInventory : MonoBehaviour
             tr.GetChild(i).gameObject.layer = layer;
             SetObjectLayer(tr.GetChild(i), layer);
         }
-    }*/
+    }
 }

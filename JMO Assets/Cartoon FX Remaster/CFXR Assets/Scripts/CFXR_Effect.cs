@@ -511,7 +511,7 @@ namespace CartoonFX
 				if (animLight.light != null)
 				{
 #if !DISABLE_LIGHTS
-					animLight.light.enabled = !GlobalDisableLights;
+				//	animLight.light.enabled = !GlobalDisableLights;
 #else
 					animLight.light.enabled = false;
 #endif

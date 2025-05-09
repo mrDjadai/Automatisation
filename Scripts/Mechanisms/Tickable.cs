@@ -1,8 +1,10 @@
 using UnityEngine;
 using Zenject;
 
+[SelectionBase]
 public abstract class Tickable : MonoBehaviour
 {
+    [SerializeField] private Breackable[] breackables;
     [SerializeField, Min(1)] private int tickForUse = 1;
     protected GameSettings settings;
     private TickSetter tick;
@@ -23,6 +25,13 @@ public abstract class Tickable : MonoBehaviour
 
     private void HandleTick()
     {
+        foreach (var item in breackables)
+        {
+            if (item.IsBroken)
+            {
+                return;
+            }
+        }
         if (tickForUse == 1)
         {
             OnTick();

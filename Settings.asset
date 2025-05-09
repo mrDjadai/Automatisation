@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   tickTime: 0.2
+  colors:
+  - {r: 0.122456364, g: 0.7132075, b: 0.25046346, a: 1}
+  - {r: 0.24613024, g: 0.3962635, b: 0.78113204, a: 1}
+  - {r: 0.7735849, g: 0.16201496, b: 0.16201496, a: 1}

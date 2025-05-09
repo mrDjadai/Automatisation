@@ -24,7 +24,6 @@ public class ItemPoint : MonoBehaviour
 
     public Item Pop()
     {
-        Debug.Log("pop");
         Item res = curItem;
         curItem = null;
         return res;
