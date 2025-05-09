@@ -20,6 +20,8 @@ public class Belt : Instrument, IResourse
                 {
                     point1 = p;
                     renderer1.enabled = true;
+                    renderer2.enabled = true;
+
                     renderer1.SetPosition(0, p.Points[0].position);
                     renderer2.SetPosition(0, p.Points[1].position);
                 }

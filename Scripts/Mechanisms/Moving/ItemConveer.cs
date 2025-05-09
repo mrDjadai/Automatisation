@@ -15,6 +15,9 @@ public class ItemConveer : Tickable
         {
             points[i].Move(points[i + 1]);
         }
-        input.Move(points[0]);
+        if (input != null)
+        {
+            input.Move(points[0]);
+        }
     }
 }

@@ -21,13 +21,13 @@ public class CoverPanel : Interactable
         {
             panel.DOMove(openPoint.position, openTime);
             panel.DORotateQuaternion(openPoint.rotation, openTime);
-            breackable.Break();
+            breackable.Repair();
         }
         else
         {
             panel.DOMove(closePoint.position, openTime);
             panel.DORotateQuaternion(closePoint.rotation, openTime);
-            breackable.Repair();
+            breackable.Break();
         }
     }
 }
