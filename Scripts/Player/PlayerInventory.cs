@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public float ItemMovingSpeed => itemMovingSpeed;
+    public float ItemRotatingSpeed => itemRotatingSpeed;
     public Transform HandPoint => handPoint;
     public Instrument InHandItem => inHandItem;
     public static PlayerInventory instance;
@@ -9,6 +11,9 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private CharacterController player;
     [SerializeField] private Transform handPoint;
     [SerializeField] private int inHandLayer;
+
+    [SerializeField] private float itemMovingSpeed;
+    [SerializeField] private float itemRotatingSpeed;
 
     private Instrument inHandItem;
 

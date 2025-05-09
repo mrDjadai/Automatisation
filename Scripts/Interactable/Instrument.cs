@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Instrument : Interactable
@@ -23,7 +24,7 @@ public class Instrument : Interactable
     public override void Interact()
     {
         rb.isKinematic = true;
-        GoToPoint(PlayerInventory.instance.HandPoint, OnTake);
+        StartCoroutine(GoToPoint(PlayerInventory.instance.HandPoint, OnTake));
         PlayerInventory.instance.SetInHandItem(this);
     }
 
@@ -48,30 +49,34 @@ public class Instrument : Interactable
     {
     }
 
-    protected void GoToPoint(Transform target, bool useRotationOffset = true)
-    {
-        GoToPoint(target, () => { }, useRotationOffset);
-    }
-
-    protected void GoToPoint(Transform target, Action onArrive, bool useRotationOffset = true)
-    {
-        Quaternion targetQuanternion;
-        if (useRotationOffset)
-        {
-            targetQuanternion = target.rotation * Quaternion.Euler(itemRotation);
-        }
-        else
-        {
-            targetQuanternion = target.rotation;
-        }
-
-        _transform.SetParent(target);
-        _transform.localPosition = Vector3.zero;
-        _transform.rotation = targetQuanternion;
-        onArrive.Invoke();
-    }
-
     public override void EndInteract()
     {
+    }
+
+    protected IEnumerator GoToPoint(Transform target, Action onArrive)
+    {
+        Quaternion targetQuanternion;
+        targetQuanternion = target.rotation * Quaternion.Euler(itemRotation);
+
+        while (true)
+        {
+            float stoppingDistance = PlayerInventory.instance.ItemMovingSpeed;
+            float distance = Vector3.Distance(_transform.position, target.position);
+            if (distance <= stoppingDistance)
+            {
+                _transform.SetParent(target);
+                _transform.localPosition = Vector3.zero;
+                _transform.rotation = targetQuanternion;
+                onArrive.Invoke();
+                break;
+            }
+
+
+            float speed = PlayerInventory.instance.ItemMovingSpeed;
+            float rotatingSpeed = PlayerInventory.instance.ItemRotatingSpeed;
+            _transform.position = Vector3.Lerp(_transform.position, target.position, speed);
+            _transform.rotation = Quaternion.Lerp(_transform.rotation, targetQuanternion, rotatingSpeed);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

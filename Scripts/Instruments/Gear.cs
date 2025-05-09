@@ -25,6 +25,7 @@ public class Gear : Instrument, IResourse
                 {
                     place = p;
                     Interactor.instance.DropItem();
+                    StartCoroutine(GoToPoint(p.Point, () => { }));
                     p.Place(this);
                 }
             }

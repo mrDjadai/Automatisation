@@ -845,6 +845,8 @@ MonoBehaviour:
   player: {fileID: 8841929504132378483}
   handPoint: {fileID: 2955378390672068814}
   inHandLayer: 6
+  itemMovingSpeed: 0.1
+  itemRotatingSpeed: 0.1
 --- !u!1 &3612518222303827877
 GameObject:
   m_ObjectHideFlags: 0

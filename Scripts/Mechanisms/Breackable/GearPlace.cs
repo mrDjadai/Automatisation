@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GearPlace : MonoBehaviour
 {
+    public Transform Point => transform;
     public bool IsEmpty => gear == null;
     [SerializeField] private Gear gear;
     [SerializeField] private GearManager manager;
@@ -34,8 +35,6 @@ public class GearPlace : MonoBehaviour
     public void Place(Gear g)
     {
         gear = g;
-        g.transform.position = transform.position;
-        g.transform.rotation = transform.rotation;
         g.GetComponent<Rigidbody>().isKinematic = true;
         manager.Check();
     }
