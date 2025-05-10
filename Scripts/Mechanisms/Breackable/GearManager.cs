@@ -3,6 +3,7 @@ using UnityEngine;
 public class GearManager : PeriodicalBreackable
 {
     [SerializeField] private GearPlace[] places;
+
     public void Check()
     {
         foreach (var item in places)
@@ -23,5 +24,16 @@ public class GearManager : PeriodicalBreackable
 
     protected override void OnRepair()
     {
+    }
+
+    private void Update()
+    {
+        if (IsBroken == false)
+        {
+            foreach (var item in places)
+            {
+                item.Rotate();
+            }
+        }
     }
 }

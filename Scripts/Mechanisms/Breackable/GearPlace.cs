@@ -6,10 +6,20 @@ public class GearPlace : MonoBehaviour
     public bool IsEmpty => gear == null;
     [SerializeField] private Gear gear;
     [SerializeField] private GearManager manager;
+    [SerializeField] private float rotatingSpeed;
 
     public bool IsBroken()
     {
         return IsEmpty || gear.IsBroken;
+    }
+
+    public void Rotate()
+    {
+        transform.RotateAround(transform.forward, rotatingSpeed * Time.deltaTime);
+        if (gear != null)
+        {
+            gear.transform.RotateAround(transform.forward, rotatingSpeed * Time.deltaTime);
+        }
     }
 
     public bool TryBreak()

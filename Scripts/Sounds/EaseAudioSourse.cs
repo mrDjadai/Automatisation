@@ -30,7 +30,7 @@ public class EaseAudioSourse : MonoBehaviour
             StopCoroutine(cor);
         }
 
-        StartCoroutine(SetVolume(volume));
+        cor = StartCoroutine(SetVolume(volume));
     }
 
     public void Stop()
@@ -40,7 +40,7 @@ public class EaseAudioSourse : MonoBehaviour
             StopCoroutine(cor);
         }
 
-        StartCoroutine(SetVolume(0));
+        cor = StartCoroutine(SetVolume(0));
     }
 
     private IEnumerator SetVolume(float v)

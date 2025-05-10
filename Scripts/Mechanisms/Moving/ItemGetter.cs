@@ -5,6 +5,8 @@ public class ItemGetter : Tickable
 {
     [SerializeField] private ItemPoint input;
     [SerializeField] private ItemPoint endPoint;
+    [SerializeField] private AudioSource getSource;
+
     private ItemsManager manager;
 
     [Inject]
@@ -18,14 +20,19 @@ public class ItemGetter : Tickable
         if (endPoint.IsEmpty == false)
         {
             Item i = endPoint.Pop();
+            manager.Add(i.ID, i.ColorID);
+
             Destroy(i.gameObject);
         }
 
-        Item item = input.Pop();
-        if (item != null)
+        if (input.IsEmpty == false)
         {
-            manager.Add(item.ID, item.ColorID);
-            item.Move(endPoint);
+            input.Move(endPoint);
+            if (getSource.isPlaying == false)
+            {
+                getSource.Play();
+
+            }
         }
     }
 }

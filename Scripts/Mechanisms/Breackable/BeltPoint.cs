@@ -8,6 +8,16 @@ public class BeltPoint : PeriodicalBreackable
     [SerializeField] private Transform[] connectPoints = new Transform[2];
     [SerializeField] private AudioSource breakSource;
     [SerializeField] private AudioSource connectSource;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private bool isMain;
+
+    private void Update()
+    {
+        if (isMain || other.IsBroken == false)
+        {
+            transform.RotateAroundLocal(Vector3.forward, rotationSpeed * Time.deltaTime);
+        }
+    }
 
     public void PlaySound()
     {

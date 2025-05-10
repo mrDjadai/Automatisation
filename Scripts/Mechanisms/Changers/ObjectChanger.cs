@@ -10,6 +10,16 @@ public abstract class ObjectChanger : Tickable
     private int tickAfterChange;
     private bool isChanginging;
 
+    protected virtual void OnChangeStart()
+    {
+
+    }
+
+    protected virtual void OnChangeEnd()
+    {
+
+    }
+
     protected override void OnTick()
     {
         if (isChanginging)
@@ -21,6 +31,7 @@ public abstract class ObjectChanger : Tickable
                 {
                     isChanginging = false;
                     tickAfterChange = 0;
+                    OnChangeEnd();
                     return;
                 }
                 if (tickAfterChange == applyTick)
@@ -33,6 +44,10 @@ public abstract class ObjectChanger : Tickable
         {
             center.Move(output);
             isChanginging = input.Move(center);
+            if (isChanginging)
+            {
+                OnChangeStart();
+            }
         }
     }
 

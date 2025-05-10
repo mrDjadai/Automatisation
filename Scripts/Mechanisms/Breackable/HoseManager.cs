@@ -6,7 +6,7 @@ public class HoseManager : PeriodicalBreackable
 
     protected override void OnBreak()
     {
-        hose.Drop();
+        hose.DropItem();
     }
 
     protected override void OnRepair()

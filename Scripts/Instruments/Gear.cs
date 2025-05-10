@@ -28,20 +28,23 @@ public class Gear : Instrument, IResourse
                 {
                     place = p;
                     Interactor.instance.DropItem();
-                    StartCoroutine(GoToPoint(p.Point, () => { placeSource.Play(); }));
+                    moveCor = StartCoroutine(GoToPoint(p.Point, () => { placeSource.Play(); }));
                     p.Place(this);
                 }
             }
         }
     }
 
-    protected override void OnTake()
+    public override void Interact()
     {
-        base.OnTake();
-        if (place != null)
+        if (PlayerInventory.instance.InHandItem == null)
         {
-            place.Take();
-            place = null;
+            if (place != null)
+            {
+                place.Take();
+                place = null;
+            }
         }
+        base.Interact();
     }
 }

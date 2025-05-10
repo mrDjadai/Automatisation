@@ -20,6 +20,8 @@ public class Colorizable : MonoBehaviour
 
     public void Colorize(float time, int colorId)
     {
+        item.ColorID = colorId;
+
         StartCoroutine(SetColor(time, colorId));
     }
 
@@ -43,6 +45,5 @@ public class Colorizable : MonoBehaviour
                 i.material.SetFloat("_Percent", val);
             }
         }
-        item.ColorID = colorId;
     }
 }

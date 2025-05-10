@@ -13,6 +13,8 @@ public class Instrument : Interactable
 
     private Transform _transform;
     protected Rigidbody rb;
+    public Coroutine moveCor;
+
 
     private void Awake()
     {
@@ -25,7 +27,7 @@ public class Instrument : Interactable
     public override void Interact()
     {
         rb.isKinematic = true;
-        StartCoroutine(GoToPoint(PlayerInventory.instance.HandPoint, OnTake));
+        moveCor = StartCoroutine(GoToPoint(PlayerInventory.instance.HandPoint, OnTake));
         PlayerInventory.instance.SetInHandItem(this);
     }
 
@@ -35,6 +37,11 @@ public class Instrument : Interactable
         _transform.SetParent(null);
         rb.isKinematic = false;
         OnDrop();
+        if (moveCor != null)
+        {
+            StopCoroutine(moveCor);
+            moveCor = null;
+        }
     }
 
     public virtual void Use()
@@ -80,5 +87,6 @@ public class Instrument : Interactable
             _transform.rotation = Quaternion.Lerp(_transform.rotation, targetQuanternion, rotatingSpeed);
             yield return new WaitForEndOfFrame();
         }
+        moveCor = null;
     }
 }

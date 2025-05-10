@@ -1,9 +1,15 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Water : Instrument
 {
     [SerializeField] private ParticleSystem pSystem;
     [SerializeField] private EaseAudioSourse audioSourse;
+    [SerializeField] private Vector3 openAngle;
+    [SerializeField] private Vector3 closeAngle;
+    [SerializeField] private Transform rotatable;
+    [SerializeField] private float rotateTime = 0.5f;
+
     private bool curMode;
 
     private void Start()
@@ -25,17 +31,18 @@ public class Water : Instrument
     private void SetActiveMode(bool mode)
     {
         curMode = mode;
-  //      ParticleSystem.EmissionModule mod = pSystem.emission;
- //       mod.enabled = mode;
         if (mode)
         {
             pSystem.Play();
             audioSourse.Play();
+            rotatable.DOLocalRotate(openAngle, rotateTime);
         }
         else
         {
             pSystem.Stop();
             audioSourse.Stop();
+            rotatable.DOLocalRotate(closeAngle, rotateTime);
+
         }
     }
 }

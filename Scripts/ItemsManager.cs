@@ -23,6 +23,7 @@ public class ItemsManager : MonoBehaviour
 
     private void Awake()
     {
+        lastEnterTime = Time.time;
         foreach (var item in items)
         {
             item.text = Instantiate(textPrefab, textOrigin);

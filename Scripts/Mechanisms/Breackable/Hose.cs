@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hose : Interactable
+public class Hose : Instrument
 {
     [SerializeField] private HoseManager manager;
     [SerializeField] private Transform startPoint;
@@ -15,14 +15,12 @@ public class Hose : Interactable
 
     [SerializeField] private Collider interactCollider;
     
-    private Rigidbody rb;
     private bool inHand;
     private bool placed = true;
     private Transform tr;
 
-    private Vector3 lookPoint;
 
-    public void Drop()
+    public void DropItem()
     {
         steam.Play();
         steamSource.Play();
@@ -32,25 +30,50 @@ public class Hose : Interactable
         rb.AddForce(Random.onUnitSphere * pushForce, ForceMode.Impulse);
     }
 
-    private void Awake()
+    public override void Use()
     {
-        tr = transform;
-        rb = GetComponent<Rigidbody>();
-    }
-
-    public override void EndInteract()
-    {
-        inHand = false;
-        if (!placed)
+        base.Use();
+        Ray ray = new Ray(Interactor.instance.CameraTransform.position, Interactor.instance.CameraTransform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            rb.isKinematic = false;
+            if (hit.transform == targetPoint)
+            {
+                PlayerInventory.instance.DropItem();
+                placed = true;
+                interactCollider.enabled = false;
+
+                StartCoroutine(GoToPoint(targetPoint, OnPlace));
+            }
         }
     }
 
-    public override void Interact()
+    private void OnPlace()
     {
+        manager.Repair();
+        steam.Stop();
+        steamSource.Stop();
+    }
+
+
+    private void Start()
+    {
+        tr = transform;
+    }
+
+    protected override void OnDrop()
+    {
+        base.OnDrop();
+        inHand = false;
+        if (placed)
+        {
+            rb.isKinematic = true;
+        }
+    }
+
+    protected override void OnTake()
+    {
+        base.OnTake();
         inHand = true;
-        rb.isKinematic = true;
     }
 
     private void Update()
@@ -59,35 +82,10 @@ public class Hose : Interactable
         {
             if (inHand)
             {
-                foreach (var item in Physics.RaycastAll(Interactor.instance.CameraTransform.position, Interactor.instance.CameraTransform.forward))
+                if (Vector3.Distance(startPoint.position, tr.position) > length)
                 {
-                    if ((item.rigidbody == null) || (item.rigidbody != rb.gameObject))
-                    {
-                        lookPoint = item.point;
-                        break;
-                    }
-                }
-                if (Vector3.Distance(startPoint.position, lookPoint) > length)
-                {
-                    tr.position = startPoint.position + (lookPoint - startPoint.position).normalized * length * returnPercent;
-                    Interactor.instance.InteractionEnd();
-                }
-                else
-                {
-                    tr.position = lookPoint;
-                }
-
-                if (Vector3.Distance(tr.position, targetPoint.position) < targetDistance)
-                {
-                    tr.position = targetPoint.position;
-                    placed = true;
-                    manager.Repair();
-                    interactCollider.enabled = false;
-                    steam.Stop();
-                    steamSource.Stop();
-
-                    Interactor.instance.InteractionEnd();
-
+                    PlayerInventory.instance.DropItem();
+                    return;
                 }
             }
             else

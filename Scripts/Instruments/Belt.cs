@@ -48,8 +48,8 @@ public class Belt : Instrument, IResourse
     {
         if (inHand)
         {
-            renderer1.SetPosition(1, transform.position);
-            renderer2.SetPosition(1, transform.position);
+            renderer1.SetPosition(1, renderer1.transform.position);
+            renderer2.SetPosition(1, renderer2.transform.position);
         }
     }
 
