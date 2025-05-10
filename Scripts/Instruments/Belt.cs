@@ -5,6 +5,7 @@ public class Belt : Instrument, IResourse
     [SerializeField] private LineRenderer renderer1;
     [SerializeField] private LineRenderer renderer2;
 
+
     private BeltPoint point1;
     private bool inHand;
 
@@ -19,6 +20,7 @@ public class Belt : Instrument, IResourse
                 if (point1 == null)
                 {
                     point1 = p;
+                    p.PlaySound();
                     renderer1.enabled = true;
                     renderer2.enabled = true;
 
@@ -28,6 +30,7 @@ public class Belt : Instrument, IResourse
                 else if(point1.IsPare(p))
                 {
                     point1.Repair();
+                    p.PlaySound();
                     Interactor.instance.DropItem();
                     Destroy(gameObject);
                 }

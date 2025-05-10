@@ -18,6 +18,7 @@ public class Instrument : Interactable
     {
         _transform = transform;
         rb = GetComponent<Rigidbody>();
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         DefaultLayer = gameObject.layer;
     }
 
@@ -56,12 +57,13 @@ public class Instrument : Interactable
     protected IEnumerator GoToPoint(Transform target, Action onArrive)
     {
         Quaternion targetQuanternion;
-        targetQuanternion = target.rotation * Quaternion.Euler(itemRotation);
 
         while (true)
         {
             float stoppingDistance = PlayerInventory.instance.ItemMovingSpeed;
             float distance = Vector3.Distance(_transform.position, target.position);
+            targetQuanternion = target.rotation * Quaternion.Euler(itemRotation);
+
             if (distance <= stoppingDistance)
             {
                 _transform.SetParent(target);

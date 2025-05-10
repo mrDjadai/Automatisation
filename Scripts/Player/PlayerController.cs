@@ -12,9 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxCameraAngle;
     [SerializeField] private Transform raycastPoint;
     [SerializeField] private float raycastLength;
-
     private CharacterController controller;
-    private Transform cameraTransform;
+    [SerializeField] private Transform cameraTransform;
     private float verticalVelocity;
     private float xRotation = 0f;
     private Vector3 inputVelocity;
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         controller = GetComponent<CharacterController>();
-        cameraTransform = Camera.main.transform;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

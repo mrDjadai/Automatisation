@@ -528,8 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba0d82b6c48ff34383fcdf23601cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPeriod: 1
-  periodOffset: 5
+  minPeriod: 10
+  periodOffset: 15
   places:
   - {fileID: 5158462239767880824}
   - {fileID: 5479849704977832305}

@@ -6,6 +6,13 @@ public class BeltPoint : PeriodicalBreackable
     [SerializeField] private BeltPoint other;
     [SerializeField] private GameObject beltModel;
     [SerializeField] private Transform[] connectPoints = new Transform[2];
+    [SerializeField] private AudioSource breakSource;
+    [SerializeField] private AudioSource connectSource;
+
+    public void PlaySound()
+    {
+        connectSource.Play();
+    }
 
     public bool IsPare(BeltPoint p)
     {
@@ -18,6 +25,7 @@ public class BeltPoint : PeriodicalBreackable
         {
             beltModel.SetActive(false);
         }
+        breakSource.Play();
     }
 
     protected override void OnRepair()

@@ -11,6 +11,7 @@ public class Hose : Interactable
     [SerializeField] private ParticleSystem steam;
     [SerializeField] private float minY;
     [SerializeField, Range(0, 1)] private float returnPercent;
+    [SerializeField] private EaseAudioSourse steamSource;
 
     [SerializeField] private Collider interactCollider;
     
@@ -24,6 +25,7 @@ public class Hose : Interactable
     public void Drop()
     {
         steam.Play();
+        steamSource.Play();
         placed = false;
         interactCollider.enabled = true;
         rb.isKinematic = false;
@@ -82,6 +84,8 @@ public class Hose : Interactable
                     manager.Repair();
                     interactCollider.enabled = false;
                     steam.Stop();
+                    steamSource.Stop();
+
                     Interactor.instance.InteractionEnd();
 
                 }

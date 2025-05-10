@@ -9,6 +9,10 @@ public class Fire : PeriodicalBreackable
     [SerializeField] private float deltaPower;
     [SerializeField] private float appearTime;
 
+    [SerializeField] private AudioSource startSource;
+    [SerializeField] private AudioSource downSource;
+    [SerializeField] private EaseAudioSourse source;
+
     private float Power
     {
         get
@@ -33,6 +37,7 @@ public class Fire : PeriodicalBreackable
     private void OnParticleCollision(GameObject other)
     {
         Power -= deltaPower;
+        downSource.PlayOneShot(downSource.clip);
     }
 
     protected override void OnBreak()
@@ -41,10 +46,12 @@ public class Fire : PeriodicalBreackable
         Power = maxPower;
         fireObject.localScale = Vector3.zero;
         fireObject.DOScale(Vector3.one, appearTime);
+        startSource.Play();
+        source.Play();
     }
 
     protected override void OnRepair()
     {
-
+        source.Stop();
     }
 }

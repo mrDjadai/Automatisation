@@ -8,6 +8,7 @@ public class TutorialDoor : MonoBehaviour
     [SerializeField] private Transform door;
     [SerializeField] private Transform openPoint;
     [SerializeField] private float openTime;
+    [SerializeField] private AudioSource openSource;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class TutorialDoor : MonoBehaviour
     {
         returner.gameObject.SetActive(false);
         door.DOMove(openPoint.position, openTime);
+        openSource.Play();
     }
 
     private void Update()

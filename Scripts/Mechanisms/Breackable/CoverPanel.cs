@@ -8,6 +8,7 @@ public class CoverPanel : Interactable
     [SerializeField] private Transform closePoint;
     [SerializeField] private float openTime;
     [SerializeField] private CoverPanelBreackable breackable;
+    [SerializeField] private AudioSource moveSource;
     private bool isOpen;
 
     public override void EndInteract()
@@ -17,17 +18,18 @@ public class CoverPanel : Interactable
     public override void Interact()
     {
         isOpen = !isOpen;
+        moveSource.Play();
         if (isOpen)
         {
             panel.DOMove(openPoint.position, openTime);
             panel.DORotateQuaternion(openPoint.rotation, openTime);
-            breackable.Repair();
+            breackable.Break();
         }
         else
         {
             panel.DOMove(closePoint.position, openTime);
             panel.DORotateQuaternion(closePoint.rotation, openTime);
-            breackable.Break();
+            breackable.Repair();
         }
     }
 }

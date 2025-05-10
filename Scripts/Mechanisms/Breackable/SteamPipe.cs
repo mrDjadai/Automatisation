@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class SteamPipe : PeriodicalBreackable
 {
@@ -6,6 +7,11 @@ public class SteamPipe : PeriodicalBreackable
     [SerializeField] private Transform steam;
     [SerializeField] private Transform point;
     [SerializeField] private float maxScale;
+    [SerializeField] private EaseAudioSourse steamSource;
+    [SerializeField] private EaseAudioSourse weldingSource;
+    [SerializeField] private float weldingTime = 0.2f;
+
+    private Coroutine cor;
 
     protected override void OnBreak()
     {
@@ -17,6 +23,7 @@ public class SteamPipe : PeriodicalBreackable
 
         point.position = spawn.position;
         point.gameObject.SetActive(true);
+        steamSource.Play();
     }
 
     public void Repair(float f)
@@ -29,10 +36,31 @@ public class SteamPipe : PeriodicalBreackable
         {
             Repair();
         }
+
+        if (cor != null)
+        {
+            StopCoroutine(cor);
+        }
+        weldingSource.Play();
+        cor = StartCoroutine(Stop());
+    }
+
+    private IEnumerator Stop()
+    {
+        yield return new WaitForSeconds(weldingTime);
+        weldingSource.Stop();
+        cor = null;
     }
 
     protected override void OnRepair()
     {
         point.gameObject.SetActive(false);
+        steamSource.Stop();
+        weldingSource.Stop();
+        if (cor != null)
+        {
+            StopCoroutine(cor);
+        }
+        cor = null;
     }
 }

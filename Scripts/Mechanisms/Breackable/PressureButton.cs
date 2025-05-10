@@ -12,20 +12,31 @@ public class PressureButton : Breackable
     [SerializeField] private float disableSpeed;
     [SerializeField] private ParticleSystem steam;
 
+    [SerializeField] private AudioSource maxSource;
+    [SerializeField] private AudioSource steamSource;
+    private float maxVolume;
+
     private float time;
 
     private IEnumerator Start()
     {
+        maxVolume = steamSource.volume;
+        steamSource.volume = 0;
+
         while (true)
         {
             yield return new WaitForEndOfFrame();
             time += Time.deltaTime;
             float angle = minAngle + (maxAngle - minAngle) * (time / timeForMax);
-
+            steamSource.volume = maxVolume * (time / timeForMax);
             if (time >= timeForMax)
             {
                 time = timeForMax;
                 angle += Random.Range(-angleOffset, angleOffset);
+                if (maxSource.isPlaying == false)
+                {
+                    maxSource.Play();
+                }
                 Break();
             }
 

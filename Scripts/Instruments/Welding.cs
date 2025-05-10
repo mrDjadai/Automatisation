@@ -3,6 +3,7 @@ using UnityEngine;
 public class Welding : Instrument
 {
     [SerializeField] private ParticleSystem particle;
+    [SerializeField] private EaseAudioSourse audioSourse;
 
     [SerializeField] private Transform raycastPoint;
     [SerializeField] private float raycastDistance;
@@ -17,10 +18,12 @@ public class Welding : Instrument
         if (isActive)
         {
             particle.Play();
+            audioSourse.Play();
         }
         else
         {
             particle.Stop();
+            audioSourse.Stop();
         }
     }
 

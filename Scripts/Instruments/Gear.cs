@@ -6,11 +6,14 @@ public class Gear : Instrument, IResourse
     [SerializeField] private GameObject brokenModel;
     [SerializeField] private GameObject repairedModel;
     [SerializeField] private GearPlace place;
+    [SerializeField] private AudioSource breakSource;
+    [SerializeField] private AudioSource placeSource;
     
     public void Break()
     {
         repairedModel.SetActive(false);
         brokenModel.SetActive(true);
+        breakSource.Play();
     }
 
     public override void Use()
@@ -25,7 +28,7 @@ public class Gear : Instrument, IResourse
                 {
                     place = p;
                     Interactor.instance.DropItem();
-                    StartCoroutine(GoToPoint(p.Point, () => { }));
+                    StartCoroutine(GoToPoint(p.Point, () => { placeSource.Play(); }));
                     p.Place(this);
                 }
             }
