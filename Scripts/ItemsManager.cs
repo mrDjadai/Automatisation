@@ -33,11 +33,14 @@ public class ItemsManager : MonoBehaviour
 
     public void Add(int id, int colorId)
     {
+        Debug.Log(id);
+        Debug.Log(colorId);
         foreach (var item in items)
         {
             if (item.id == id && item.colorId == colorId)
             {
                 item.count++;
+                Debug.Log(item.count);
                 break;
             }
         }

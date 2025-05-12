@@ -32,7 +32,13 @@ public abstract class Tickable : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        tick.OnTick -= HandleTick;
+        try
+        {
+            tick.OnTick -= HandleTick;
+        }
+        catch (System.Exception)
+        {
+        }
     }
 
     private void HandleTick()

@@ -440,8 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f30acab7090e5c4bb1d12f9d43b3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPeriod: 5
-  periodOffset: 40
+  minPeriod: 10
+  periodOffset: 60
   spawnPoints:
   - {fileID: 6372376767858911682}
   - {fileID: 5305535482401381414}

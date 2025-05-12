@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class ItemSeparator : Tickable
 {
@@ -7,7 +8,9 @@ public class ItemSeparator : Tickable
     [SerializeField] private ItemPoint input;
     [SerializeField] private ItemPoint publicInput;
     [SerializeField] private ItemPoint[] publicOutputs;
-
+    [SerializeField] private Transform rotatable;
+    [SerializeField] private float[] angles;
+    [SerializeField] private float animationTime;
 
     private int curOutput = 0;
 
@@ -20,6 +23,7 @@ public class ItemSeparator : Tickable
         if (input.Move(outnputs[curOutput]))
         {
             curOutput = (curOutput + 1) % outnputs.Length;
+            rotatable.DOLocalRotate(Vector3.up * angles[curOutput], animationTime);
         }
         for (int i = 0; i < outnputs.Length; i++)
         {

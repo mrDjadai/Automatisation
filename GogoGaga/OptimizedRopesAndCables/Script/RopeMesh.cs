@@ -284,15 +284,22 @@ namespace GogoGaga.OptimizedRopesAndCables
 
         private void OnDestroy()
         {
-            UnsubscribeFromRopeEvents();
-            #if UNITY_EDITOR
-            EditorApplication.delayCall -= DelayedGenerateMesh;
-            #endif
+            try
+            {
+                UnsubscribeFromRopeEvents();
+#if UNITY_EDITOR
+                EditorApplication.delayCall -= DelayedGenerateMesh;
+#endif
 
-            if (meshRenderer != null)
-                Destroy(meshRenderer);
-            if (meshFilter != null)
-                Destroy(meshFilter);
+                if (meshRenderer != null)
+                    Destroy(meshRenderer);
+                if (meshFilter != null)
+                    Destroy(meshFilter);
+            }
+            catch (System.Exception)
+            {
+
+            }
         }
     }
 }

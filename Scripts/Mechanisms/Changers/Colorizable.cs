@@ -14,7 +14,10 @@ public class Colorizable : MonoBehaviour
         item = GetComponent<Item>();
         foreach (var i in renderers)
         {
-            i.material.SetColor("_MainColor", colors[item.ColorID]);
+            foreach (var c in i.materials)
+            {
+                c.SetColor("_MainColor", colors[item.ColorID]);
+            }
         }
     }
 
@@ -29,7 +32,10 @@ public class Colorizable : MonoBehaviour
     {
         foreach (var i in renderers)
         {
-            i.material.SetColor("_NewColor", colors[colorId]);
+            foreach (var c in i.materials)
+            {
+                c.SetColor("_NewColor", colors[colorId]);
+            }
         }
 
         float time = 0;
@@ -42,7 +48,10 @@ public class Colorizable : MonoBehaviour
 
             foreach (var i in renderers)
             {
-                i.material.SetFloat("_Percent", val);
+                foreach (var c in i.materials)
+                {
+                    c.SetFloat("_Percent", val);
+                }
             }
         }
     }

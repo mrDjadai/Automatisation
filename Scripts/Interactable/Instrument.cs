@@ -27,7 +27,8 @@ public class Instrument : Interactable
     public override void Interact()
     {
         rb.isKinematic = true;
-        moveCor = StartCoroutine(GoToPoint(PlayerInventory.instance.HandPoint, OnTake));
+        moveCor = StartCoroutine(GoToPoint(PlayerInventory.instance.HandPoint, () => { }));
+        OnTake();
         PlayerInventory.instance.SetInHandItem(this);
     }
 

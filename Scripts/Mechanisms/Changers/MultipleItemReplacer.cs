@@ -1,14 +1,22 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class MultipleItemReplacer : Tickable
 {
     [SerializeField] private Item newItem;
 
-    [SerializeField] private ItemPoint[] inputs;
-    [SerializeField] private ItemPoint[] centers;
+    [SerializeField] private Point[] inputs;
     [SerializeField] private ItemPoint output;
     [SerializeField, Min(2)] private int tickToChange;
+
+
     [SerializeField] private int applyTick;
+    public Transform[] outSimulated;
+
+    [SerializeField] private float animationTime;
+    [SerializeField] private AudioSource createSource;
+    [SerializeField] protected Vector3 openAnle;
+
     private int tickAfterChange;
     private bool isChanginging;
     private bool changedMoved = true;
@@ -27,31 +35,43 @@ public class MultipleItemReplacer : Tickable
             }
             if (tickAfterChange == applyTick)
             {
-                Item item = centers[0].Pop();
+                Item item = inputs[0].center.Pop();
                 Vector3 pos = item.transform.position;
                 Quaternion rot = item.transform.rotation;
                 Destroy(item.gameObject);
 
-                for (int i = 1; i < centers.Length; i++)
+                for (int i = 1; i < inputs.Length; i++)
                 {
-                    Destroy(centers[i].Pop().gameObject);
+                    Destroy(inputs[i].center.Pop().gameObject);
                 }
-                GetNewItem(pos, rot).Move(centers[0]);
+                createSource.Play();
+                GetNewItem(pos, rot).Move(inputs[0].center);
             }
         }
         else
         {
 
-            if (changedMoved == false && centers[0].IsEmpty == false)
+            if (changedMoved == false && inputs[0].center.IsEmpty == false)
             {
-                changedMoved = centers[0].Move(output);
+                changedMoved = inputs[0].center.Move(output);
+                foreach (var item in outSimulated)
+                {
+                    item.DOLocalRotate(openAnle, animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
+                }
             }
 
             if (changedMoved)
             {
-                for (int i = 0; i < centers.Length; i++)
+                for (int i = 0; i < inputs.Length; i++)
                 {
-                    inputs[i].Move(centers[i]);
+                    if (inputs[i].input.Move(inputs[i].center))
+                    {
+                        foreach (var item in inputs[i].simulated)
+                        {
+                            item.DOLocalRotate(openAnle, animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
+                        }
+                    }
+
                 }
             }
             isChanginging = CheckCond();
@@ -64,9 +84,9 @@ public class MultipleItemReplacer : Tickable
         {
             return false;
         }
-        foreach (var item in centers)
+        foreach (var item in inputs)
         {
-            if (item.IsEmpty)
+            if (item.center.IsEmpty)
             {
                 return false;
             }
@@ -80,4 +100,12 @@ public class MultipleItemReplacer : Tickable
           nItem.Init(settings);
           return nItem;
      }
+
+    [System.Serializable]
+    private class Point
+    {
+        public ItemPoint center;
+        public ItemPoint input;
+        public Transform[] simulated;
+    }
 }

@@ -9,7 +9,6 @@ public class Hose : Instrument
     [SerializeField] private float targetDistance;
     [SerializeField] private float pushForce;
     [SerializeField] private ParticleSystem steam;
-    [SerializeField] private float minY;
     [SerializeField, Range(0, 1)] private float returnPercent;
     [SerializeField] private EaseAudioSourse steamSource;
 
@@ -38,8 +37,9 @@ public class Hose : Instrument
         {
             if (hit.transform == targetPoint)
             {
-                PlayerInventory.instance.DropItem();
                 placed = true;
+
+                PlayerInventory.instance.DropItem();
                 interactCollider.enabled = false;
 
                 StartCoroutine(GoToPoint(targetPoint, OnPlace));
@@ -82,7 +82,7 @@ public class Hose : Instrument
         {
             if (inHand)
             {
-                if (Vector3.Distance(startPoint.position, tr.position) > length)
+                if (Vector3.Distance(startPoint.position, tr.position) >= length)
                 {
                     PlayerInventory.instance.DropItem();
                     return;
@@ -90,13 +90,9 @@ public class Hose : Instrument
             }
             else
             {
-                if (Vector3.Distance(tr.position, startPoint.position) > length)
+                if (Vector3.Distance(tr.position, startPoint.position) >= length)
                 {
                     tr.position = startPoint.position + (tr.position - startPoint.position).normalized * length;
-                }
-                if (tr.position.y < minY)
-                {
-                    tr.position = new Vector3(tr.position.x, minY, tr.position.z);
                 }
             }
             

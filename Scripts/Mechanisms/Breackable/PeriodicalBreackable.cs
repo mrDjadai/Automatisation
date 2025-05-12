@@ -8,9 +8,11 @@ public abstract class PeriodicalBreackable : Breackable
 
     protected virtual IEnumerator Start()
     {
+        float time;
         while (true)
         {
-            float time = minPeriod + Random.Range(0, periodOffset);
+            time = minPeriod + Random.Range(0, periodOffset);
+
             yield return new WaitForSeconds(time);
             Break();
             yield return new WaitWhile(() => { return IsBroken; });

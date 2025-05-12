@@ -10172,8 +10172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ff5eaa9f9e0f84e8e26262065359fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPeriod: 20
-  periodOffset: 40
+  minPeriod: 35
+  periodOffset: 20
   maxPower: 10
   fireLight: {fileID: 8057977662733209129}
   fireObject: {fileID: 163892731010156632}
