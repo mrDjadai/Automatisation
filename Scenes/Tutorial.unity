@@ -1408,6 +1408,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1988963878}
     m_Modifications:
+    - target: {fileID: 3420311559894739114, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      propertyPath: key
+      value: tutorial7
+      objectReference: {fileID: 0}
     - target: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
       propertyPath: m_text
       value: "\u0410 \u0432 \u043A\u0430\u043A\u043E\u043C-\u0442\u043E \u043C\u0435\u0445\u0430\u043D\u0438\u0437\u043C\u0435
@@ -1530,6 +1534,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1988963878}
     m_Modifications:
+    - target: {fileID: 3420311559894739114, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      propertyPath: key
+      value: tutorial1
+      objectReference: {fileID: 0}
     - target: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
       propertyPath: m_text
       value: "\u0412 \u044D\u0442\u043E\u0439 \u0438\u0433\u0440\u0435 \u0432\u044B
@@ -2117,6 +2125,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1988963878}
     m_Modifications:
+    - target: {fileID: 3420311559894739114, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      propertyPath: key
+      value: tutorial3
+      objectReference: {fileID: 0}
     - target: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
       propertyPath: m_text
       value: "\u041F\u043E\u0436\u0430\u0440\u044B - \u043D\u0435 \u043C\u0435\u043D\u0435\u0435
@@ -3252,6 +3264,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1988963878}
     m_Modifications:
+    - target: {fileID: 3420311559894739114, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      propertyPath: key
+      value: tutorial4
+      objectReference: {fileID: 0}
     - target: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
       propertyPath: m_text
       value: "\u0421 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0445 \u043C\u0435\u0445\u0430\u043D\u0438\u0437\u043C\u043E\u0432
@@ -5081,6 +5097,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1988963878}
     m_Modifications:
+    - target: {fileID: 3420311559894739114, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      propertyPath: key
+      value: tutorial6
+      objectReference: {fileID: 0}
     - target: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
       propertyPath: m_text
       value: "\u0423 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0445 \u043C\u0435\u0445\u0430\u043D\u0438\u0437\u043C\u043E\u0432
@@ -5490,6 +5510,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1988963878}
     m_Modifications:
+    - target: {fileID: 3420311559894739114, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      propertyPath: key
+      value: tutorial5
+      objectReference: {fileID: 0}
     - target: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
       propertyPath: m_text
       value: "\u0412 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0445 \u043C\u0435\u0445\u0430\u043D\u0438\u0437\u043C\u0430\u0445
@@ -6337,6 +6361,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1988963878}
     m_Modifications:
+    - target: {fileID: 3420311559894739114, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      propertyPath: key
+      value: tutorial2
+      objectReference: {fileID: 0}
     - target: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
       propertyPath: m_text
       value: "\u0423\u0442\u0435\u0447\u043A\u0438 \u043F\u0430\u0440\u0430. \u0427\u0442\u043E\u0431\u044B

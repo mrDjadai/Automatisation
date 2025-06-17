@@ -42,7 +42,7 @@ AudioSource:
   m_GameObject: {fileID: 1043208775374943657}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: b282461ac58ed1a40a9a8bc388b7d1ca, type: 3}
   m_Resource: {fileID: 8300000, guid: b282461ac58ed1a40a9a8bc388b7d1ca, type: 3}
   m_PlayOnAwake: 0
@@ -185,7 +185,7 @@ AudioSource:
   m_GameObject: {fileID: 2387758175459886225}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: c759d0ebb53bd39438e1faad897795b3, type: 3}
   m_Resource: {fileID: 8300000, guid: c759d0ebb53bd39438e1faad897795b3, type: 3}
   m_PlayOnAwake: 0
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPeriod: 10
   periodOffset: 60
+  levelStarter: {fileID: 0}
   spawnPoints:
   - {fileID: 6372376767858911682}
   - {fileID: 5305535482401381414}

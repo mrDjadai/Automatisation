@@ -5807,10 +5807,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1872748831745980349, guid: 9859e1a6a089de0459d9e124f55ab0cc, type: 3}
-      propertyPath: m_text
-      value: "\u0441 \u043C\u0435\u043D\u044F \u0445\u0432\u0430\u0442\u0438\u0442"
-      objectReference: {fileID: 0}
     - target: {fileID: 8896044049713082327, guid: 9859e1a6a089de0459d9e124f55ab0cc, type: 3}
       propertyPath: m_Name
       value: ExitTable
@@ -5820,7 +5816,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8912928790289777214, guid: 9859e1a6a089de0459d9e124f55ab0cc, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9859e1a6a089de0459d9e124f55ab0cc, type: 3}
 --- !u!4 &1859210503 stripped

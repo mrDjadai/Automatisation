@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPeriod: 30
   periodOffset: 35
+  levelStarter: {fileID: 0}
   hose: {fileID: 2283214358106554788}
 --- !u!1 &7978477729978094451
 GameObject:
@@ -436,7 +437,7 @@ AudioSource:
   m_GameObject: {fileID: 8222963626213507789}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: c759d0ebb53bd39438e1faad897795b3, type: 3}
   m_Resource: {fileID: 8300000, guid: c759d0ebb53bd39438e1faad897795b3, type: 3}
   m_PlayOnAwake: 0

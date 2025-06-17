@@ -14,11 +14,13 @@ public class ItemsManager : MonoBehaviour
 
     private float lastEnterTime;
     private GameEnder gameEnder;
+    private LevelStarter levelStarter;
 
     [Inject]
-    private void Construct(GameEnder ender)
+    private void Construct(GameEnder ender, LevelStarter l)
     {
         gameEnder = ender;
+        levelStarter = l;
     }
 
     private void Awake()
@@ -29,6 +31,16 @@ public class ItemsManager : MonoBehaviour
             item.text = Instantiate(textPrefab, textOrigin);
         }
         IndicateCount();
+    }
+
+    private void Start()
+    {
+        LocalizationManager.instance.OnLanguageChanged += IndicateCount;
+    }
+
+    private void OnDestroy()
+    {
+        LocalizationManager.instance.OnLanguageChanged -= IndicateCount;
     }
 
     public void Add(int id, int colorId)
@@ -56,6 +68,10 @@ public class ItemsManager : MonoBehaviour
 
     private void Update()
     {
+        if (levelStarter.IsStarted() == false)
+        {
+            return;
+        }
         float deltaTime = Time.time - lastEnterTime;
 
         float targetVal = deltaTime / waitTime;
@@ -72,7 +88,7 @@ public class ItemsManager : MonoBehaviour
     {
         foreach (var item in items)
         {
-            item.text.text = item.name + ": " + item.count + "/" + item.targetCount;
+            item.text.text = LocalizationManager.instance.GetLocalizedValue(item.nameKey) + ": " + item.count + "/" + item.targetCount;
         }
     }
 
@@ -91,7 +107,7 @@ public class ItemsManager : MonoBehaviour
     [System.Serializable]
     private class TargetItem
     {
-        public string name;
+        public string nameKey;
         public int colorId;
         public int id;
         public int count;

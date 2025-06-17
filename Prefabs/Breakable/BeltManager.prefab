@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPeriod: 30
   periodOffset: 20
+  levelStarter: {fileID: 0}
   other: {fileID: 4882707628747229991}
   beltModel: {fileID: 4695360954481546367}
   connectPoints:
@@ -194,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPeriod: 30
   periodOffset: 20
+  levelStarter: {fileID: 0}
   other: {fileID: 6765343434950214688}
   beltModel: {fileID: 0}
   connectPoints:
@@ -244,7 +246,7 @@ AudioSource:
   m_GameObject: {fileID: 3532024317214264157}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: f5c5f438581b89c4b96789e177c6254a, type: 3}
   m_Resource: {fileID: 8300000, guid: f5c5f438581b89c4b96789e177c6254a, type: 3}
   m_PlayOnAwake: 0
@@ -813,7 +815,7 @@ AudioSource:
   m_GameObject: {fileID: 5700042913028605053}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: ccfb18eb53b37384b9632ae00f725881, type: 3}
   m_Resource: {fileID: 8300000, guid: ccfb18eb53b37384b9632ae00f725881, type: 3}
   m_PlayOnAwake: 0

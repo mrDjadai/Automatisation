@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Zenject;
 
 public class PressureButton : Breackable
 {
@@ -18,11 +19,20 @@ public class PressureButton : Breackable
 
     private float time;
 
+    [SerializeField] private LevelStarter levelStarter;
+
+    [Inject]
+    private void Construct(LevelStarter l)
+    {
+        levelStarter = l;
+    }
+
     private IEnumerator Start()
     {
         maxVolume = steamSource.volume;
         steamSource.volume = 0;
 
+        yield return new WaitUntil(levelStarter.IsStarted);
         while (true)
         {
             yield return new WaitForEndOfFrame();

@@ -21,17 +21,20 @@ public class LightActivator : MonoBehaviour
 
     private IEnumerator SetMode(bool m)
     {
-        for (int i = 0; i < lines.Length; i++)
+        if (lines.Length > 0)
         {
-            yield return new WaitForSeconds(lineDelay);
-            bool useSound = lines[i].lamps[0].enabled != m;
-            foreach (var item in lines[i].lamps)
+            for (int i = 0; i < lines.Length; i++)
             {
-                item.enabled = m;
-            }
-            if (useSound)
-            {
-                lines[i].source.PlayOneShot(m ? activateSound : deactivateSound);
+                yield return new WaitForSeconds(lineDelay);
+                bool useSound = lines[i].lamps[0].enabled != m;
+                foreach (var item in lines[i].lamps)
+                {
+                    item.enabled = m;
+                }
+                if (useSound)
+                {
+                    lines[i].source.PlayOneShot(m ? activateSound : deactivateSound);
+                }
             }
         }
     }   

@@ -213,7 +213,7 @@ AudioSource:
   m_GameObject: {fileID: 2440843338902936916}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4d92b7b017bd31947a2785ee1aca7812, type: 3}
   m_Resource: {fileID: 8300000, guid: 4d92b7b017bd31947a2785ee1aca7812, type: 3}
   m_PlayOnAwake: 0
@@ -1547,6 +1547,7 @@ GameObject:
   - component: {fileID: 6559821392019271148}
   - component: {fileID: 450117829848482755}
   - component: {fileID: 1872748831745980349}
+  - component: {fileID: 4075370353059757130}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1638,7 +1639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u043F\u043E\u043A\u0438\u043D\u0443\u0442\u044C \u0441\u043C\u0435\u043D\u0443"
+  m_text: "\u0441 \u043C\u0435\u043D\u044F \u0445\u0432\u0430\u0442\u0438\u0442"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 43f8c351f6ec85548b16063c3e355fee, type: 2}
   m_sharedMaterial: {fileID: -2477811656548314908, guid: 43f8c351f6ec85548b16063c3e355fee, type: 2}
@@ -1712,6 +1713,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 450117829848482755}
   m_maskType: 0
+--- !u!114 &4075370353059757130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912928790289777214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19db8277dcf35404fb0c1704203cf7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: exit
 --- !u!1 &9095383502001218958
 GameObject:
   m_ObjectHideFlags: 0

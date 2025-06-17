@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
     }    
     private void RotateCamera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * PlayerPrefs.GetFloat("Sensability");
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * PlayerPrefs.GetFloat("Sensability");
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, minCameraAngle, maxCameraAngle);

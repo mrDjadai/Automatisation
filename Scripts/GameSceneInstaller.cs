@@ -8,6 +8,8 @@ public class GameSceneInstaller : MonoInstaller
     [SerializeField] private ItemsManager itemsManager;
     [SerializeField] private GameEnder gameEnder;
     [SerializeField] private PlayerController player;
+    [SerializeField] private LevelStarter levelStarter;
+    [SerializeField] private LightActivator lightActivator;
 
     public override void InstallBindings()
     {
@@ -16,5 +18,7 @@ public class GameSceneInstaller : MonoInstaller
         Container.Bind<GameEnder>().FromInstance(gameEnder).AsSingle();
         Container.Bind<ItemsManager>().FromInstance(itemsManager).AsSingle();
         Container.Bind<PlayerController>().FromInstance(player).AsSingle();
+        Container.Bind<LightActivator>().FromInstance(lightActivator).AsSingle();
+        Container.Bind<LevelStarter>().FromInstance(levelStarter).AsSingle();
     }
 }

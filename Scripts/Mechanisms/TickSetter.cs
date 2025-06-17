@@ -7,6 +7,7 @@ public class TickSetter : MonoBehaviour
 {
     public Action OnTick;
     private float tick;
+    private bool active;
 
     [Inject]
     private void Construct(GameSettings settings)
@@ -14,12 +15,20 @@ public class TickSetter : MonoBehaviour
         tick = settings.TickTime;
     }
 
+    public void Init()
+    {
+        active = true;
+    }
+
     private IEnumerator Start()
     {
         while (true)
         {
             yield return new WaitForSeconds(tick);
-            OnTick?.Invoke();
+            if (active)
+            {
+                OnTick?.Invoke();
+            }
         }
     }
 }

@@ -13,6 +13,10 @@ public class BeltPoint : PeriodicalBreackable
 
     private void Update()
     {
+        if (!Starter.IsStarted())
+        {
+            return;
+        }
         if (isMain || other.IsBroken == false)
         {
             transform.RotateAroundLocal(Vector3.forward, rotationSpeed * Time.deltaTime);

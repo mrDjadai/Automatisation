@@ -28,7 +28,7 @@ public class GearManager : PeriodicalBreackable
 
     private void Update()
     {
-        if (IsBroken == false)
+        if (IsBroken == false && Starter.IsStarted())
         {
             foreach (var item in places)
             {

@@ -309,6 +309,7 @@ MonoBehaviour:
   - {fileID: 4728494795370937429}
   speed: 20
   audioSourse: {fileID: 0}
+  levelStarter: {fileID: 0}
 --- !u!82 &883066196689021782
 AudioSource:
   m_ObjectHideFlags: 0
@@ -318,7 +319,7 @@ AudioSource:
   m_GameObject: {fileID: 7335327083859620505}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: ae9ac757ba0b39e4f91369d167331c3e, type: 3}
   m_Resource: {fileID: 8300000, guid: ae9ac757ba0b39e4f91369d167331c3e, type: 3}
   m_PlayOnAwake: 0

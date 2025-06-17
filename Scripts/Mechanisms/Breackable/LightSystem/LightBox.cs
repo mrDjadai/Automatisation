@@ -1,16 +1,22 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
+using Zenject;
 
 public class LightBox : PeriodicalBreackable
 {
     [SerializeField] private LightLever[] levers;
-    [SerializeField] private LightActivator activator;
+    private LightActivator activator;
     [SerializeField] private ParticleSystem disableParticles;
     [SerializeField] private AudioSource disableSource;
 
     private List<int> code;
     private int codePosition;
+
+    [Inject]
+    private void Construct(LightActivator a)
+    {
+        activator = a;
+    }
 
     private void Awake()
     {

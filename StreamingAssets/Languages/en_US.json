@@ -1,0 +1,104 @@
+{
+    "items": [
+        {
+            "key": "exit",
+            "value": "I've had enough"
+        },
+        {
+            "key": "angry",
+            "value": "Boss's Rage"
+        },
+        {
+            "key": "win",
+            "value": "Shift successfully completed.\nWhatever happens next\nis no longer your problem"
+        },
+        {
+            "key": "lose",
+            "value": "You caused the loss of expensive\nequipment. Its cost will be\ndeducted from your wages"
+        },
+        {
+            "key": "menu",
+            "value": "Menu"
+        },
+        {
+            "key": "restart",
+            "value": "Restart"
+        },
+        {
+            "key": "settings",
+            "value": "Settings"
+        },
+        {
+            "key": "gameExit",
+            "value": "Exit"
+        },
+        {
+            "key": "month",
+            "value": "May"
+        },
+        {
+            "key": "shift",
+            "value": "Shift"
+        },  
+        {
+            "key": "timeForShift",
+            "value": "Shift starts in:"
+        },
+        {
+		    "key" : "back",
+		    "value" : "Back"
+	    },
+        {
+		    "key" : "sound",
+		    "value" : "Sounds"
+	    },	
+	    {
+		    "key" : "music",
+		    "value" : "Music"
+	    },	
+	    {
+		    "key" : "sensability",
+		    "value" : "Sensability"
+	    },	
+	    {
+		    "key" : "brightness",
+		    "value" : "Brightness"
+	    },
+        {
+            "key": "tutorial1",
+            "value": "In this game, you’ll work at a factory and repair the latest 'wonders of technology.' They break down constantly, so we’ll now give you a quick masterclass on the types of breakdowns you might encounter."
+        },
+        {
+            "key": "tutorial2",
+            "value": "Steam leaks. To patch a pipe, grab the welding tool with 'E,' activate it with 'LMB,' and bring it to the leak.\n\nP.S. To drop an item, press 'Q.'"
+        },
+        {
+            "key": "tutorial3",
+            "value": "Fires are just as common, so our factories are equipped with water hoses. Grab a hose, turn it on, and aim the water at the fire."
+        },
+        {
+            "key": "tutorial4",
+            "value": "Some machines require you to periodically release pressure. Hold the button until the pressure drops."
+        },
+        {
+            "key": "tutorial5",
+            "value": "In some mechanisms, a gear may break under stress. Replace it with a new one from the table. You can just toss the old one on the floor or dispose of it in the trash."
+        },
+        {
+            "key": "tutorial6",
+            "value": "Some mechanisms have belts that can slip off their shafts. Grab a new belt from the table, click 'LMB' on one shaft, then on the other."
+        },
+        {
+            "key": "tutorial7",
+            "value": "In some machines, a hose might come loose. Grab its end and insert it into the protruding pipe."
+        },
+        {
+            "key": "boiler",
+            "value": "Boiler"
+        },
+        {
+            "key": "piston",
+            "value": "Piston"
+        }
+    ]
+}

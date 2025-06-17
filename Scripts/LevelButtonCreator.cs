@@ -12,7 +12,7 @@ public class LevelButtonCreator : MonoBehaviour
     [SerializeField] private Transform origin;
     [SerializeField] private Color holidayColor;
 
-    private void Awake()
+    private void Start()
     {
         int unclocked = PlayerPrefs.GetInt("Level");
 
@@ -31,7 +31,8 @@ public class LevelButtonCreator : MonoBehaviour
                 int num = i - firstLevelDay;
                 b.interactable = num <= unclocked;
                 b.onClick.AddListener(() => { sceneLoader.LoadScene(firstLevelScene + num); });
-                b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "смена " + (num + 1).ToString();
+                b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = LocalizationManager.instance.GetLocalizedValue("shift")
+                    + (num + 1).ToString();
             }
             else
             {

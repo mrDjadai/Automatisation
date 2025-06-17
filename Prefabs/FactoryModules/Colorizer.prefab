@@ -106,6 +106,7 @@ MonoBehaviour:
   - {fileID: 6791254447959849441}
   speed: 10
   audioSourse: {fileID: 412700949177393801}
+  levelStarter: {fileID: 0}
 --- !u!82 &8675294116414363718
 AudioSource:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ AudioSource:
   m_GameObject: {fileID: 1019764988221052926}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 751389324ca1945389dbd7a0409d945a, type: 3}
   m_Resource: {fileID: 8300000, guid: 751389324ca1945389dbd7a0409d945a, type: 3}
   m_PlayOnAwake: 0
@@ -1049,7 +1050,7 @@ AudioSource:
   m_GameObject: {fileID: 3820127833917843134}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5470171822905456423, guid: 5b7599db5982b60438972644ab4750a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: c759d0ebb53bd39438e1faad897795b3, type: 3}
   m_Resource: {fileID: 8300000, guid: c759d0ebb53bd39438e1faad897795b3, type: 3}
   m_PlayOnAwake: 0
