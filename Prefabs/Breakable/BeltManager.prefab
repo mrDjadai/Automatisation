@@ -75,9 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb7d9f1cc8f5b94ea0432fc0cd25d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minFirstPeriod: 10
   minPeriod: 30
   periodOffset: 20
-  levelStarter: {fileID: 0}
   other: {fileID: 4882707628747229991}
   beltModel: {fileID: 4695360954481546367}
   connectPoints:
@@ -193,9 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb7d9f1cc8f5b94ea0432fc0cd25d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minFirstPeriod: 10
   minPeriod: 30
   periodOffset: 20
-  levelStarter: {fileID: 0}
   other: {fileID: 6765343434950214688}
   beltModel: {fileID: 0}
   connectPoints:

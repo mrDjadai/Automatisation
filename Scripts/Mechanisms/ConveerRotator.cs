@@ -8,7 +8,7 @@ public class ConveerRotator : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private EaseAudioSourse audioSourse;
 
-    [SerializeField] private LevelStarter levelStarter;
+    private LevelStarter levelStarter;
 
     [Inject]
     private void Construct(LevelStarter l)

@@ -2927,27 +2927,38 @@ MonoBehaviour:
   - center: {fileID: 3866556325321413102}
     input: {fileID: 4475314356715754998}
     simulated:
+    - {fileID: 7297171037109809701}
     - {fileID: 2905044854533301778}
+    - {fileID: 6243620016844689315}
     - {fileID: 1709145786359490698}
+    reverseAnimation: 0
   - center: {fileID: 8986222521717266632}
     input: {fileID: 6738725660207499738}
     simulated:
+    - {fileID: 5361990249526662571}
     - {fileID: 5059392728238974748}
+    - {fileID: 7762369509658462899}
     - {fileID: 2911540088119350231}
+    reverseAnimation: 0
   - center: {fileID: 1802532294757894771}
     input: {fileID: 8268339212633116391}
     simulated:
     - {fileID: 7121012250616110412}
+    - {fileID: 8523452993835966599}
     - {fileID: 6907624057557499363}
+    - {fileID: 7504546739092472141}
+    reverseAnimation: 0
   output: {fileID: 4855500076497528765}
   tickToChange: 20
   applyTick: 10
   outSimulated:
   - {fileID: 4257554137388529022}
+  - {fileID: 7002007315447597968}
+  - {fileID: 2786789385047726368}
   - {fileID: 7443187979372106136}
   animationTime: 0.6
   createSource: {fileID: 4708123752369503274}
-  openAnle: {x: 0, y: 0, z: 45}
+  openAnle: {x: 0, y: 0, z: -45}
 --- !u!1 &4427247671336208289
 GameObject:
   m_ObjectHideFlags: 0

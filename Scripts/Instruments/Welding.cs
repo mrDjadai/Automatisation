@@ -7,7 +7,7 @@ public class Welding : Instrument
 
     [SerializeField] private Transform raycastPoint;
     [SerializeField] private float raycastDistance;
-    [SerializeField] private LayerMask raycsastLayers;
+    [SerializeField] private LayerMask raycsastLayers; 
 
     private bool isActive;
     private SteamPipePoint point;
@@ -36,6 +36,11 @@ public class Welding : Instrument
         }
     }
 
+    protected override void OnTake()
+    {
+        base.OnTake();
+        particle.gameObject.layer = 0;
+    }
 
     private void Update()
     {

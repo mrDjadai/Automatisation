@@ -10,7 +10,8 @@ public class SteamPipe : PeriodicalBreackable
     [SerializeField] private EaseAudioSourse steamSource;
     [SerializeField] private EaseAudioSourse weldingSource;
     [SerializeField] private float weldingTime = 0.2f;
-
+    [SerializeField] private float repairOffset;
+    
     private Coroutine cor;
 
     protected override void OnBreak()
@@ -32,7 +33,7 @@ public class SteamPipe : PeriodicalBreackable
 
         steam.localScale = scale * Vector3.one;
 
-        if (scale == 0)
+        if (scale <= repairOffset)
         {
             Repair();
         }

@@ -56,7 +56,8 @@ public class MultipleItemReplacer : Tickable
                 changedMoved = inputs[0].center.Move(output);
                 foreach (var item in outSimulated)
                 {
-                    item.DOLocalRotate(openAnle, animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
+                    item.DOLocalRotate(openAnle, 
+                        animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
                 }
             }
 
@@ -68,7 +69,8 @@ public class MultipleItemReplacer : Tickable
                     {
                         foreach (var item in inputs[i].simulated)
                         {
-                            item.DOLocalRotate(openAnle, animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
+                            item.DOLocalRotate((inputs[i].reverseAnimation ? -1 : 1) * openAnle,
+                                animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
                         }
                     }
 
@@ -107,5 +109,6 @@ public class MultipleItemReplacer : Tickable
         public ItemPoint center;
         public ItemPoint input;
         public Transform[] simulated;
+        public bool reverseAnimation;
     }
 }

@@ -39,6 +39,10 @@ public class BeltPoint : PeriodicalBreackable
         {
             beltModel.SetActive(false);
         }
+        if (other.IsBroken == false)
+        {
+            other.Break();
+        }
         breakSource.Play();
     }
 

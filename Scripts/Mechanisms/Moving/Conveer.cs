@@ -1,10 +1,19 @@
 using UnityEngine;
+using Zenject;
 
 public class Conveer : Tickable
 {
     [SerializeField] private Vector3 localForce;
 
     private Vector3 force;
+
+    private LevelStarter levelStarter;
+
+    [Inject]
+    private void Construct(LevelStarter l)
+    {
+        levelStarter = l;
+    }
 
     protected override void OnTick()
     {
@@ -17,7 +26,7 @@ public class Conveer : Tickable
 
     private void OnTriggerStay(Collider other)
     {
-        if (IsBroken())
+        if (IsBroken() || levelStarter.IsStarted() == false)
         {
             return;
         }

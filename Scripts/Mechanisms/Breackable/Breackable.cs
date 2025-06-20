@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class Breackable : MonoBehaviour
 {
     public bool IsBroken => isBroken;
-    private bool isBroken;
+    protected bool isBroken;
 
     public void Break()
     {

@@ -12,6 +12,7 @@ public class Fire : PeriodicalBreackable
     [SerializeField] private AudioSource startSource;
     [SerializeField] private AudioSource downSource;
     [SerializeField] private EaseAudioSourse source;
+    [SerializeField] private float repairOffset;
 
     private float Power
     {
@@ -23,7 +24,7 @@ public class Fire : PeriodicalBreackable
         {
             power = Mathf.Max(0, value);
             fireObject.localScale = Vector3.one * power / maxPower;
-            if (power == 0)
+            if (power <= repairOffset)
             {
                 fireLight.enabled = false;
                 Repair();

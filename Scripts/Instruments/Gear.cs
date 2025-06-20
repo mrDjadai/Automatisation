@@ -37,13 +37,10 @@ public class Gear : Instrument, IResourse
 
     public override void Interact()
     {
-        if (PlayerInventory.instance.InHandItem == null)
+        if (place != null)
         {
-            if (place != null)
-            {
-                place.Take();
-                place = null;
-            }
+            place.Take();
+            place = null;
         }
         base.Interact();
     }

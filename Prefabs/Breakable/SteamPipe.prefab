@@ -440,9 +440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f30acab7090e5c4bb1d12f9d43b3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minFirstPeriod: 15
   minPeriod: 10
   periodOffset: 60
-  levelStarter: {fileID: 0}
   spawnPoints:
   - {fileID: 6372376767858911682}
   - {fileID: 5305535482401381414}
@@ -460,6 +460,7 @@ MonoBehaviour:
   steamSource: {fileID: 4455291742060154155}
   weldingSource: {fileID: 1069789838833687379}
   weldingTime: 0.2
+  repairOffset: 0.05
 --- !u!54 &1915083757384504144
 Rigidbody:
   m_ObjectHideFlags: 0

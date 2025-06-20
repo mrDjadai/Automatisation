@@ -4,9 +4,11 @@ using Zenject;
 
 public abstract class PeriodicalBreackable : Breackable
 {
+    [SerializeField] private int minFirstPeriod;
     [SerializeField] private float minPeriod;
     [SerializeField] private float periodOffset;
-    [SerializeField] private LevelStarter levelStarter;
+
+    private LevelStarter levelStarter;
     protected LevelStarter Starter => levelStarter;
 
     [Inject]
@@ -21,7 +23,7 @@ public abstract class PeriodicalBreackable : Breackable
 
         float time;
 
-        time = Random.Range(0, minPeriod + periodOffset);
+        time = minFirstPeriod + Random.Range(0, minPeriod + periodOffset - minFirstPeriod);
 
         yield return new WaitForSeconds(time);
         Break();

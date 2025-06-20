@@ -28,8 +28,8 @@ public class Instrument : Interactable
     {
         rb.isKinematic = true;
         moveCor = StartCoroutine(GoToPoint(PlayerInventory.instance.HandPoint, () => { }));
-        OnTake();
         PlayerInventory.instance.SetInHandItem(this);
+        OnTake();
     }
 
     public void Drop()

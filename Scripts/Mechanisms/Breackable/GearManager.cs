@@ -10,7 +10,7 @@ public class GearManager : PeriodicalBreackable
         {
             if (item.IsBroken())
             {
-                Break();
+                isBroken = true;
                 return;
             }
         }
