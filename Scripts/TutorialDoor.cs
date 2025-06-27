@@ -1,14 +1,8 @@
 using UnityEngine;
-using DG.Tweening;
 
-public class TutorialDoor : MonoBehaviour
+public class TutorialDoor : VerticalDoor
 {
     [SerializeField] private Breackable[] breakables;
-    [SerializeField] private InstrumentReturner returner;
-    [SerializeField] private Transform door;
-    [SerializeField] private Transform openPoint;
-    [SerializeField] private float openTime;
-    [SerializeField] private AudioSource openSource;
 
     private void Start()
     {
@@ -16,13 +10,6 @@ public class TutorialDoor : MonoBehaviour
         {
             item.Break();
         }
-    }
-
-    private void Open()
-    {
-        returner.gameObject.SetActive(false);
-        door.DOMove(openPoint.position, openTime);
-        openSource.Play();
     }
 
     private void Update()

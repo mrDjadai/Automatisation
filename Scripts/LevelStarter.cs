@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using Zenject;
+using System.Linq;
 
 public class LevelStarter : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class LevelStarter : MonoBehaviour
     [SerializeField] private float punchDuration;
     [SerializeField] private int startPunch;
     [SerializeField] private AudioSource punchSource;
+    [SerializeField] private WallUnit[] wallUnits;
+    [SerializeField] private ObjectUnit[] objectUnits;
 
     private bool isStarted;
 
@@ -33,6 +36,33 @@ public class LevelStarter : MonoBehaviour
     public bool IsStarted()
     {
         return isStarted;
+    }
+
+    public void FoceStart()
+    {
+        if (isStarted == false)
+        {
+            StopAllCoroutines();
+            Activate();
+        }
+    }
+
+    private void Awake()
+    {
+        int level = PlayerPrefs.GetInt("CurrentLevel");
+
+        foreach (var item in wallUnits)
+        {
+            if (item.openLevels.Contains(level))
+            {
+                item.door.Open();
+            }
+        }
+
+        foreach (var item in objectUnits)
+        {
+            item.activatable.SetActive(item.activeLevels.Contains(level));
+        }
     }
 
     private IEnumerator Start()
@@ -73,5 +103,19 @@ public class LevelStarter : MonoBehaviour
         {
             scalableIndicator.DOScale(Vector3.zero, animationTime2);
         });
+    }
+
+    [System.Serializable]
+    private struct WallUnit
+    {
+        public VerticalDoor door;
+        public int[] openLevels;
+    }
+
+    [System.Serializable]
+    private struct ObjectUnit
+    {
+        public GameObject activatable;
+        public int[] activeLevels;
     }
 }

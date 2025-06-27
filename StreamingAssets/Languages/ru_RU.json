@@ -65,6 +65,10 @@
 		"key" : "brightness",
 		"value" : "Яркость"
 	},
+	{
+		"key" : "forceStart",
+		"value" : "Начать сразу"
+	},
 
 
 	{
