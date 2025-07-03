@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 6705900920801635518}
   - component: {fileID: 2154612882744141615}
   m_Layer: 6
-  m_Name: Belt
+  m_Name: Tape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145844383966946427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad934bf555219540b5953069f098628, type: 3}
+  m_Script: {fileID: 11500000, guid: d91c6f81b3b693e4ebc920a25d70f0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   outlineRenderers:
@@ -419,8 +419,7 @@ MonoBehaviour:
   id: 0
   frictionColliders:
   - {fileID: 8553117006848396919}
-  renderer1: {fileID: 6219052389938356515}
-  renderer2: {fileID: 2315919764325673424}
+  visualisator: {fileID: 9163258262487691058, guid: 802ca69f53f6c614cbabbb8621cf0601, type: 3}
 --- !u!1 &4352323015152852132
 GameObject:
   m_ObjectHideFlags: 0

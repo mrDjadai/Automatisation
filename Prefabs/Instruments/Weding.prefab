@@ -259,6 +259,11 @@ MonoBehaviour:
   canUnfocus: 1
   itemRotation: {x: 0, y: 75.214554, z: 341.52008}
   id: 0
+  frictionColliders:
+  - {fileID: 215945667309972656}
+  - {fileID: 8346823345757391168}
+  - {fileID: 8449119416779854188}
+  - {fileID: 8475141811006616892}
   particle: {fileID: 488575249592989863}
   audioSourse: {fileID: 372753479229936921}
   raycastPoint: {fileID: 7460250035170765597}

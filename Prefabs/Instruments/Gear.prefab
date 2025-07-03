@@ -196,6 +196,9 @@ MonoBehaviour:
   canUnfocus: 1
   itemRotation: {x: 0, y: 0, z: 0}
   id: 0
+  frictionColliders:
+  - {fileID: 9170334801637123458}
+  - {fileID: 1092895981093345056}
   brokenModel: {fileID: 7753130161485741440}
   repairedModel: {fileID: 4331372766579129422}
   place: {fileID: 0}

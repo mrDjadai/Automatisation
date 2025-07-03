@@ -10,11 +10,22 @@ public class Instrument : Interactable
 
     [SerializeField] private Vector3 itemRotation;
     [SerializeField] private int id;
-
+    [SerializeField] private Collider[] frictionColliders;
     private Transform _transform;
     protected Rigidbody rb;
     public Coroutine moveCor;
 
+    public void SetPhysicMaterial(PhysicsMaterial material)
+    {
+        if (frictionColliders[0].material == material)
+        {
+            return;
+        }
+        foreach (var item in frictionColliders)
+        {
+            item.material = material;
+        }
+    }
 
     private void Awake()
     {

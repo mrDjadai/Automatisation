@@ -3,8 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    public bool InPuddle;
     public bool IsMoving => inputVelocity.magnitude > 0;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float puddleSpeed;
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float jumpHeight;
     [SerializeField] private float gravity;
@@ -59,7 +61,7 @@ public class PlayerController : MonoBehaviour
             move = move.normalized;
         }
 
-        move = move * moveSpeed + Vector3.up * verticalVelocity;
+        move = move * (InPuddle ? puddleSpeed :  moveSpeed) + Vector3.up * verticalVelocity;
         controller.Move(move * Time.deltaTime);
     }
 
