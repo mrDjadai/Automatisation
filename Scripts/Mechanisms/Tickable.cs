@@ -9,13 +9,27 @@ public abstract class Tickable : MonoBehaviour
     protected GameSettings settings;
     private TickSetter tick;
     private int curTick;
+    private bool addedEvent;
 
     [Inject]
     private void Construct(TickSetter t, GameSettings s)
     {
         tick = t;
-        tick.OnTick += HandleTick;
+        if (gameObject.activeSelf)
+        {
+            tick.OnTick += HandleTick;
+            addedEvent = true;
+        }
         settings = s;
+    }
+
+
+    private void Start()
+    {
+        if (!addedEvent)
+        {
+            tick.OnTick += HandleTick;
+        }
     }
 
     public bool IsBroken()
@@ -52,6 +66,11 @@ public abstract class Tickable : MonoBehaviour
             OnTick();
             return;
         }
+        else
+        {
+            OnEveryTick();
+        }
+
         curTick++;
         if (curTick >= tickForUse)
         {
@@ -61,4 +80,7 @@ public abstract class Tickable : MonoBehaviour
     }
 
     protected abstract void OnTick();
+    protected virtual void OnEveryTick()
+    {
+    }
 }

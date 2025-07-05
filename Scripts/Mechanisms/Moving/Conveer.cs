@@ -40,5 +40,4 @@ public class Conveer : Tickable
             c.Move(force * Time.deltaTime);
         }
     }
-
 }

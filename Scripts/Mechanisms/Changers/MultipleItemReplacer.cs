@@ -1,12 +1,13 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class MultipleItemReplacer : Tickable
+public class MultipleItemReplacer : Tickable, IItemConnectable
 {
     [SerializeField] private Item newItem;
 
     [SerializeField] private Point[] inputs;
     [SerializeField] private ItemPoint output;
+    [SerializeField] private ItemPoint publicOutput;
     [SerializeField, Min(2)] private int tickToChange;
 
 
@@ -20,6 +21,16 @@ public class MultipleItemReplacer : Tickable
     private int tickAfterChange;
     private bool isChanginging;
     private bool changedMoved = true;
+
+    public void ConnectToInput(ItemPoint innerPoint, ItemPoint outerPoint)
+    {
+        if (innerPoint != output)
+        {
+            Debug.LogError("Соединение не с той точкой");
+            return;
+        }
+        publicOutput = outerPoint;
+    }
 
     protected override void OnTick()
     {
@@ -78,6 +89,12 @@ public class MultipleItemReplacer : Tickable
             }
             isChanginging = CheckCond();
         }
+    }
+
+    protected override void OnEveryTick()
+    {
+        base.OnEveryTick();
+        output.Move(publicOutput);
     }
 
     private bool CheckCond()

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class ItemGetter : Tickable
+public class ItemGetter : Tickable, IItemConnectable
 {
     [SerializeField] private ItemPoint input;
     [SerializeField] private ItemPoint endPoint;
@@ -13,6 +13,11 @@ public class ItemGetter : Tickable
     private void Construct(ItemsManager itemsManager)
     {
         manager = itemsManager;
+    }
+
+    public void ConnectToInput(ItemPoint innerPoint, ItemPoint outerPoint)
+    {
+        Debug.LogError("У данного типа конвейера не должно быть точки вы");
     }
 
     protected override void OnTick()
