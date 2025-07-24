@@ -34,6 +34,9 @@ public class MultipleItemReplacer : Tickable, IItemConnectable
 
     protected override void OnTick()
     {
+        output.Move(publicOutput);
+
+
         if (isChanginging && changedMoved)
         {
             tickAfterChange++;
@@ -89,12 +92,6 @@ public class MultipleItemReplacer : Tickable, IItemConnectable
             }
             isChanginging = CheckCond();
         }
-    }
-
-    protected override void OnEveryTick()
-    {
-        base.OnEveryTick();
-        output.Move(publicOutput);
     }
 
     private bool CheckCond()

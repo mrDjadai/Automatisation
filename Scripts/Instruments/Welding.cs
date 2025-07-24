@@ -7,7 +7,10 @@ public class Welding : Instrument
 
     [SerializeField] private Transform raycastPoint;
     [SerializeField] private float raycastDistance;
-    [SerializeField] private LayerMask raycsastLayers; 
+    [SerializeField] private LayerMask raycsastLayers;
+
+    [SerializeField] private float gearRotatingSpeed;
+    [SerializeField] private Transform[] gearsUpRotater;
 
     private bool isActive;
     private SteamPipePoint point;
@@ -62,6 +65,12 @@ public class Welding : Instrument
                     point.OnUnLook();
                     point = null;
                 }
+            }
+
+            float angle = gearRotatingSpeed * Time.deltaTime;      
+            foreach (var item in gearsUpRotater)
+            {
+                item.RotateAroundLocal(Vector3.up, angle);
             }
         }
         else

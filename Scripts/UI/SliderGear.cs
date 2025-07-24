@@ -8,6 +8,7 @@ public class SliderGear : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private float minAngle;
     [SerializeField] private float maxAngle;
+    [SerializeField] private GearRotator gears;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class SliderGear : MonoBehaviour
     private void SetValue(float val)
     {
         float angle = slider.normalizedValue * (maxAngle - minAngle) + minAngle;
-        rotatable.localEulerAngles = rotateAxis * angle;    
+        rotatable.localEulerAngles = rotateAxis * angle;
+        gears.Power = slider.normalizedValue;
     }
 }

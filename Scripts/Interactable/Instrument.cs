@@ -27,8 +27,9 @@ public class Instrument : Interactable
         }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _transform = transform;
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;

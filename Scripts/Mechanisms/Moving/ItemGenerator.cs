@@ -24,6 +24,8 @@ public class ItemGenerator : Tickable, IItemConnectable
 
     protected override void OnTick()
     {
+        point.Move(output);
+
         if (point.IsEmpty)
         {
             Item item = Instantiate(generatedPrefab, spawnPoint.position + Vector3.up * spawnHeight, spawnPoint.rotation);
@@ -36,9 +38,4 @@ public class ItemGenerator : Tickable, IItemConnectable
         }
     }
 
-    protected override void OnEveryTick()
-    {
-        base.OnEveryTick();
-        point.Move(output);
-    }
 }

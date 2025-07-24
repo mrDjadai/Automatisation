@@ -33,6 +33,8 @@ public abstract class ObjectChanger : Tickable, IItemConnectable
 
     protected override void OnTick()
     {
+        output.Move(publicOutput);
+
         if (isChanginging)
         {
             if (center.IsEmpty == false)
@@ -60,12 +62,6 @@ public abstract class ObjectChanger : Tickable, IItemConnectable
                 OnChangeStart();
             }
         }
-    }
-
-    protected override void OnEveryTick()
-    {
-        base.OnEveryTick();
-        output.Move(publicOutput);
     }
 
     protected abstract Item GetNewItem(Item old);

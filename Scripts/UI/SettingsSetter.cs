@@ -32,17 +32,26 @@ public class SettingsSetter : MonoBehaviour
         SetSoundVolume(soundSlider.value);
     }
 
+    private void SetText(TextMeshProUGUI text, string value)
+    {
+        if (value.Length < 3)
+        {
+            value = '0' + value;
+        }
+        text.text = value;
+    }
+
     public void OnSensabilitySliderMove()
     {
         float sensability = sensabilitySlider.value;
-        sensabilityText.text = Mathf.RoundToInt((sensability - 0.1f) / 7.8f * 100).ToString() + "%";
+        SetText(sensabilityText, Mathf.RoundToInt((sensability - 0.1f) / 7.8f * 100).ToString());
         PlayerPrefs.SetFloat("Sensability", sensability);
     }
 
     public void OnBrightnessSliderMove()
     {
         float brightness = brightnessSlider.value;
-        brightnessText.text = Mathf.RoundToInt(brightness).ToString() + "%";
+        SetText(brightnessText, Mathf.RoundToInt(brightness).ToString());
         PlayerPrefs.SetFloat("Brightness", brightness);
         brightnessSetter.SetBrightness();
     }
@@ -64,7 +73,7 @@ public class SettingsSetter : MonoBehaviour
         SetMusicVolume(musicSlider.value);
 
         sensabilitySlider.value = PlayerPrefs.GetFloat("Sensability");
-        sensabilityText.text = Mathf.CeilToInt((sensabilitySlider.value - 0.1f) / 7.8f * 100).ToString() + "%";
+        SetText(sensabilityText, Mathf.CeilToInt((sensabilitySlider.value - 0.1f) / 7.8f * 100).ToString());
         brightnessSlider.value = PlayerPrefs.GetFloat("Brightness");
     }
 
@@ -82,7 +91,7 @@ public class SettingsSetter : MonoBehaviour
         float musicVolume = Mathf.Clamp(volume, 0.0001f, 1);
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume) * 20);
-        musicText.text = Mathf.RoundToInt(musicVolume * 100).ToString() + "%";
+        SetText(musicText, Mathf.RoundToInt(musicVolume * 100).ToString());
     }
 
     private void SetSoundVolume(float volume)
@@ -90,6 +99,6 @@ public class SettingsSetter : MonoBehaviour
         float soundVolume = Mathf.Clamp(volume, 0.0001f, 1);
         PlayerPrefs.SetFloat("SoundVolume", soundVolume);
         audioMixer.SetFloat("SoundVolume", Mathf.Log10(soundVolume) * 20);
-        soundText.text = Mathf.RoundToInt(soundVolume * 100).ToString() + "%";
+        SetText(soundText, Mathf.RoundToInt(soundVolume * 100).ToString());
     }
 }

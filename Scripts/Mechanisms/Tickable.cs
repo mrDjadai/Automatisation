@@ -66,10 +66,6 @@ public abstract class Tickable : MonoBehaviour
             OnTick();
             return;
         }
-        else
-        {
-            OnEveryTick();
-        }
 
         curTick++;
         if (curTick >= tickForUse)
@@ -80,7 +76,4 @@ public abstract class Tickable : MonoBehaviour
     }
 
     protected abstract void OnTick();
-    protected virtual void OnEveryTick()
-    {
-    }
 }
