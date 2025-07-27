@@ -59,6 +59,7 @@ MonoBehaviour:
   canUnfocus: 0
   itemRotation: {x: 0, y: 0, z: 0}
   id: 0
+  frictionColliders: []
   manager: {fileID: 6802352904985879395}
   startPoint: {fileID: 3486180055260915254}
   length: 2.5
@@ -418,6 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7d528b661de054a80b7cd65e2e7071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultDataId: 3
+  minFirstPeriodPercent: 0
   minPeriod: 30
   periodOffset: 35
   hose: {fileID: 2283214358106554788}

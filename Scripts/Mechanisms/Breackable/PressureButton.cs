@@ -1,16 +1,15 @@
 using UnityEngine;
 using System.Collections;
-using Zenject;
 
 public class PressureButton : Breackable
 {
-    [SerializeField] private float timeForMax;
+    [SerializeField, Range(0, 1)] private float timePercentForDisable;
+    private float timeForMax;
     [SerializeField] private float minAngle;
     [SerializeField] private float maxAngle;
     [SerializeField] private float angleOffset;
     [SerializeField] private Transform rotatable;
     [SerializeField] private Vector3 rotateAxis;
-    [SerializeField] private float disableSpeed;
     [SerializeField] private ParticleSystem steam;
 
     [SerializeField] private AudioSource maxSource;
@@ -18,27 +17,30 @@ public class PressureButton : Breackable
     private float maxVolume;
 
     private float time;
-
-    [SerializeField] private LevelStarter levelStarter;
-
-    [Inject]
-    private void Construct(LevelStarter l)
-    {
-        levelStarter = l;
-    }
+    private float disableSpeed;
 
     private IEnumerator Start()
     {
         maxVolume = steamSource.volume;
         steamSource.volume = 0;
+        disableSpeed = timeForMax * timePercentForDisable;
 
-        yield return new WaitUntil(levelStarter.IsStarted);
+        yield return new WaitUntil(Starter.IsStarted);
         while (true)
         {
             yield return new WaitForEndOfFrame();
             time += Time.deltaTime;
             float angle = minAngle + (maxAngle - minAngle) * (time / timeForMax);
-            steamSource.volume = maxVolume * (time / timeForMax);
+
+            if (isBroken)
+            {
+                steamSource.volume = maxVolume * (time / timeForMax);
+            }
+            else
+            {
+                steamSource.volume = 0;
+            }
+
             if (time >= timeForMax)
             {
                 time = timeForMax;
@@ -72,5 +74,10 @@ public class PressureButton : Breackable
     protected override void OnRepair()
     {
         steam.Stop();
+    }
+
+    protected override void OnLoadSettings(Vector3 data)
+    {
+        timeForMax = data.x;
     }
 }

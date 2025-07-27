@@ -17,6 +17,10 @@ public class Belt : Instrument, IResourse
         {
             if (hit.rigidbody && hit.rigidbody.TryGetComponent<BeltPoint>(out BeltPoint p))
             {
+                if (p.IsBroken == false)
+                {
+                    return;
+                }
                 if (point1 == null)
                 {
                     point1 = p;

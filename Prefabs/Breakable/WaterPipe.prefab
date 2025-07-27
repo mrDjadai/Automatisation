@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b4e5147b38e1f4782591f6a2f8b687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minFirstPeriod: 5
+  difficultDataId: 7
+  minFirstPeriodPercent: 0
   minPeriod: 5
   periodOffset: 5
   points:

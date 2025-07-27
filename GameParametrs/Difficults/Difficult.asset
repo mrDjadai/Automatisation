@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a19e121f534a1b4ca60037a442707c6, type: 3}
+  m_Name: Difficult
+  m_EditorClassIdentifier: 
+  values:
+  - header: Belt
+    minFirstPeriodPercent: 0
+    minPeriod: 30
+    periodOffset: 20
+  - header: Fire
+    minFirstPeriodPercent: 10
+    minPeriod: 35
+    periodOffset: 20
+  - header: Gears
+    minFirstPeriodPercent: 0
+    minPeriod: 40
+    periodOffset: 30
+  - header: Hose
+    minFirstPeriodPercent: 0
+    minPeriod: 30
+    periodOffset: 35
+  - header: LightBox
+    minFirstPeriodPercent: 0
+    minPeriod: 50
+    periodOffset: 20
+  - header: PressureButton
+    minFirstPeriodPercent: 45
+    minPeriod: 0
+    periodOffset: 0
+  - header: SteamPipe
+    minFirstPeriodPercent: 0
+    minPeriod: 10
+    periodOffset: 60
+  - header: WaterPipe
+    minFirstPeriodPercent: 0
+    minPeriod: 20
+    periodOffset: 50

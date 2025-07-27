@@ -2673,17 +2673,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15991c0346a0f8a4b8532d1f7f0803da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultDataId: 5
+  timePercentForDisable: 0.2
   timeForMax: 45
   minAngle: 0
   maxAngle: 330
   angleOffset: 10
   rotatable: {fileID: 6683681343531991489}
   rotateAxis: {x: 0, y: 0, z: 1}
-  disableSpeed: 10
   steam: {fileID: 8228047238872795764}
   maxSource: {fileID: 5320665828415854591}
   steamSource: {fileID: 5665587751785865576}
-  levelStarter: {fileID: 0}
 --- !u!1 &6952493908656659616
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ using System.Linq;
 
 public class LevelStarter : MonoBehaviour
 {
+    public Difficult CurrentDifficult { get; private set; }
+
     private LightActivator lightActivator;
     private TickSetter tickSetter;
 
@@ -23,6 +25,7 @@ public class LevelStarter : MonoBehaviour
     [SerializeField] private AudioSource punchSource;
     [SerializeField] private WallUnit[] wallUnits;
     [SerializeField] private ObjectUnit[] objectUnits;
+    [SerializeField] private Difficult[] difficults;
 
     private bool isStarted;
 
@@ -47,9 +50,11 @@ public class LevelStarter : MonoBehaviour
         }
     }
 
-    private void Awake()
+    public void Init()
     {
         int level = PlayerPrefs.GetInt("CurrentLevel");
+        Debug.Log("Loaded level" + level);
+        CurrentDifficult = difficults[level - 1];
 
         foreach (var item in wallUnits)
         {
@@ -70,7 +75,6 @@ public class LevelStarter : MonoBehaviour
         float t = startDelay;
         int second = startDelay;
         int second1;
-
         timeText.text = Mathf.RoundToInt(startDelay).ToString();
 
         while (t > 0)

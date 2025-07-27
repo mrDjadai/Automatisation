@@ -36,6 +36,7 @@ public class SteamPipe : PeriodicalBreackable
         if (scale <= repairOffset)
         {
             Repair();
+            steam.localScale = Vector3.zero;
         }
 
         if (cor != null)

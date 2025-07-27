@@ -1507,6 +1507,7 @@ MonoBehaviour:
   punchSource: {fileID: 8345359670534385591}
   wallUnits: []
   objectUnits: []
+  difficults: []
 --- !u!82 &8345359670534385591
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1961,9 +1962,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactIndicator: {fileID: 3194635135520902357}
-  defaultIndicatorColor: {r: 1, g: 1, b: 1, a: 0.047058824}
+  defaultIndicatorColor: {r: 1, g: 1, b: 1, a: 0.19607843}
   cameraTransform: {fileID: 4354511961588958268}
-  interactDistance: 4
+  interactDistance: 2
   interactLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -3642,10 +3643,48 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7964263629311537251, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 250329937526493350}
+    - targetCorrespondingSourceObject: {fileID: 7964263629311537251, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8959194940709136006}
   m_SourcePrefab: {fileID: 100100000, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
 --- !u!224 &5906868995310347199 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6315706502241855576, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
   m_PrefabInstance: {fileID: 458399128506715111}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7555404132183489412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7964263629311537251, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
+  m_PrefabInstance: {fileID: 458399128506715111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &250329937526493350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555404132183489412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19db8277dcf35404fb0c1704203cf7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: angry
+--- !u!114 &8959194940709136006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555404132183489412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc817386cc0adf499b910b9862da0fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyCount: 6
+  offset: 0.03

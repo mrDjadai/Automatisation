@@ -1,28 +1,19 @@
 using UnityEngine;
 using System.Collections;
-using Zenject;
 
 public abstract class PeriodicalBreackable : Breackable
 {
-    [SerializeField] private int minFirstPeriod;
-    [SerializeField] private float minPeriod;
-    [SerializeField] private float periodOffset;
-
-    private LevelStarter levelStarter;
-    protected LevelStarter Starter => levelStarter;
-
-    [Inject]
-    private void Construct(LevelStarter l)
-    {
-        levelStarter = l;
-    }
+    private float minFirstPeriodPercent;
+    private float minPeriod;
+    private float periodOffset;
 
     protected virtual IEnumerator Start()
     {
-        yield return new WaitUntil(levelStarter.IsStarted);
+        yield return new WaitUntil(Starter.IsStarted);
 
         float time;
 
+        float minFirstPeriod = minFirstPeriodPercent * minPeriod;
         time = minFirstPeriod + Random.Range(0, minPeriod + periodOffset - minFirstPeriod);
 
         yield return new WaitForSeconds(time);
@@ -37,5 +28,12 @@ public abstract class PeriodicalBreackable : Breackable
             Break();
             yield return new WaitWhile(() => { return IsBroken; });
         }
+    }
+
+    protected override void OnLoadSettings(Vector3 data)
+    {
+        minFirstPeriodPercent = data.x;
+        minPeriod = data.y;
+        periodOffset = data.z;
     }
 }

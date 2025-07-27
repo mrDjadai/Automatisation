@@ -70,6 +70,7 @@ public class ItemsManager : MonoBehaviour
     {
         if (levelStarter.IsStarted() == false)
         {
+            lastEnterTime = Time.time;
             return;
         }
         float deltaTime = Time.time - lastEnterTime;

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class LevelButtonCreator : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class LevelButtonCreator : MonoBehaviour
     [SerializeField] private Transform origin;
     [SerializeField] private Color holidayColor;
 
+    private List<TextMeshProUGUI> shiftes = new List<TextMeshProUGUI>();
+
     private void Start()
     {
+        LocalizationManager.instance.OnLanguageChanged += Localisate;
         int unclocked = PlayerPrefs.GetInt("Level");
 
         for (int i = 1; i < 32; i++)
@@ -31,8 +35,7 @@ public class LevelButtonCreator : MonoBehaviour
                 int num = i - firstLevelDay;
                 b.interactable = num <= unclocked;
                 b.onClick.AddListener(() => { OpenLevel(num); });
-                b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = LocalizationManager.instance.GetLocalizedValue("shift")
-                    + (num + 1).ToString();
+                shiftes.Add(b.transform.GetChild(0).GetComponent<TextMeshProUGUI>());
             }
             else
             {
@@ -54,6 +57,22 @@ public class LevelButtonCreator : MonoBehaviour
             {
                 b.transform.GetChild(4).gameObject.SetActive(true);
             }
+        }
+
+        Localisate();
+    }
+
+    private void OnDestroy()
+    {
+        LocalizationManager.instance.OnLanguageChanged -= Localisate;
+    }
+
+    private void Localisate()
+    {
+        for (int i = 0; i < shiftes.Count; i++)
+        {
+            shiftes[i].text = LocalizationManager.instance.GetLocalizedValue("shift")
+                    + (i + 1).ToString();
         }
     }
 
