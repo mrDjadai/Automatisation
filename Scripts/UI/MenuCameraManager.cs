@@ -9,6 +9,23 @@ public class MenuCameraManager : MonoBehaviour
     [SerializeField] private int inactivePriority;
 
     private int current;
+    private ShopItem selectedItem;
+
+    public bool SelectItem(ShopItem i)
+    {
+        if (selectedItem == i)
+        {
+            return false;
+        }
+
+        if (selectedItem != null)
+        {
+            DropItem();
+        }
+
+        selectedItem = i;
+        return true;
+    }
 
     private void Awake()
     {
@@ -35,8 +52,26 @@ public class MenuCameraManager : MonoBehaviour
         points[current].onOpen.Invoke();
     }
 
+    public void DropItem()
+    {
+        if (selectedItem != null)
+        {
+            selectedItem.Unselect();
+            selectedItem = null;
+            return;
+        }
+
+    }
+
     public void Escape()
     {
+        if (selectedItem != null)
+        {
+            selectedItem.Unselect();
+            selectedItem = null;
+            return;
+        }
+
         if (points[current].previousCam != null)
         {
             for (int i = 0; i < points.Length; i++)

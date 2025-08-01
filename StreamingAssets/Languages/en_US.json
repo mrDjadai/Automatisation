@@ -73,6 +73,10 @@
 		    "key" : "play",
 		    "value" : "Start work"
 	    },
+        {
+		    "key" : "upgrades",
+		    "value" : "Upgrades"
+	    },
 
         {
             "key": "tutorial1",
