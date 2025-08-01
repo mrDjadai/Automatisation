@@ -61,6 +61,7 @@ public abstract class Tickable : MonoBehaviour
         {
             return;
         }
+        OnEveryTick();
         if (tickForUse == 1)
         {
             OnTick();
@@ -76,4 +77,8 @@ public abstract class Tickable : MonoBehaviour
     }
 
     protected abstract void OnTick();
+
+    protected virtual void OnEveryTick() 
+    {
+    }
 }

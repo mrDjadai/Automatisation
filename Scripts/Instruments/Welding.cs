@@ -42,7 +42,7 @@ public class Welding : Instrument
     protected override void OnTake()
     {
         base.OnTake();
-        particle.gameObject.layer = 0;
+      //  particle.gameObject.layer = 0;
     }
 
     private void Update()

@@ -13,6 +13,7 @@ public class BtnSwitchLang: MonoBehaviour
     private void Start()
     {
         LocalizationManager.instance.OnLanguageChanged += SetIndicator;
+        SetIndicator();
     }
 
     private void OnDestroy()

@@ -26,6 +26,7 @@ public class GameEnder : MonoBehaviour
         if (PlayerPrefs.GetInt("Level") == levelID)
         {
             PlayerPrefs.SetInt("Level", levelID + 1);
+            PlayerPrefs.SetInt("SkillPoint", PlayerPrefs.GetInt("SkillPoint") + 1);
         }
         foreach (var item in winObjects)
         {

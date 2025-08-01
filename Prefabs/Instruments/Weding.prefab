@@ -1099,7 +1099,7 @@ MonoBehaviour:
   - {fileID: 4331834902660256822}
   - {fileID: 6777379591722380231}
   canUnfocus: 1
-  itemRotation: {x: 0, y: 75.214554, z: 341.52008}
+  itemRotation: {x: 0, y: 70, z: -10}
   id: 0
   frictionColliders:
   - {fileID: 1520504765998550646}
@@ -1114,7 +1114,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   gearRotatingSpeed: 5
-  gears: []
   gearsUpRotater:
   - {fileID: 4375237525203033934}
   - {fileID: 1208398337936626173}

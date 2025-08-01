@@ -19,11 +19,11 @@ public class PhysicalButton : MonoBehaviour
 
         isMoving = true;
         movable.DOLocalMove(targetLocalPos, animationTime / 2).OnComplete(OnClick);
+        onClick.Invoke();
     }
 
     private void OnClick()
     {
         movable.DOLocalMove(Vector3.zero, animationTime / 2).OnComplete(() => { isMoving = false; });
-        onClick.Invoke();
     }
 }

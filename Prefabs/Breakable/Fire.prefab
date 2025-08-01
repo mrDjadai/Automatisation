@@ -445,8 +445,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.99607843, g: 0.6039216, b: 0.3764706, a: 1}
-  m_Intensity: 0
-  m_Range: 10
+  m_Intensity: 3.5352206
+  m_Range: 8.070221
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -10054,7 +10054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 0
   cameraShake:
     enabled: 0
     useMainCamera: 1
@@ -10173,9 +10173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultDataId: 1
-  minFirstPeriodPercent: 0
-  minPeriod: 35
-  periodOffset: 20
   maxPower: 10
   fireLight: {fileID: 8057977662733209129}
   fireObject: {fileID: 163892731010156632}
@@ -10184,7 +10181,7 @@ MonoBehaviour:
   startSource: {fileID: 7039095053512008200}
   downSource: {fileID: 22200425830146416}
   source: {fileID: 8570590687253619086}
-  repairOffset: 0.5
+  repairOffset: 1
 --- !u!136 &911734050970324014
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10205,9 +10202,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.55
-  m_Height: 2.43
+  m_Height: 7.192822
   m_Direction: 1
-  m_Center: {x: 0, y: 0.86, z: 0}
+  m_Center: {x: 0, y: 3.241411, z: -0}
 --- !u!54 &8933023613839357603
 Rigidbody:
   m_ObjectHideFlags: 0

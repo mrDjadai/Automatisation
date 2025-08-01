@@ -32,11 +32,10 @@ public class ItemGetter : Tickable, IItemConnectable
 
         if (input.IsEmpty == false)
         {
-            input.Move(endPoint);
-            if (getSource.isPlaying == false)
+            bool moved = input.Move(endPoint);
+            if (moved && getSource.isPlaying == false)
             {
                 getSource.Play();
-
             }
         }
     }

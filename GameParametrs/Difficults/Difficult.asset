@@ -18,19 +18,19 @@ MonoBehaviour:
     minPeriod: 30
     periodOffset: 20
   - header: Fire
-    minFirstPeriodPercent: 10
+    minFirstPeriodPercent: 0.5
     minPeriod: 35
     periodOffset: 20
   - header: Gears
-    minFirstPeriodPercent: 0
+    minFirstPeriodPercent: 0.3
     minPeriod: 40
     periodOffset: 30
   - header: Hose
-    minFirstPeriodPercent: 0
+    minFirstPeriodPercent: 0.2
     minPeriod: 30
     periodOffset: 35
   - header: LightBox
-    minFirstPeriodPercent: 0
+    minFirstPeriodPercent: 3
     minPeriod: 50
     periodOffset: 20
   - header: PressureButton
@@ -38,10 +38,10 @@ MonoBehaviour:
     minPeriod: 0
     periodOffset: 0
   - header: SteamPipe
-    minFirstPeriodPercent: 0
+    minFirstPeriodPercent: 2
     minPeriod: 10
     periodOffset: 60
   - header: WaterPipe
-    minFirstPeriodPercent: 0
+    minFirstPeriodPercent: 0.5
     minPeriod: 20
     periodOffset: 50

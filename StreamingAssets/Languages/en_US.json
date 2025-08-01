@@ -64,6 +64,16 @@
 		    "key" : "brightness",
 		    "value" : "Brightness"
 	    },
+
+        {
+		    "key" : "forceStart",
+		    "value" : "Start right away"
+	    },
+	    {
+		    "key" : "play",
+		    "value" : "Start work"
+	    },
+
         {
             "key": "tutorial1",
             "value": "In this game, you’ll work at a factory and repair the latest 'wonders of technology.' They break down constantly, so we’ll now give you a quick masterclass on the types of breakdowns you might encounter."

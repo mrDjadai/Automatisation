@@ -3241,7 +3241,7 @@ MonoBehaviour:
   - {fileID: 624477173901447559}
   - {fileID: 923161482305038140}
   - {fileID: 3788825747275967884}
-  speed: 10
+  speed: -10
   audioSourse: {fileID: 6971921549524283381}
 --- !u!82 &1862753076171617836
 AudioSource:

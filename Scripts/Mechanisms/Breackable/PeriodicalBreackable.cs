@@ -15,7 +15,6 @@ public abstract class PeriodicalBreackable : Breackable
 
         float minFirstPeriod = minFirstPeriodPercent * minPeriod;
         time = minFirstPeriod + Random.Range(0, minPeriod + periodOffset - minFirstPeriod);
-
         yield return new WaitForSeconds(time);
         Break();
         yield return new WaitWhile(() => { return IsBroken; });

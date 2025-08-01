@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float minCameraAngle;
     [SerializeField] private float maxCameraAngle;
     [SerializeField] private Transform raycastPoint;
+    [SerializeField] private Transform raycastPointHead;
     [SerializeField] private float raycastLength;
     private CharacterController controller;
     [SerializeField] private Transform cameraTransform;
@@ -23,15 +24,24 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         controller = GetComponent<CharacterController>();
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     private void Update()
     {
         Move();
         RotateCamera();
+        CheckCeiling();
+    }
+
+    private void CheckCeiling()
+    {
+        if (controller.velocity.y > 0)
+        {
+            if (Physics.Raycast(raycastPointHead.position, Vector3.up, raycastLength))
+            {
+                verticalVelocity = 0;
+            }
+        }
     }
 
     private void Move()
