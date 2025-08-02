@@ -22,6 +22,8 @@ public class ShopItem : MonoBehaviour
         tr = transform;
         pos = tr.position;
         rot = tr.rotation;
+
+        canvasGroup.alpha = 0;
     }
 
     public void Unselect()

@@ -43,9 +43,9 @@ public class TutorialEnder : MonoBehaviour
         if (activator.IsBroken == false)
         {
             enabled = false;
-            if (PlayerPrefs.GetInt("Level") == 0)
+            if (SaveManager.instance.MaxLevel == 0)
             {
-                PlayerPrefs.SetInt("Level", 1);
+                SaveManager.instance.NextLevel();
             }
             Show();
         }

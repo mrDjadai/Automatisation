@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using TMPro;
 public class GameEnder : MonoBehaviour
 {
-    [SerializeField] private int levelID;
     [SerializeField] private float showTime;
     [SerializeField] private Image[] images;
     [SerializeField] private TextMeshProUGUI[] textes;
@@ -14,7 +13,20 @@ public class GameEnder : MonoBehaviour
     [SerializeField] private GameObject[] winObjects;
     [SerializeField] private GameObject[] loseObjects;
 
+    [SerializeField] private string rewardKey;
+    [SerializeField] private TextMeshProUGUI rewardText;
+
     private bool isEnded;
+
+    private int GetReward()
+    {
+        return 10;
+    }
+
+    private int GetMaxReward()
+    {
+        return 20;
+    }
 
     public void Win()
     {
@@ -23,10 +35,24 @@ public class GameEnder : MonoBehaviour
             return;
         }
         isEnded = true;
-        if (PlayerPrefs.GetInt("Level") == levelID)
+
+        int level = PlayerPrefs.GetInt("CurrentLevel");
+        int newReward = GetReward() - SaveManager.instance.GetCurrentLevelReward(level);
+
+
+        rewardText.gameObject.SetActive(true);
+        rewardText.text = LocalizationManager.instance.GetLocalizedValue(rewardKey) + UpgradePointsTextSetter.GetText(GetReward())
+            + '\\' + UpgradePointsTextSetter.GetText(GetMaxReward());
+
+        if (newReward > 0)
         {
-            PlayerPrefs.SetInt("Level", levelID + 1);
-            PlayerPrefs.SetInt("SkillPoint", PlayerPrefs.GetInt("SkillPoint") + 1);
+            SaveManager.instance.UpgradePoints += newReward;
+            SaveManager.instance.SetCurrentLevelReward(level, GetReward());
+        }
+
+        if (SaveManager.instance.MaxLevel == level)
+        {
+            SaveManager.instance.NextLevel();
         }
         foreach (var item in winObjects)
         {

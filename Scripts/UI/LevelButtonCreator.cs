@@ -18,7 +18,7 @@ public class LevelButtonCreator : MonoBehaviour
     private void Start()
     {
         LocalizationManager.instance.OnLanguageChanged += Localisate;
-        int unclocked = PlayerPrefs.GetInt("Level");
+        int unclocked = SaveManager.instance.MaxLevel;
 
         for (int i = 1; i < 32; i++)
         {

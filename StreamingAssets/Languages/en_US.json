@@ -77,7 +77,14 @@
 		    "key" : "upgrades",
 		    "value" : "Upgrades"
 	    },
-
+        {
+            "key": "reward",
+            "value": "You have received upgrade points: "
+        },
+        {
+            "key": "upgradePoints",
+            "value": "Current upgrade points: "
+        }
         {
             "key": "tutorial1",
             "value": "In this game, you’ll work at a factory and repair the latest 'wonders of technology.' They break down constantly, so we’ll now give you a quick masterclass on the types of breakdowns you might encounter."

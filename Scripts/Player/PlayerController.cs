@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform raycastPoint;
     [SerializeField] private Transform raycastPointHead;
     [SerializeField] private float raycastLength;
+    [SerializeField] private RunModule runModule;
+
     private CharacterController controller;
     [SerializeField] private Transform cameraTransform;
     private float verticalVelocity;
@@ -71,7 +73,9 @@ public class PlayerController : MonoBehaviour
             move = move.normalized;
         }
 
-        move = move * (InPuddle ? puddleSpeed :  moveSpeed) + Vector3.up * verticalVelocity;
+        move = move * (InPuddle ? puddleSpeed :  moveSpeed) * runModule.GetSpeedMultiplier()
+            + Vector3.up * verticalVelocity;
+
         controller.Move(move * Time.deltaTime);
     }
 
