@@ -36,6 +36,7 @@ public class LevelStarter : MonoBehaviour
     [SerializeField] private float buttonShowDelay;
     [SerializeField] private float buttonShowTime;
     [SerializeField] private CanvasGroup gazeteGroup;
+    [SerializeField] private UpgradeLevel[] upgrades;
 
     private bool isStarted;
 
@@ -44,6 +45,8 @@ public class LevelStarter : MonoBehaviour
     {
         tickSetter = t;
         lightActivator = a;
+
+        Init();
     }
 
     public bool IsStarted()
@@ -64,6 +67,19 @@ public class LevelStarter : MonoBehaviour
     {
         int level = PlayerPrefs.GetInt("CurrentLevel");
         Debug.Log("Loaded level" + level);
+
+        if (level != 0)
+        {
+            LoadLevel(level);
+        }
+        else
+        {
+            LoadTutorial();
+        }
+    }
+
+    private void LoadLevel(int level)
+    {
         CurrentDifficult = difficults[level - 1];
 
         foreach (var item in wallUnits)
@@ -87,6 +103,25 @@ public class LevelStarter : MonoBehaviour
         tColor.a = 0;
         startButtonText.color = tColor;
         startButton.interactable = false;
+
+        foreach (var item in upgrades)
+        {
+            if (SaveManager.instance.HasUpgrade(item.upgradeKey))
+            {
+                startDelay += item.bonusPrepareTime;
+            }
+        }
+    }
+
+    private void LoadTutorial()
+    {
+        CurrentDifficult = difficults[0];
+
+
+        gazeteGroup.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Activate();
     }
 
     private void Start()
@@ -148,12 +183,21 @@ public class LevelStarter : MonoBehaviour
         isStarted = true;
 
         lightActivator.SetActivated(true);
+
+
         tickSetter.Init();
 
-        scalableIndicator.DOScale(Vector3.one * maxScale, animationTime1).OnComplete(() =>
+        if (PlayerPrefs.GetInt("CurrentLevel") != 0)
         {
-            scalableIndicator.DOScale(Vector3.zero, animationTime2);
-        });
+            scalableIndicator.DOScale(Vector3.one * maxScale, animationTime1).OnComplete(() =>
+            {
+                scalableIndicator.DOScale(Vector3.zero, animationTime2);
+            });
+        }
+        else
+        {
+            scalableIndicator.localScale = Vector3.zero;
+        }
     }
 
     [System.Serializable]
@@ -168,5 +212,12 @@ public class LevelStarter : MonoBehaviour
     {
         public GameObject activatable;
         public int[] activeLevels;
+    }
+
+    [System.Serializable]
+    private struct UpgradeLevel
+    {
+        public string upgradeKey;
+        public int bonusPrepareTime;
     }
 }

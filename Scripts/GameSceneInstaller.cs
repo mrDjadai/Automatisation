@@ -19,7 +19,8 @@ public class GameSceneInstaller : MonoInstaller
         Container.Bind<ItemsManager>().FromInstance(itemsManager).AsSingle();
         Container.Bind<PlayerController>().FromInstance(player).AsSingle();
         Container.Bind<LightActivator>().FromInstance(lightActivator).AsSingle();
-        levelStarter.Init();
+      //  levelStarter.Init();
+
         Container.Bind<LevelStarter>().FromInstance(levelStarter).AsSingle();
     }
 }

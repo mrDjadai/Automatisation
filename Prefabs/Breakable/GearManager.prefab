@@ -537,9 +537,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultDataId: 2
-  minFirstPeriodPercent: 0
-  minPeriod: 40
-  periodOffset: 30
+  upgrades:
+  - key: gears1
+    bonus: 0.2
+  - key: gears2
+    bonus: 0.2
   places:
   - {fileID: 5158462239767880824}
   - {fileID: 5479849704977832305}

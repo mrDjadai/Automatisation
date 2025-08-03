@@ -17,6 +17,10 @@ public class RunModule : MonoBehaviour
 
     [SerializeField] private string activateUpgrade;
 
+    [Header("-----------------------------------")]
+    [SerializeField] private string runTimeUpgrade;
+    [SerializeField] private float runTimeBonus;
+
     private bool isActive;
 
     public float GetSpeedMultiplier()
@@ -43,6 +47,11 @@ public class RunModule : MonoBehaviour
         canvas.alpha = 0;
 
         isActive = SaveManager.instance.HasUpgrade(activateUpgrade);
+
+        if (SaveManager.instance.HasUpgrade(runTimeUpgrade))
+        {
+            runDuration += runTimeBonus;
+        }
     }
 
     private void Update()

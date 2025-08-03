@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultDataId: 4
-  minFirstPeriodPercent: 0
-  minPeriod: 50
-  periodOffset: 20
+  upgrades:
+  - key: electroBonus1
+    bonus: 0.25
   levers:
   - {fileID: 7148466294066775323}
   - {fileID: 7168105569643655778}

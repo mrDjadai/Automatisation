@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultDataId: 7
-  minFirstPeriodPercent: 0
-  minPeriod: 5
-  periodOffset: 5
+  upgrades:
+  - key: tapeBonus1
+    bonus: 0.25
   points:
   - {fileID: 3742323970594724943}
   - {fileID: 4335824307850471068}

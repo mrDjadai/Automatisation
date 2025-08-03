@@ -14,7 +14,7 @@ public class SceneLoader : MonoBehaviour
     {
         baseColor = bgImage.color;
 
-        if (PlayerPrefs.GetInt("UseTransition") == 1)
+        if (PlayerPrefs.GetInt("UseTransition") == 1 || PlayerPrefs.GetInt("CurrentLevel") == 0)
         {
             PlayerPrefs.SetInt("UseTransition", 0);
             bgImage.DOColor(Color.clear, animationDuration);

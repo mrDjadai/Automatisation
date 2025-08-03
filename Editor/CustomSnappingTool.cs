@@ -90,6 +90,9 @@ public class CustomSnappingTool : EditorTool
 
         if (closestDistance < 0.5f)
         {
+            AlignRotation(pointB.transform, ownPointB.transform, ownPointB.ConnectableObject.transform);
+            bestPosition = pointB.transform.position - (ownPointB.transform.position - targetTransform.position);
+
             targetTransform.position = bestPosition;
 
             // Получаем MonoBehaviour, который реализует интерфейс
@@ -133,5 +136,14 @@ public class CustomSnappingTool : EditorTool
         {
             targetTransform.position = newPosition;
         }
+    }
+
+
+    private void AlignRotation(Transform A, Transform B, Transform parentB)
+    {
+        Quaternion targetRotation = Quaternion.FromToRotation(B.forward, A.forward) *
+                                   Quaternion.FromToRotation(B.up, A.up);
+
+        parentB.rotation *= targetRotation;
     }
 }

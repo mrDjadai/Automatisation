@@ -1692,7 +1692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0f5c4bf7ec5ad4b8bd9a866e60c3a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDelay: 30
+  startDelay: 10
   scalableIndicator: {fileID: 2944291181394688296}
   timeText: {fileID: 6489176994631839633}
   animationTime1: 0.2
@@ -1716,6 +1716,11 @@ MonoBehaviour:
   buttonShowDelay: 3
   buttonShowTime: 0.5
   gazeteGroup: {fileID: 3983156759619728253}
+  upgrades:
+  - upgradeKey: prepareTime1
+    bonusPrepareTime: 10
+  - upgradeKey: prepareTime2
+    bonusPrepareTime: 10
 --- !u!82 &8345359670534385591
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2297,6 +2302,8 @@ MonoBehaviour:
   showSpeed: 1
   restoreSpeed: 0.5
   activateUpgrade: run
+  runTimeUpgrade: runTime
+  runTimeBonus: 6
 --- !u!1 &3612518222303827877
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,6 @@
 using UnityEngine;
 using Zenject;
 
-[SelectionBase]
 public abstract class Tickable : MonoBehaviour
 {
     [SerializeField] private Breackable[] breackables;
