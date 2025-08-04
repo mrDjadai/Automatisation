@@ -420,6 +420,10 @@ MonoBehaviour:
   frictionColliders:
   - {fileID: 8553117006848396919}
   visualisator: {fileID: 9163258262487691058, guid: 802ca69f53f6c614cbabbb8621cf0601, type: 3}
+  bonusUsesKeys:
+  - tapeUse1
+  - tapeUse2
+  - tapeUse3
 --- !u!1 &4352323015152852132
 GameObject:
   m_ObjectHideFlags: 0

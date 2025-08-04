@@ -4,6 +4,9 @@ using System.Collections;
 public class PressureButton : Breackable
 {
     [SerializeField, Range(0, 1)] private float timePercentForDisable;
+    [SerializeField] private float upgradeTimeMultiplier;
+    [SerializeField] private string upgradeKey;
+
     private float timeForMax;
     [SerializeField] private float minAngle;
     [SerializeField] private float maxAngle;
@@ -79,5 +82,9 @@ public class PressureButton : Breackable
     protected override void OnLoadSettings(Vector3 data)
     {
         timeForMax = data.x;
+        if (SaveManager.instance.HasUpgrade(upgradeKey))
+        {
+            timeForMax *= upgradeTimeMultiplier;
+        }
     }
 }

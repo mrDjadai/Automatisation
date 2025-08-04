@@ -125,12 +125,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3926093055106982228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d209de82227fd4d4ca580a9d6b50947e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8320c9dc48c1f4846a5a954872922d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1697510621664475858, guid: 4fe5d60f6a9783c4da7a24f9c457397e, type: 3}
   respawnDistance: 0.3
   spawnPoint: {fileID: 4200713755107454284}
+  variants:
+  - key: gearsCount2
+    prefab: {fileID: 5069087469042443879, guid: 88c9ee8f7ee3eb947a6aa127a16e205a, type: 3}
+  - key: gearsCount3
+    prefab: {fileID: 5069087469042443879, guid: 1ad076cff12ed504081d910285f2e46a, type: 3}
 --- !u!1 &4289264756258844320
 GameObject:
   m_ObjectHideFlags: 0

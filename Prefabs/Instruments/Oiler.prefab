@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3742514016737345971}
   - component: {fileID: 8392369075511421348}
   - component: {fileID: 1347390449332203205}
+  - component: {fileID: 4386774574934510235}
   m_Layer: 6
   m_Name: Oiler
   m_TagString: Untagged
@@ -187,7 +188,7 @@ MonoBehaviour:
   - {fileID: 5043698711206406995}
   - {fileID: 763539422122876892}
   - {fileID: 2910364606453661788}
-  maxUses: 10
+  maxUses: 5
   raycastPoint: {fileID: 9189285001410072798}
   raycastLayers:
     serializedVersion: 2
@@ -197,6 +198,24 @@ MonoBehaviour:
   rotatable: {fileID: 3367002504173111833}
   targetAngle: {x: 0, y: 0, z: 30}
   animationDuration: 0.8
+  bonuses:
+  - key: oilerCount3
+    count: 3
+  - key: oilerCount5
+    count: 5
+--- !u!114 &4386774574934510235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951362727962683057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412c6d5adbab85e4cbf95af6f761862a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openKey: oiler
 --- !u!1 &1156649769173078468
 GameObject:
   m_ObjectHideFlags: 0

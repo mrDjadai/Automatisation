@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class ResourseSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
+    [SerializeField] protected GameObject prefab;
     [SerializeField] private float respawnDistance;
     [SerializeField] private Transform spawnPoint;
 
     private Transform lastSpawned;
 
-    private void Awake()
+    private void Start()
     {
         lastSpawned = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation).transform;   
     }
@@ -17,7 +17,7 @@ public class ResourseSpawner : MonoBehaviour
     {
         if (Vector3.Distance(lastSpawned.position, spawnPoint.position) > respawnDistance)
         {
-            Awake();
+            Start();
         }
     }
 }

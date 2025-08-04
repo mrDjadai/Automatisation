@@ -204,6 +204,8 @@ MonoBehaviour:
   place: {fileID: 0}
   breakSource: {fileID: 2950741135227670604}
   placeSource: {fileID: 3939800332147844978}
+  jumpForce: 4
+  jumpKey: gearsJump
 --- !u!1 &5859995930068725943
 GameObject:
   m_ObjectHideFlags: 0

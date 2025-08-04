@@ -2675,7 +2675,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficultDataId: 5
   timePercentForDisable: 0.2
-  timeForMax: 45
+  upgradeTimeMultiplier: 1.25
+  upgradeKey: pressureUpgrade
   minAngle: 0
   maxAngle: 330
   angleOffset: 10

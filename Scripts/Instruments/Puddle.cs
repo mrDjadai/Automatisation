@@ -12,11 +12,20 @@ public class Puddle : MonoBehaviour
     [SerializeField] private float targetHeight;
     [SerializeField] private float animationTime;
     [SerializeField] private Vector3 rotateAxis;
+    [SerializeField] private float scaleBonus;
+    [SerializeField] private string scaleBonusKey;
 
     private IEnumerator Start()
     {
         float t = 0;
         transform.localEulerAngles = rotateAxis * Random.Range(0, 360f);
+
+        if (SaveManager.instance.HasUpgrade(scaleBonusKey))
+        {
+            targetWidth *= scaleBonus;
+            targetHeight *= scaleBonus;
+            targetColliderScale *= scaleBonus;
+        }
 
         do
         {

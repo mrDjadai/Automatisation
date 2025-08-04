@@ -34,10 +34,10 @@ public class GearPlace : MonoBehaviour
 
     public void Take()
     {
-        if (gear != null)
+    /*    if (gear != null)
         {
             gear.GetComponent<Rigidbody>().isKinematic = true;
-        }
+        }*/
         gear = null;
         manager.Check();
     }

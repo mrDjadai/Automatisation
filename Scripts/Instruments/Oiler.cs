@@ -11,11 +11,19 @@ public class Oiler : Instrument
     [SerializeField] private Transform rotatable;
     [SerializeField] private Vector3 targetAngle;
     [SerializeField] private float animationDuration;
+    [SerializeField] private CountBobus[] bonuses;
 
     private int uses;
 
     private void Start()
     {
+        foreach (var item in bonuses)
+        {
+            if (SaveManager.instance.HasUpgrade(item.key))
+            {
+                maxUses += item.count;
+            }
+        }
         uses = maxUses;
     }
 
@@ -47,5 +55,12 @@ public class Oiler : Instrument
                 rotatable.DOLocalRotate(Vector3.zero, animationDuration / 2);
             });
         }
+    }
+
+    [System.Serializable]
+    private struct CountBobus
+    {
+        public string key;
+        public int count;
     }
 }

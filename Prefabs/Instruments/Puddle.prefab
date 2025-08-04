@@ -111,6 +111,8 @@ MonoBehaviour:
   targetHeight: 2
   animationTime: 1
   rotateAxis: {x: 0, y: 1, z: 0}
+  scaleBonus: 1.2
+  scaleBonusKey: puddleScale
 --- !u!54 &3838628674235820583
 Rigidbody:
   m_ObjectHideFlags: 0

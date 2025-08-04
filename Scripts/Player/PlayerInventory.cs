@@ -47,12 +47,17 @@ public class PlayerInventory : MonoBehaviour
     {
         if (inHandItem != null)
         {
-            inHandItem.Drop();
-            SetObjectLayer(inHandItem.transform, inHandItem.DefaultLayer);
-
-            inHandItem.GetComponent<Rigidbody>().linearVelocity = player.velocity;
+            OnDropItem(inHandItem);
             inHandItem = null;
         }
+    }
+
+    public void OnDropItem(Instrument i)
+    {
+        i.Drop();
+        SetObjectLayer(i.transform, i.DefaultLayer);
+
+        i.GetComponent<Rigidbody>().linearVelocity = player.velocity;
     }
 
     public void UseItem()

@@ -13,6 +13,19 @@ public class Fire : PeriodicalBreackable
     [SerializeField] private AudioSource downSource;
     [SerializeField] private EaseAudioSourse source;
     [SerializeField] private float repairOffset;
+    [SerializeField] private DamageUpgrade[] upgrades;
+
+    private void Awake()
+    {
+        for (int i = upgrades.Length - 1; i >= 0; i--)
+        {
+            if (SaveManager.instance.HasUpgrade(upgrades[i].key))
+            {
+                deltaPower *= upgrades[i].value;
+                return;
+            }
+        }
+    }
 
     private float Power
     {
@@ -54,5 +67,12 @@ public class Fire : PeriodicalBreackable
     protected override void OnRepair()
     {
         source.Stop();
+    }
+
+    [System.Serializable]
+    private struct DamageUpgrade
+    {
+        public string key;
+        public float value;
     }
 }
