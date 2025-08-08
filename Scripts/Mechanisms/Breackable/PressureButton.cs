@@ -59,6 +59,12 @@ public class PressureButton : Breackable
         }
     }
 
+    protected override void BreakOnAwake()
+    {
+        time = timeForMax;
+        base.BreakOnAwake();
+    }
+
     public void OnPress()
     {
         time -= disableSpeed * Time.deltaTime;

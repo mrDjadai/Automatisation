@@ -15,6 +15,8 @@ public class MultipleItemReplacer : Tickable, IItemConnectable
     public Transform[] outSimulated;
 
     [SerializeField] private float animationTime;
+    [SerializeField] private float animationDelay;
+
     [SerializeField] private AudioSource createSource;
     [SerializeField] protected Vector3 openAnle;
 
@@ -68,10 +70,13 @@ public class MultipleItemReplacer : Tickable, IItemConnectable
             if (changedMoved == false && inputs[0].center.IsEmpty == false)
             {
                 changedMoved = inputs[0].center.Move(output);
-                foreach (var item in outSimulated)
+                if (changedMoved)
                 {
-                    item.DOLocalRotate(openAnle, 
-                        animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
+                    foreach (var item in outSimulated)
+                    {
+                        item.DOLocalRotate(openAnle,
+                            animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); }).SetDelay(animationDelay);
+                    }
                 }
             }
 
@@ -84,7 +89,7 @@ public class MultipleItemReplacer : Tickable, IItemConnectable
                         foreach (var item in inputs[i].simulated)
                         {
                             item.DOLocalRotate((inputs[i].reverseAnimation ? -1 : 1) * openAnle,
-                                animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
+                                animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); }).SetDelay(animationDelay);
                         }
                     }
 

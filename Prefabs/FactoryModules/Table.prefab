@@ -47,6 +47,7 @@ MonoBehaviour:
   prefab: {fileID: 2145844383966946427, guid: b58dd83dc83ceae44b73bf57c9caca69, type: 3}
   respawnDistance: 0.3
   spawnPoint: {fileID: 3080410412155089735}
+  maxCount: 50
 --- !u!1 &3314208015003489424
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +132,7 @@ MonoBehaviour:
   prefab: {fileID: 1697510621664475858, guid: 4fe5d60f6a9783c4da7a24f9c457397e, type: 3}
   respawnDistance: 0.3
   spawnPoint: {fileID: 4200713755107454284}
+  maxCount: 50
   variants:
   - key: gearsCount2
     prefab: {fileID: 5069087469042443879, guid: 88c9ee8f7ee3eb947a6aa127a16e205a, type: 3}
@@ -162,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 4289264756258844320}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.159, z: 0}
   m_LocalScale: {x: 1, y: 0.6335456, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -203,7 +205,7 @@ GameObject:
   - component: {fileID: 7189563156242141756}
   - component: {fileID: 7599942847437374249}
   - component: {fileID: 685585580894094394}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Garbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 7640199826965302564}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.072, z: 0}
   m_LocalScale: {x: 1, y: 0.6335456, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -283,8 +285,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.36
-  m_Height: 1.78
+  m_Radius: 0.41
+  m_Height: 2.08
   m_Direction: 1
   m_Center: {x: 0, y: -0.27, z: 0}
 --- !u!1001 &174277036013085810

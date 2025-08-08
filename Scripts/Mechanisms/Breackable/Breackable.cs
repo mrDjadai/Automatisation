@@ -5,6 +5,8 @@ using Zenject;
 public abstract class Breackable : MonoBehaviour
 {
     [SerializeField] private int difficultDataId;
+    [SerializeField] private bool breakeOnAwake;
+
     public bool IsBroken => isBroken;
     protected bool isBroken;
 
@@ -16,6 +18,11 @@ public abstract class Breackable : MonoBehaviour
     {
         levelStarter = l;
         OnLoadSettings(levelStarter.CurrentDifficult.GetDifficultData(difficultDataId));
+
+        if (breakeOnAwake)
+        {
+            BreakOnAwake();
+        }
     }
 
     public void Break()
@@ -26,6 +33,11 @@ public abstract class Breackable : MonoBehaviour
         }
         isBroken = true;
         OnBreak();
+    }
+
+    protected virtual void BreakOnAwake()
+    {
+        Break();
     }
 
     public void Repair()

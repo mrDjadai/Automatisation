@@ -31,6 +31,11 @@ public abstract class ObjectChanger : Tickable, IItemConnectable
 
     }
 
+    protected virtual void OnItemMove()
+    {
+
+    }
+
     protected override void OnTick()
     {
         output.Move(publicOutput);
@@ -55,7 +60,10 @@ public abstract class ObjectChanger : Tickable, IItemConnectable
         }
         else
         {
-            center.Move(output);
+            if (center.Move(output))
+            {
+                OnItemMove();
+            }
             isChanginging = input.Move(center);
             if (isChanginging)
             {

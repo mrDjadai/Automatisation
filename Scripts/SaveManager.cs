@@ -81,6 +81,11 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    public void DeleteSave()
+    {
+        File.Delete(GetSavePath());
+    }
+
     private void CreateEmptySave()
     {
         save = new SaveData();

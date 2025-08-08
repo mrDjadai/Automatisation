@@ -7,6 +7,7 @@ public class ItemReplacer : ObjectChanger
     [SerializeField] private Transform[] simulated1;
     [SerializeField] private Transform[] simulated2;
     [SerializeField] private float animationTime;
+    [SerializeField] private float animationDelay;
     [SerializeField] private AudioSource createSource;
     [SerializeField] protected Vector3 openAnle;
 
@@ -25,16 +26,16 @@ public class ItemReplacer : ObjectChanger
 
         foreach (var item in simulated1)
         {
-            item.DOLocalRotate(openAnle, animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
+            item.DOLocalRotate(openAnle, animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); }).SetDelay(animationDelay);
         }
     }
 
-    protected override void OnChangeEnd()
+    protected override void OnItemMove()
     {
         base.OnChangeEnd();
         foreach (var item in simulated2)
         {
-            item.DOLocalRotate(openAnle, animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); });
+            item.DOLocalRotate(openAnle, animationTime / 2).OnComplete(() => { item.DOLocalRotate(Vector3.zero, animationTime / 2); }).SetDelay(animationDelay);
         }
     }
 }

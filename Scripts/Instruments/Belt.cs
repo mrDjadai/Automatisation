@@ -9,6 +9,13 @@ public class Belt : Instrument, IResourse
     private BeltPoint point1;
     private bool inHand;
 
+    private ResourseSpawner resourseSpawner;
+
+    public void SetSpawner(ResourseSpawner spawner)
+    {
+        resourseSpawner = spawner;
+    }
+
     public override void Use()
     {
         base.Use();
@@ -36,10 +43,16 @@ public class Belt : Instrument, IResourse
                     point1.Repair();
                     p.PlaySound();
                     Interactor.instance.DropItem();
+                    resourseSpawner.RemoveFromList(transform);
                     Destroy(gameObject);
                 }
             }
         }
+    }
+
+    public void OnGarbageDestroy()
+    {
+        resourseSpawner.RemoveFromList(transform);
     }
 
     protected override void OnTake()

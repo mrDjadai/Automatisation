@@ -155,7 +155,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -21.98}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1372563431343841840}
@@ -175,12 +175,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0a91db8683b5740808f93c6443ba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakables: []
   returner: {fileID: 4951035549503596629}
   door: {fileID: 1372563431343841840}
   openPoint: {fileID: 7970730108408464935}
   openTime: 2
   openSource: {fileID: 5666148624844984650}
+  breakables: []
 --- !u!82 &5666148624844984650
 AudioSource:
   m_ObjectHideFlags: 0

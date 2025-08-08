@@ -2076,6 +2076,7 @@ MonoBehaviour:
   - {fileID: 4257554137388529022}
   - {fileID: 2786789385047726368}
   animationTime: 0.6
+  animationDelay: 0.3
   createSource: {fileID: 4708123752369503274}
   openAnle: {x: 0, y: 0, z: -45}
 --- !u!82 &4708123752369503274

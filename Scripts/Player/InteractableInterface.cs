@@ -8,4 +8,6 @@ public interface IObjectCounter
 
 public interface IResourse
 {
+    public void SetSpawner(ResourseSpawner spawner);
+    public void OnGarbageDestroy();
 }

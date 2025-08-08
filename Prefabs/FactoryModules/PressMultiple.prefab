@@ -2963,6 +2963,7 @@ MonoBehaviour:
   - {fileID: 2786789385047726368}
   - {fileID: 7443187979372106136}
   animationTime: 0.6
+  animationDelay: 0.3
   createSource: {fileID: 4708123752369503274}
   openAnle: {x: 0, y: 0, z: -45}
 --- !u!114 &-596093946281136015
@@ -5922,7 +5923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 163892731010156632, guid: 9753e98d7bc98ec47b80990931365b05, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.212
       objectReference: {fileID: 0}
     - target: {fileID: 163892731010156632, guid: 9753e98d7bc98ec47b80990931365b05, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5954,11 +5955,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8057977662733209129, guid: 9753e98d7bc98ec47b80990931365b05, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 8.601921
       objectReference: {fileID: 0}
     - target: {fileID: 8057977662733209129, guid: 9753e98d7bc98ec47b80990931365b05, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 3.3009605
       objectReference: {fileID: 0}
     - target: {fileID: 8826682089436890943, guid: 9753e98d7bc98ec47b80990931365b05, type: 3}
       propertyPath: m_Name

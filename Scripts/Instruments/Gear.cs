@@ -12,6 +12,13 @@ public class Gear : Instrument, IResourse
     [SerializeField] private float jumpForce;
     [SerializeField] private string jumpKey;
 
+    private ResourseSpawner resourseSpawner;
+
+    public void SetSpawner(ResourseSpawner spawner)
+    {
+        resourseSpawner = spawner;
+    }
+
     public void Break()
     {
         repairedModel.SetActive(false);
@@ -24,6 +31,14 @@ public class Gear : Instrument, IResourse
             place = null;
             rb.isKinematic = false;
             rb.AddForce(transform.forward * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    public void OnGarbageDestroy()
+    {
+        if (resourseSpawner != null)
+        {
+            resourseSpawner.RemoveFromList(transform);
         }
     }
 
@@ -49,6 +64,10 @@ public class Gear : Instrument, IResourse
                     }
                     moveCor = StartCoroutine(GoToPoint(p.Point, () => { placeSource.Play(); }));
                     p.Place(this);
+                    if (resourseSpawner != null)
+                    {
+                        resourseSpawner.RemoveFromList(transform);
+                    }    
                 }
             }
         }
@@ -60,6 +79,10 @@ public class Gear : Instrument, IResourse
         {
             place.Take();
             place = null;
+            if (resourseSpawner != null)
+            {
+                resourseSpawner.AddToList(transform);
+            }
         }
         base.Interact();
     }
