@@ -76,6 +76,7 @@ public class UpgradeButton : MonoBehaviour
             return;
         }
 
+        buttonImage.GetComponent<CanvasGroup>().alpha = 1;
         buttonImage.color = activeColor;
         button.interactable = true;
     }

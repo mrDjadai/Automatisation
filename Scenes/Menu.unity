@@ -3867,7 +3867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: upgradeName
-      value: gearsJump
+      value: waterReturner
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: activeOnStart
@@ -9698,6 +9698,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4741241611808456666, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827276959789547343, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: m_Alpha
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4984944493177379477, guid: bd133a80773572a43add033d83785f5f, type: 3}

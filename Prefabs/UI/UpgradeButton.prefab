@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 983264316115969454}
   - component: {fileID: 3994429518300142287}
   - component: {fileID: 7030914561092489091}
+  - component: {fileID: 4827276959789547343}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -355,6 +356,18 @@ MonoBehaviour:
   costText: {fileID: 9042171841694232480}
   unlockColor: {r: 0.93333334, g: 0.9137255, b: 0.3019608, a: 1}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!225 &4827276959789547343
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177155789734660418}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8334259320087530281
 GameObject:
   m_ObjectHideFlags: 0

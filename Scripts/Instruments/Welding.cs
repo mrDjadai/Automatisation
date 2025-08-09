@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Welding : Instrument
+public class Welding : Instrument, IResourse
 {
     [SerializeField] private ParticleSystem particle;
     [SerializeField] private EaseAudioSourse audioSourse;
@@ -11,13 +11,45 @@ public class Welding : Instrument
 
     [SerializeField] private float gearRotatingSpeed;
     [SerializeField] private Transform[] gearsUpRotater;
+    [SerializeField] private float useTime;
+    [SerializeField] private TimeUpgrade[] timeUpgrades;
 
     private bool isActive;
     private SteamPipePoint point;
+    private float lifeTime;
+
+    private ResourseSpawner resourseSpawner;
+
+    public void SetSpawner(ResourseSpawner spawner)
+    {
+        resourseSpawner = spawner;
+    }
+
+    public void OnGarbageDestroy()
+    {
+        resourseSpawner.RemoveFromList(transform);
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        foreach (var item in timeUpgrades)
+        {
+            if (SaveManager.instance.HasUpgrade(item.key))
+            {
+                useTime *= item.multiplier;
+            }
+        }
+    }
 
     public override void Use()
     {
         isActive = !isActive;
+        if (lifeTime >= useTime)
+        {
+            isActive = false;
+        }
         if (isActive)
         {
             particle.Play();
@@ -72,6 +104,12 @@ public class Welding : Instrument
             {
                 item.RotateAroundLocal(Vector3.up, angle);
             }
+
+            lifeTime += Time.deltaTime;
+            if (lifeTime >= useTime)
+            {
+                Use();
+            }
         }
         else
         {
@@ -81,5 +119,12 @@ public class Welding : Instrument
                 point = null;
             }
         }
+    }
+
+    [System.Serializable]
+    private struct TimeUpgrade
+    {
+        public string key;
+        public float multiplier;
     }
 }

@@ -1122,6 +1122,10 @@ MonoBehaviour:
   - {fileID: 4273063210150046311}
   - {fileID: 4980449085596689094}
   - {fileID: 2422380892034134687}
+  useTime: 10
+  timeUpgrades:
+  - key: weldingTime
+    multiplier: 1.2
 --- !u!1 &2516295202349148143
 GameObject:
   m_ObjectHideFlags: 0

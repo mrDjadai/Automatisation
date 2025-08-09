@@ -13,15 +13,15 @@ public class Fire : PeriodicalBreackable
     [SerializeField] private AudioSource downSource;
     [SerializeField] private EaseAudioSourse source;
     [SerializeField] private float repairOffset;
-    [SerializeField] private DamageUpgrade[] upgrades;
+    [SerializeField] private DamageUpgrade[] damageUpgrades;
 
     private void Awake()
     {
-        for (int i = upgrades.Length - 1; i >= 0; i--)
+        for (int i = damageUpgrades.Length - 1; i >= 0; i--)
         {
-            if (SaveManager.instance.HasUpgrade(upgrades[i].key))
+            if (SaveManager.instance.HasUpgrade(damageUpgrades[i].key))
             {
-                deltaPower *= upgrades[i].value;
+                deltaPower *= damageUpgrades[i].value;
                 return;
             }
         }

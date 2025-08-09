@@ -17,6 +17,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask lookLayers;
 
     private Interactable currentInteractable;
+    private ILookDetectable currentLookDetectable;
     private bool canInteract;
     private Vector3 lookPoint;
     private bool interacting;
@@ -78,6 +79,7 @@ public class Interactor : MonoBehaviour
         {
             Interactable newInteractable;
             newInteractable = raycastHit.transform.GetComponent<Interactable>();
+            ILookDetectable newLookDetectable = raycastHit.transform.GetComponent<ILookDetectable>();
 
             if (currentInteractable != newInteractable)
             {
@@ -87,7 +89,21 @@ public class Interactor : MonoBehaviour
                     currentInteractable.SetOutline(false);
                 }
             }
+
+            if (currentLookDetectable != newLookDetectable)
+            {
+                if (currentLookDetectable != null)
+                {
+                    currentLookDetectable.OnEndLook();
+                }
+                if (newLookDetectable != null)
+                {
+                    newLookDetectable.OnStartLook();
+                }
+            }
+
             currentInteractable = newInteractable;
+            currentLookDetectable = newLookDetectable;
 
             if (currentInteractable != null)
             {

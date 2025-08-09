@@ -1,12 +1,19 @@
 using UnityEngine;
 
-public class GearPlace : MonoBehaviour
+public class GearPlace : MonoBehaviour, ILookDetectable
 {
     public Transform Point => transform;
     public bool IsEmpty => gear == null;
     [SerializeField] private Gear gear;
     [SerializeField] private GearManager manager;
     [SerializeField] private float rotatingSpeed;
+    [SerializeField] private string autoKey;
+    private bool automised;
+
+    private void Awake()
+    {
+        automised = SaveManager.instance.HasUpgrade(autoKey);
+    }
 
     public bool IsBroken()
     {
@@ -47,5 +54,26 @@ public class GearPlace : MonoBehaviour
         gear = g;
         g.GetComponent<Rigidbody>().isKinematic = true;
         manager.Check();
+    }
+
+    public void OnStartLook()
+    {
+        if (!automised)
+        {
+            return;
+        }
+
+        if (gear != null && gear.IsBroken && PlayerInventory.instance.InHandItem == null)
+        {
+            gear.Interact();
+        }
+        else if(gear == null && PlayerInventory.instance.InHandItem is Gear)
+        {
+            PlayerInventory.instance.InHandItem.Use();
+        }
+    }
+
+    public void OnEndLook()
+    {
     }
 }

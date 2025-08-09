@@ -445,8 +445,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.99607843, g: 0.6039216, b: 0.3764706, a: 1}
-  m_Intensity: 3.076253
-  m_Range: 8.60418
+  m_Intensity: 3.3020904
+  m_Range: 9.11104
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -10173,6 +10173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultDataId: 1
+  breakeOnAwake: 0
   upgrades:
   - key: fireDamage1
     bonus: 1.25
@@ -10189,7 +10190,13 @@ MonoBehaviour:
   downSource: {fileID: 22200425830146416}
   source: {fileID: 8570590687253619086}
   repairOffset: 1
-  upgrades: []
+  damageUpgrades:
+  - key: fireDamage1
+    value: 1.25
+  - key: fireDamage2
+    value: 1.25
+  - key: fireDamage3
+    value: 1.25
 --- !u!136 &911734050970324014
 CapsuleCollider:
   m_ObjectHideFlags: 0

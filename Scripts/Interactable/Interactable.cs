@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour, ILookDetectable
 {
     public bool CanUnfocus => canUnfocus;
     [SerializeField] private MeshRenderer[] outlineRenderers;
@@ -26,4 +26,18 @@ public abstract class Interactable : MonoBehaviour
             item.enabled = v;
         }
     }
+
+    public virtual void OnStartLook() 
+    {
+    }
+
+    public virtual void OnEndLook()
+    {
+    }
+}
+
+public interface ILookDetectable
+{
+    public void OnStartLook();
+    public void OnEndLook();
 }

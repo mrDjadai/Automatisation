@@ -269,6 +269,7 @@ MonoBehaviour:
   gear: {fileID: 1364018846438623920}
   manager: {fileID: 8053671703811691689}
   rotatingSpeed: 10
+  autoKey: autoGear
 --- !u!54 &2422694613723007535
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -345,6 +346,7 @@ MonoBehaviour:
   gear: {fileID: 8467645904219629536}
   manager: {fileID: 8053671703811691689}
   rotatingSpeed: -10
+  autoKey: autoGear
 --- !u!54 &3723307686299333498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -537,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultDataId: 2
+  breakeOnAwake: 0
   upgrades:
   - key: gears1
     bonus: 0.2
@@ -597,6 +600,7 @@ MonoBehaviour:
   gear: {fileID: 5769153704975396065}
   manager: {fileID: 8053671703811691689}
   rotatingSpeed: 10
+  autoKey: autoGear
 --- !u!54 &7996538372842337726
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -673,6 +677,7 @@ MonoBehaviour:
   gear: {fileID: 7804890195261226805}
   manager: {fileID: 8053671703811691689}
   rotatingSpeed: -10
+  autoKey: autoGear
 --- !u!54 &1758228788414858448
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -749,6 +754,7 @@ MonoBehaviour:
   gear: {fileID: 5471829376390337899}
   manager: {fileID: 8053671703811691689}
   rotatingSpeed: 10
+  autoKey: autoGear
 --- !u!54 &4123411968669143043
 Rigidbody:
   m_ObjectHideFlags: 0
