@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Welding : Instrument, IResourse
 {
+    public bool IsActive => isActive;
     [SerializeField] private ParticleSystem particle;
     [SerializeField] private EaseAudioSourse audioSourse;
 
@@ -13,10 +14,15 @@ public class Welding : Instrument, IResourse
     [SerializeField] private Transform[] gearsUpRotater;
     [SerializeField] private float useTime;
     [SerializeField] private TimeUpgrade[] timeUpgrades;
+    [SerializeField] private AudioSource useSource;
+    [SerializeField] private AudioClip useClip;
+    [SerializeField] private AudioClip unUseClip;
+    [SerializeField] private AudioClip cantUseClip;
 
     private bool isActive;
     private SteamPipePoint point;
     private float lifeTime;
+
 
     private ResourseSpawner resourseSpawner;
 
@@ -46,19 +52,24 @@ public class Welding : Instrument, IResourse
     public override void Use()
     {
         isActive = !isActive;
+
         if (lifeTime >= useTime)
         {
             isActive = false;
+            useSource.PlayOneShot(cantUseClip);
         }
+
         if (isActive)
         {
             particle.Play();
             audioSourse.Play();
+            useSource.PlayOneShot(useClip);
         }
         else
         {
             particle.Stop();
             audioSourse.Stop();
+            useSource.PlayOneShot(unUseClip);
         }
     }
 

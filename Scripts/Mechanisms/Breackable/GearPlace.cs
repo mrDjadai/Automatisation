@@ -4,6 +4,7 @@ public class GearPlace : MonoBehaviour, ILookDetectable
 {
     public Transform Point => transform;
     public bool IsEmpty => gear == null;
+    public Gear PlacedGear => gear;
     [SerializeField] private Gear gear;
     [SerializeField] private GearManager manager;
     [SerializeField] private float rotatingSpeed;
@@ -67,13 +68,21 @@ public class GearPlace : MonoBehaviour, ILookDetectable
         {
             gear.Interact();
         }
-        else if(gear == null && PlayerInventory.instance.InHandItem is Gear)
+        else if(gear == null && PlayerInventory.instance.InHandItem is Gear && !(PlayerInventory.instance.InHandItem as Gear).IsBroken)
         {
             PlayerInventory.instance.InHandItem.Use();
         }
     }
 
     public void OnEndLook()
+    {
+    }
+
+    public void Interact()
+    {
+    }
+
+    public void EndInteract()
     {
     }
 }

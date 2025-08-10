@@ -27,7 +27,7 @@ public class SteamPipe : PeriodicalBreackable
         steamSource.Play();
     }
 
-    public void Repair(float f)
+    public void Repair(float f, bool autoMode)
     {
         float scale = Mathf.Max(0, steam.localScale.x - f);
 
@@ -45,6 +45,21 @@ public class SteamPipe : PeriodicalBreackable
         }
         weldingSource.Play();
         cor = StartCoroutine(Stop());
+
+        if (!autoMode)
+        {
+            return;
+        }
+
+        if (PlayerInventory.instance.InHandItem is Welding)
+        {
+            Welding w = PlayerInventory.instance.InHandItem as Welding;
+
+            if (!w.IsActive)
+            {
+                w.Use();
+            }
+        }
     }
 
     private IEnumerator Stop()

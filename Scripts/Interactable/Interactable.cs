@@ -40,4 +40,6 @@ public interface ILookDetectable
 {
     public void OnStartLook();
     public void OnEndLook();
+    public void Interact();
+    public void EndInteract();
 }

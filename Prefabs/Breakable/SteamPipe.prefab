@@ -653,6 +653,7 @@ MonoBehaviour:
   pipe: {fileID: 6817016962442927770}
   timeToRepair: 5
   repairSpeedKey: weldingRepairSpeed
+  autoKey: autoWelding
   repairSpeedBonus: 1.2
 --- !u!135 &3281917897056366661
 SphereCollider:

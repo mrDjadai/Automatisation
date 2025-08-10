@@ -47,20 +47,20 @@ public class Interactor : MonoBehaviour
     {
         if (canInteract)
         {
-            if (currentInteractable != null)
+            if (currentLookDetectable != null)
             {
                 interacting = true;
-                currentInteractable.Interact();
+                currentLookDetectable.Interact();
             }
         }
     }
 
     public void InteractionEnd()
     {
-        if (currentInteractable != null)
+        if (currentLookDetectable != null)
         {
             interacting = false;
-            currentInteractable.EndInteract();
+            currentLookDetectable.EndInteract();
         }
     }
 

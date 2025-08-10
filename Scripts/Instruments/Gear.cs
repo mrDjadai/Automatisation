@@ -34,6 +34,13 @@ public class Gear : Instrument, IResourse
         }
     }
 
+    public void DropFromPlace()
+    {
+        place.Take();
+        place = null;
+        rb.isKinematic = false;
+    }
+
     public void OnGarbageDestroy()
     {
         if (resourseSpawner != null)

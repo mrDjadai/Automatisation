@@ -57,6 +57,10 @@ public class UpgradeButton : MonoBehaviour
 
     public void Unlock()
     {
+        if (buttonImage.GetComponent<CanvasGroup>().alpha == 0)
+        {
+            Activate();
+        }
         button.interactable = false;
         buttonImage.color = unlockColor;
         arrow.color = unlockColor;
@@ -71,11 +75,6 @@ public class UpgradeButton : MonoBehaviour
 
     public void Activate()
     {
-        if (isUnlocked)
-        {
-            return;
-        }
-
         buttonImage.GetComponent<CanvasGroup>().alpha = 1;
         buttonImage.color = activeColor;
         button.interactable = true;
