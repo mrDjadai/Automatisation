@@ -3866,6 +3866,10 @@ PrefabInstance:
       value: test2
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: blockButton
+      value: 
+      objectReference: {fileID: 776510814}
+    - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: upgradeName
       value: waterStrength3
       objectReference: {fileID: 0}
@@ -4134,6 +4138,10 @@ PrefabInstance:
       propertyPath: key
       value: test1
       objectReference: {fileID: 0}
+    - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: blockButton
+      value: 
+      objectReference: {fileID: 697827652}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: upgradeName
       value: waterStrength2
@@ -11639,7 +11647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: upgradeName
-      value: autoWelding
+      value: speedWithWelding
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: activeOnStart

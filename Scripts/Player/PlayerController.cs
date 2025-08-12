@@ -73,12 +73,22 @@ public class PlayerController : MonoBehaviour
             move = move.normalized;
         }
 
-        move = move * (InPuddle ? puddleSpeed :  moveSpeed) * runModule.GetSpeedMultiplier()
+        move = move * GetSpeed()
             + Vector3.up * verticalVelocity;
 
         controller.Move(move * Time.deltaTime);
     }
 
+    private float GetSpeed()
+    {
+        float speed = (InPuddle ? puddleSpeed : moveSpeed) * runModule.GetSpeedMultiplier();
+        if (PlayerInventory.instance.InHandItem != null)
+        {
+            speed *= PlayerInventory.instance.InHandItem.SpeedMultiplier;
+        }
+        return speed;
+    }   
+    
     private bool IsGrounded()
     {
         return controller.isGrounded || (Physics.Raycast(raycastPoint.position, Vector3.down, raycastLength));

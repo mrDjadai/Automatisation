@@ -18,6 +18,8 @@ public class Welding : Instrument, IResourse
     [SerializeField] private AudioClip useClip;
     [SerializeField] private AudioClip unUseClip;
     [SerializeField] private AudioClip cantUseClip;
+    [SerializeField] private float distanceBonus;
+    [SerializeField] private string distanceKey;
 
     private bool isActive;
     private SteamPipePoint point;
@@ -46,6 +48,11 @@ public class Welding : Instrument, IResourse
             {
                 useTime *= item.multiplier;
             }
+        }
+        if (SaveManager.instance.HasUpgrade(distanceKey))
+        {
+            particle.transform.localScale = new Vector3(1, particle.transform.localScale.y * distanceBonus, 1);
+            raycastDistance *= distanceBonus;
         }
     }
 

@@ -1107,6 +1107,9 @@ MonoBehaviour:
   - {fileID: 5283446436943767464}
   - {fileID: 1661916530843652663}
   - {fileID: 779631250298289594}
+  speedBoostUpgrades:
+  - key: speedWithWelding
+    addedPercent: 0.25
   particle: {fileID: 488575249592989863}
   audioSourse: {fileID: 372753479229936921}
   raycastPoint: {fileID: 7460250035170765597}
@@ -1131,6 +1134,8 @@ MonoBehaviour:
   useClip: {fileID: 8300000, guid: 6c96f17621974ab469d71b6645c210ae, type: 3}
   unUseClip: {fileID: 8300000, guid: 3fbec5a8ff835b34098436a9a752f675, type: 3}
   cantUseClip: {fileID: 8300000, guid: c0bab065919cfed46a8a238b32542c5c, type: 3}
+  distanceBonus: 1.2
+  distanceKey: weldingDistance
 --- !u!82 &2871045433380821765
 AudioSource:
   m_ObjectHideFlags: 0

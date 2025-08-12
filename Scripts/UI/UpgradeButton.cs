@@ -9,9 +9,11 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] private int cost;
 
     [SerializeField] private UpgradeButton[] nextButtons;
+    [SerializeField] private UpgradeButton blockButton;
     [SerializeField] private bool activeOnStart;
 
     [SerializeField] private  Image arrow;
+    [SerializeField] private  Image blocker;
     [SerializeField] private TMP_Text costText;
     private Button button;
     private Image buttonImage;
@@ -19,13 +21,13 @@ public class UpgradeButton : MonoBehaviour
 
     [SerializeField] private Color unlockColor;
     [SerializeField] private Color activeColor;
-
-    private bool isUnlocked;
+    private Color inactiveColor;
 
     private void Awake()
     {
         buttonImage = GetComponent<Image>();
         button = GetComponent<Button>();
+        inactiveColor = button.image.color;
 
         button.onClick.AddListener(OnClick);
         button.interactable = false;
@@ -70,7 +72,10 @@ public class UpgradeButton : MonoBehaviour
             item.Activate();
         }
 
-        isUnlocked = true;
+        if (blockButton != null)
+        {
+            blockButton.Block();
+        }
     }
 
     public void Activate()
@@ -78,5 +83,12 @@ public class UpgradeButton : MonoBehaviour
         buttonImage.GetComponent<CanvasGroup>().alpha = 1;
         buttonImage.color = activeColor;
         button.interactable = true;
+    }
+
+    public void Block()
+    {
+        buttonImage.color = inactiveColor;
+        button.interactable = false;
+        blocker.gameObject.SetActive(true);
     }
 }

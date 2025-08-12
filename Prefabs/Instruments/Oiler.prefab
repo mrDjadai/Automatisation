@@ -188,6 +188,11 @@ MonoBehaviour:
   - {fileID: 5043698711206406995}
   - {fileID: 763539422122876892}
   - {fileID: 2910364606453661788}
+  speedBoostUpgrades:
+  - key: speedWithOiler1
+    addedPercent: 0.3
+  - key: speedWithOiler2
+    addedPercent: 0.2
   maxUses: 5
   raycastPoint: {fileID: 9189285001410072798}
   raycastLayers:

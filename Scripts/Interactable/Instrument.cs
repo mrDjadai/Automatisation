@@ -6,11 +6,13 @@ using System.Collections;
 public class Instrument : Interactable
 {
     public int DefaultLayer { get; private set; }
+    public float SpeedMultiplier { get; protected set; }
     public int ID => id;
 
     [SerializeField] private Vector3 itemRotation;
     [SerializeField] private int id;
     [SerializeField] private Collider[] frictionColliders;
+    [SerializeField] private SpeedBoostUpgrade[] speedBoostUpgrades;
     private Transform _transform;
     protected Rigidbody rb;
     public Coroutine moveCor;
@@ -34,6 +36,16 @@ public class Instrument : Interactable
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         DefaultLayer = gameObject.layer;
+
+        SpeedMultiplier = 1;
+
+        foreach (var item in speedBoostUpgrades)
+        {
+            if (SaveManager.instance.HasUpgrade(item.key))
+            {
+                SpeedMultiplier += item.addedPercent;
+            }
+        }
     }
 
     public override void Interact()
@@ -101,5 +113,11 @@ public class Instrument : Interactable
             yield return new WaitForEndOfFrame();
         }
         moveCor = null;
+    }
+
+    [Serializable] private struct SpeedBoostUpgrade
+    {
+        public string key;
+        public float addedPercent;
     }
 }

@@ -11,6 +11,7 @@ public class Water : Instrument
     [SerializeField] private float rotateTime = 0.5f;
     [SerializeField] private WaterStrength[] upgrades;
 
+    [SerializeField] private AudioSource useSource;
     private bool curMode;
 
     private void Start()
@@ -30,6 +31,7 @@ public class Water : Instrument
     public override void Use()
     {
         SetActiveMode(!curMode);
+        useSource.Play();
     }
 
     protected override void OnDrop()
