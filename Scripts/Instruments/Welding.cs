@@ -19,11 +19,13 @@ public class Welding : Instrument, IResourse
     [SerializeField] private AudioClip unUseClip;
     [SerializeField] private AudioClip cantUseClip;
     [SerializeField] private float distanceBonus;
-    [SerializeField] private string distanceKey;
+    [SerializeField] private string distanceKey; 
+    [SerializeField] private string infinityKey;
 
     private bool isActive;
     private SteamPipePoint point;
     private float lifeTime;
+    private bool isInfinity;
 
 
     private ResourseSpawner resourseSpawner;
@@ -54,13 +56,15 @@ public class Welding : Instrument, IResourse
             particle.transform.localScale = new Vector3(1, particle.transform.localScale.y * distanceBonus, 1);
             raycastDistance *= distanceBonus;
         }
+
+        isInfinity = SaveManager.instance.HasUpgrade(infinityKey);
     }
 
     public override void Use()
     {
         isActive = !isActive;
 
-        if (lifeTime >= useTime)
+        if (!isInfinity && lifeTime >= useTime)
         {
             isActive = false;
             useSource.PlayOneShot(cantUseClip);

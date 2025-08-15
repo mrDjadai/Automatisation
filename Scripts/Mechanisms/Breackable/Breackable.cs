@@ -4,14 +4,19 @@ using Zenject;
 [SelectionBase]
 public abstract class Breackable : MonoBehaviour
 {
+    private const string indicatorKey = "indicator";
+
     [SerializeField] private int difficultDataId;
     [SerializeField] private bool breakeOnAwake;
+    [SerializeField] private GameObject indicator;
+    [SerializeField] private bool canBrakeMore;
 
     public bool IsBroken => isBroken;
     protected bool isBroken;
 
     private LevelStarter levelStarter;
     protected LevelStarter Starter => levelStarter;
+    private bool useIndicator;
 
     [Inject]
     private void Construct(LevelStarter l)
@@ -23,16 +28,26 @@ public abstract class Breackable : MonoBehaviour
         {
             BreakOnAwake();
         }
+        useIndicator = SaveManager.instance.HasUpgrade(indicatorKey);
+
+        if (indicator != null)
+        {
+            indicator.SetActive(false);
+        }
     }
 
     public void Break()
     {
-        if (isBroken)
+        if (!canBrakeMore && isBroken)
         {
             return;
         }
         isBroken = true;
         OnBreak();
+        if (useIndicator)
+        {
+            indicator.SetActive(true);
+        }
     }
 
     protected virtual void BreakOnAwake()
@@ -48,6 +63,10 @@ public abstract class Breackable : MonoBehaviour
         }
         isBroken = false;
         OnRepair();
+        if (useIndicator)
+        {
+            indicator.SetActive(true);
+        }
     }
 
     protected abstract void OnBreak();

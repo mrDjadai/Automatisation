@@ -4,80 +4,59 @@ using System.Collections;
 public class SteamPipe : PeriodicalBreackable
 {
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private Transform steam;
-    [SerializeField] private Transform point;
-    [SerializeField] private float maxScale;
-    [SerializeField] private EaseAudioSourse steamSource;
-    [SerializeField] private EaseAudioSourse weldingSource;
-    [SerializeField] private float weldingTime = 0.2f;
-    [SerializeField] private float repairOffset;
+    [SerializeField] private SteamPipePoint[] points;
+
+
     
-    private Coroutine cor;
 
     protected override void OnBreak()
     {
-        Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-        steam.position = spawn.position;
-        steam.forward = spawn.forward;
-        steam.localScale = maxScale * Vector3.one;
-
-        point.position = spawn.position;
-        point.gameObject.SetActive(true);
-        steamSource.Play();
-    }
-
-    public void Repair(float f, bool autoMode)
-    {
-        float scale = Mathf.Max(0, steam.localScale.x - f);
-
-        steam.localScale = scale * Vector3.one;
-
-        if (scale <= repairOffset)
+        SteamPipePoint point = null;
+        foreach (var item in points)
         {
-            Repair();
-            steam.localScale = Vector3.zero;
-        }
-
-        if (cor != null)
-        {
-            StopCoroutine(cor);
-        }
-        weldingSource.Play();
-        cor = StartCoroutine(Stop());
-
-        if (!autoMode)
-        {
-            return;
-        }
-
-        if (PlayerInventory.instance.InHandItem is Welding)
-        {
-            Welding w = PlayerInventory.instance.InHandItem as Welding;
-
-            if (!w.IsActive)
+            if (item.ConnectedPoint == null)
             {
-                w.Use();
+                point = item;
+                break;
             }
         }
+
+        if (point != null)
+        {
+            while (true)
+            {
+                Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                foreach (var item in points)
+                {
+                    if (item.ConnectedPoint == spawn)
+                    {
+                        break;
+                    }
+                }
+                point.ActivateOnPlace(spawn);
+                return;
+            }
+        }
+      
     }
 
-    private IEnumerator Stop()
+    public void TryRepair()
     {
-        yield return new WaitForSeconds(weldingTime);
-        weldingSource.Stop();
-        cor = null;
+        foreach (var item in points)
+        {
+            if (item.IsBroken)
+            {
+                return;
+            }
+        }
+        Repair();
     }
 
     protected override void OnRepair()
     {
-        point.gameObject.SetActive(false);
-        steamSource.Stop();
-        weldingSource.Stop();
-        if (cor != null)
+        foreach (var item in points)
         {
-            StopCoroutine(cor);
+            item.OnRepair();
         }
-        cor = null;
     }
 }

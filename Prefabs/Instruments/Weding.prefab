@@ -1136,6 +1136,7 @@ MonoBehaviour:
   cantUseClip: {fileID: 8300000, guid: c0bab065919cfed46a8a238b32542c5c, type: 3}
   distanceBonus: 1.2
   distanceKey: weldingDistance
+  infinityKey: infinityWelding
 --- !u!82 &2871045433380821765
 AudioSource:
   m_ObjectHideFlags: 0
