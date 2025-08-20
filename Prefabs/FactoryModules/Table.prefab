@@ -47,7 +47,8 @@ MonoBehaviour:
   prefab: {fileID: 2145844383966946427, guid: b58dd83dc83ceae44b73bf57c9caca69, type: 3}
   respawnDistance: 0.3
   spawnPoint: {fileID: 3080410412155089735}
-  maxCount: 50
+  maxCount: 100
+  isLimitedMode: 1
 --- !u!1 &1613567187210340917
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +96,8 @@ MonoBehaviour:
   prefab: {fileID: 2344522652515136114, guid: f07d9d455b9506c4cbcf7cca17c923e4, type: 3}
   respawnDistance: 0.3
   spawnPoint: {fileID: 2658503704737350308}
-  maxCount: 5
+  maxCount: 20
+  isLimitedMode: 1
 --- !u!1 &3314208015003489424
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +182,8 @@ MonoBehaviour:
   prefab: {fileID: 1697510621664475858, guid: 4fe5d60f6a9783c4da7a24f9c457397e, type: 3}
   respawnDistance: 0.3
   spawnPoint: {fileID: 4200713755107454284}
-  maxCount: 50
+  maxCount: 100
+  isLimitedMode: 1
   variants:
   - key: gearsCount2
     prefab: {fileID: 5069087469042443879, guid: 88c9ee8f7ee3eb947a6aa127a16e205a, type: 3}
@@ -397,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c3b5f4dcbdc5041915ef1edfbc4662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 0.4
 --- !u!54 &7599942847437374249
 Rigidbody:
   m_ObjectHideFlags: 0

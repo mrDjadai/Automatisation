@@ -7,6 +7,19 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance { get; private set; }
 
     public int MaxLevel => save.maxLevel;
+    public int LastGazete
+    {
+        get
+        {
+            return save.lastGazete;
+        }
+
+        set
+        {
+            save.lastGazete = value;
+            SaveGame();
+        }
+    }
 
     public int UpgradePoints
     {
@@ -28,17 +41,6 @@ public class SaveManager : MonoBehaviour
     public void NextLevel()
     {
         save.maxLevel++;
-        SaveGame();
-    }
-
-    public int GetCurrentLevelReward(int num)
-    {
-        return save.levelTakenRewards[num - 1];
-    }   
-
-    public void SetCurrentLevelReward(int num, int value)
-    {
-        save.levelTakenRewards[num - 1] = value;
         SaveGame();
     }
 
@@ -90,8 +92,6 @@ public class SaveManager : MonoBehaviour
     {
         save = new SaveData();
 
-        save.levelTakenRewards = new int[levelCount];
-
         save.unlockedUpgrades = new List<string>();
 
         SaveGame();
@@ -99,12 +99,26 @@ public class SaveManager : MonoBehaviour
 
     private void LoadSave()
     {
-        save = JsonUtility.FromJson<SaveData>(Shifrator.Decrypt(File.ReadAllText(GetSavePath())));
+        if (Debug.isDebugBuild)
+        {
+            save = JsonUtility.FromJson<SaveData>(File.ReadAllText(GetSavePath()));
+        }
+        else
+        {
+            save = JsonUtility.FromJson<SaveData>(Shifrator.Decrypt(File.ReadAllText(GetSavePath())));
+        }
     }
 
     public void SaveGame()
     {
-        File.WriteAllText(GetSavePath(), Shifrator.Encrypt(JsonUtility.ToJson(save)));
+        if (Debug.isDebugBuild)
+        {
+            File.WriteAllText(GetSavePath(), JsonUtility.ToJson(save));
+        }
+        else
+        {
+            File.WriteAllText(GetSavePath(), Shifrator.Encrypt(JsonUtility.ToJson(save)));
+        }
     }
 
     private string GetSavePath()
@@ -135,9 +149,9 @@ public class SaveData
 {
     public int upgradePoints;
 
-    public int[] levelTakenRewards;
-
     public List<string> unlockedUpgrades;
 
     public int maxLevel;
+
+    public int lastGazete;
 }

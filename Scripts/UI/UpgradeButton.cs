@@ -5,7 +5,12 @@ using TMPro;
 [RequireComponent(typeof(Button))]
 public class UpgradeButton : MonoBehaviour
 {
+    public int Cost => cost;
+    public string nameKey => upgradeName;
+    public string descriptionKey => upgradeDescriptionKey;
+
     [SerializeField] private string upgradeName;
+    [SerializeField] private string upgradeDescriptionKey;
     [SerializeField] private int cost;
 
     [SerializeField] private UpgradeButton[] nextButtons;
@@ -22,6 +27,9 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] private Color unlockColor;
     [SerializeField] private Color activeColor;
     private Color inactiveColor;
+
+    [SerializeField] private UpgradeUnlocker unlocker;
+
 
     private void Awake()
     {
@@ -47,6 +55,11 @@ public class UpgradeButton : MonoBehaviour
     }
 
     private void OnClick()
+    {
+        unlocker.SetUpgrade(this);
+    }
+
+    public void TryBuy()
     {
         if (SaveManager.instance.UpgradePoints >= cost)
         {

@@ -56,9 +56,8 @@ MonoBehaviour:
   difficultDataId: 4
   breakeOnAwake: 0
   indicator: {fileID: 2581021085556030153}
-  upgrades:
-  - key: electroBonus1
-    bonus: 0.25
+  canBrakeMore: 0
+  upgrades: []
   levers:
   - {fileID: 7148466294066775323}
   - {fileID: 7168105569643655778}

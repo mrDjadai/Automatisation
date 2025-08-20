@@ -1442,6 +1442,10 @@ PrefabInstance:
       value: test3
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: unlocker
+      value: 
+      objectReference: {fileID: 4216805129514802802}
+    - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: upgradeName
       value: c
       objectReference: {fileID: 0}
@@ -2446,8 +2450,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512538143}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.083731316, y: 0.35670823, z: -0.031262312, w: 0.9299306}
-  m_LocalPosition: {x: -14.21, y: -8.67, z: 12.37}
+  m_LocalRotation: {x: -0.011544181, y: -0.86321175, z: 0.50432307, w: -0.019759305}
+  m_LocalPosition: {x: -10.18, y: -7.14, z: 8.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2529,6 +2533,17 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &512992842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1692664891761519991, guid: 4483396625ca09348a5f4780572e159a, type: 3}
+  m_PrefabInstance: {fileID: 2059321584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab413898919283e4785398ef92e50a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &521195026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3866,6 +3881,10 @@ PrefabInstance:
       value: test2
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: unlocker
+      value: 
+      objectReference: {fileID: 4216805129514802802}
+    - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: blockButton
       value: 
       objectReference: {fileID: 776510814}
@@ -4139,6 +4158,10 @@ PrefabInstance:
       value: test1
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: unlocker
+      value: 
+      objectReference: {fileID: 4216805129514802802}
+    - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: blockButton
       value: 
       objectReference: {fileID: 697827652}
@@ -4149,6 +4172,10 @@ PrefabInstance:
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: activeOnStart
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: AFSDG
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: nextButtons.Array.size
@@ -5937,6 +5964,7 @@ MonoBehaviour:
   animationTime: 1
   activateTime: 0.5
   canvasGroup: {fileID: 169816256}
+  unlocker: {fileID: 4216805129514802802}
 --- !u!54 &1094511887
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6318,6 +6346,7 @@ MonoBehaviour:
   animationTime: 1
   activateTime: 0.5
   canvasGroup: {fileID: 2059321586}
+  unlocker: {fileID: 512992842}
 --- !u!4 &1147092849
 Transform:
   m_ObjectHideFlags: 0
@@ -8317,6 +8346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficultDataId: 0
   breakeOnAwake: 0
+  indicator: {fileID: 0}
+  canBrakeMore: 0
 --- !u!114 &1605242675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11646,12 +11677,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: unlocker
+      value: 
+      objectReference: {fileID: 4216805129514802802}
+    - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: upgradeName
       value: speedWithWelding
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: activeOnStart
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: DESC1
       objectReference: {fileID: 0}
     - target: {fileID: 7030914561092489091, guid: bd133a80773572a43add033d83785f5f, type: 3}
       propertyPath: nextButtons.Array.size
@@ -11847,6 +11886,17 @@ PrefabInstance:
       addedObject: {fileID: 257581829}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4483396625ca09348a5f4780572e159a, type: 3}
+--- !u!114 &4216805129514802802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1692664891761519991, guid: 4483396625ca09348a5f4780572e159a, type: 3}
+  m_PrefabInstance: {fileID: 4216805129514802801}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab413898919283e4785398ef92e50a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5885086387658899465
 PrefabInstance:
   m_ObjectHideFlags: 0

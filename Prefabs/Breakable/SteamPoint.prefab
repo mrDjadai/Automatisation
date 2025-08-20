@@ -63,6 +63,8 @@ MonoBehaviour:
   weldingTime: 0.2
   repairOffset: 0.05
   steam: {fileID: 2238986046900771169}
+  scaleBonusKey: weldingTargetScale
+  scaleBonusValue: 1.5
 --- !u!135 &5482138326595050645
 SphereCollider:
   m_ObjectHideFlags: 0

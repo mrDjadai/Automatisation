@@ -37,17 +37,15 @@ public class GameEnder : MonoBehaviour
         isEnded = true;
 
         int level = PlayerPrefs.GetInt("CurrentLevel");
-        int newReward = GetReward() - SaveManager.instance.GetCurrentLevelReward(level);
 
 
         rewardText.gameObject.SetActive(true);
         rewardText.text = LocalizationManager.instance.GetLocalizedValue(rewardKey) + UpgradePointsTextSetter.GetText(GetReward())
             + '\\' + UpgradePointsTextSetter.GetText(GetMaxReward());
 
-        if (newReward > 0)
+        if (SaveManager.instance.MaxLevel == level)
         {
-            SaveManager.instance.UpgradePoints += newReward;
-            SaveManager.instance.SetCurrentLevelReward(level, GetReward());
+            SaveManager.instance.UpgradePoints ++;
         }
 
         if (SaveManager.instance.MaxLevel == level)

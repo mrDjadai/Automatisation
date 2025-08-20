@@ -11,6 +11,8 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private float activateTime;
     [SerializeField] private CanvasGroup canvasGroup;
 
+    [SerializeField] private UpgradeUnlocker unlocker;
+
     private Vector3 pos;
     private Quaternion rot;
     private Transform tr;
@@ -37,6 +39,7 @@ public class ShopItem : MonoBehaviour
             Move(pos, rot, null);
             canvasGroup.interactable = false;
         }));
+        unlocker.Hide();
     }
 
     private void OnMouseUpAsButton()

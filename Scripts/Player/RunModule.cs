@@ -50,7 +50,9 @@ public class RunModule : MonoBehaviour
 
         if (SaveManager.instance.HasUpgrade(runTimeUpgrade))
         {
+            float lastDuration = runDuration;
             runDuration += runTimeBonus;
+            restoreSpeed *= (runDuration / lastDuration);
         }
     }
 

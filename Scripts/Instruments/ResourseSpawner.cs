@@ -7,6 +7,7 @@ public class ResourseSpawner : MonoBehaviour
     [SerializeField] private float respawnDistance;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private int maxCount = 50;
+    [SerializeField] private bool isLimitedMode;
 
     private List<Transform> spawned = new List<Transform>();
     private Transform lastSpawned;
@@ -19,6 +20,12 @@ public class ResourseSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (isLimitedMode && spawned.Count >= maxCount)
+        {
+            this.enabled = false;
+            return;
+
+        }
         if (Vector3.Distance(lastSpawned.position, spawnPoint.position) > respawnDistance)
         {
             spawned.Add(lastSpawned);
@@ -38,6 +45,10 @@ public class ResourseSpawner : MonoBehaviour
 
     public void RemoveFromList(Transform t)
     {
+        if (isLimitedMode)
+        {
+            return;
+        }
         if (spawned.Contains(t))
         {
             spawned.Remove(t);
@@ -46,6 +57,11 @@ public class ResourseSpawner : MonoBehaviour
 
     public void AddToList(Transform t)
     {
+        if (isLimitedMode)
+        {
+            return;
+        }
+
         if (!spawned.Contains(t))
         {
             spawned.Add(t);

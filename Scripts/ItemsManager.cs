@@ -1,36 +1,39 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 using TMPro;
 
 public class ItemsManager : MonoBehaviour
 {
-    [SerializeField] private Image waitIndicator;
-    [SerializeField] private float waitTime;
     [SerializeField] private float indicatorChangingSpeed;
     [SerializeField] private TargetItem[] items;
     [SerializeField] private Transform textOrigin;
     [SerializeField] private TextMeshProUGUI textPrefab;
+    [SerializeField] private PercentIndicator[] indicators;
 
-    private float lastEnterTime;
     private GameEnder gameEnder;
     private LevelStarter levelStarter;
+    private float waitTime;
+    private float timeFromStart;
 
     [Inject]
     private void Construct(GameEnder ender, LevelStarter l)
     {
         gameEnder = ender;
         levelStarter = l;
+        waitTime = levelStarter.LevelDuration;
     }
 
     private void Awake()
     {
-        lastEnterTime = Time.time;
         foreach (var item in items)
         {
             item.text = Instantiate(textPrefab, textOrigin);
         }
         IndicateCount();
+        foreach (var item in indicators)
+        {
+            item.SetValue(0);
+        }
     }
 
     private void Start()
@@ -49,14 +52,13 @@ public class ItemsManager : MonoBehaviour
         Debug.Log(colorId);
         foreach (var item in items)
         {
-            if (item.id == id && item.colorId == colorId)
+            if (item.id == id)
             {
                 item.count++;
                 Debug.Log(item.count);
                 break;
             }
         }
-        lastEnterTime = Time.time;
         IndicateCount();
 
         if (Checktarget())
@@ -70,16 +72,18 @@ public class ItemsManager : MonoBehaviour
     {
         if (levelStarter.IsStarted() == false)
         {
-            lastEnterTime = Time.time;
             return;
         }
-        float deltaTime = Time.time - lastEnterTime;
+        timeFromStart += Time.deltaTime;
 
-        float targetVal = deltaTime / waitTime;
+        float p = timeFromStart / waitTime;
+        p = Mathf.Clamp01(p);
+        foreach (var item in indicators)
+        {
+            item.SetValue(p);
+        }
 
-        waitIndicator.fillAmount = Mathf.MoveTowards(waitIndicator.fillAmount, targetVal, indicatorChangingSpeed * Time.deltaTime);
-
-        if (deltaTime >= waitTime)
+        if (timeFromStart >= waitTime)
         {
             gameEnder.Lose();
         }
@@ -109,7 +113,6 @@ public class ItemsManager : MonoBehaviour
     private class TargetItem
     {
         public string nameKey;
-        public int colorId;
         public int id;
         public int count;
         public int targetCount;

@@ -424,7 +424,10 @@ MonoBehaviour:
   difficultDataId: 3
   breakeOnAwake: 0
   indicator: {fileID: 3866827329330989587}
-  upgrades: []
+  canBrakeMore: 0
+  upgrades:
+  - key: shlangBonus1
+    bonus: 0.25
   hose: {fileID: 2283214358106554788}
 --- !u!1 &7978477729978094451
 GameObject:

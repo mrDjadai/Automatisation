@@ -25,6 +25,8 @@ public class SteamPipePoint : MonoBehaviour, ILookDetectable
     private bool autoMode;
     [SerializeField] private Transform steam;
     private Coroutine cor;
+    [SerializeField] private string scaleBonusKey;
+    [SerializeField] private float scaleBonusValue;
 
     public void ActivateOnPlace(Transform spawn)
     {
@@ -50,6 +52,11 @@ public class SteamPipePoint : MonoBehaviour, ILookDetectable
         {
             timeToRepair /= infinityBonus;
         }
+        if (SaveManager.instance.HasUpgrade(scaleBonusKey))
+        {
+            point.GetComponent<SphereCollider>().radius *= scaleBonusValue;
+        }
+
         autoMode = SaveManager.instance.HasUpgrade(autoKey);
 
         steamSource.transform.parent = null;

@@ -9,7 +9,8 @@ using System.Linq;
 public class LevelStarter : MonoBehaviour
 {
     public Difficult CurrentDifficult { get; private set; }
-
+    public float LevelDuration { get; private set;
+    }
     private LightActivator lightActivator;
     private TickSetter tickSetter;
 
@@ -27,6 +28,7 @@ public class LevelStarter : MonoBehaviour
     [SerializeField] private WallUnit[] wallUnits;
     [SerializeField] private ObjectUnit[] objectUnits;
     [SerializeField] private Difficult[] difficults;
+    [SerializeField] private float[] levelDurations;
     [SerializeField] private Image gazete;
     [SerializeField] private Sprite[] gazeteSprites;
     [SerializeField] private Button startButton;
@@ -81,6 +83,7 @@ public class LevelStarter : MonoBehaviour
     private void LoadLevel(int level)
     {
         CurrentDifficult = difficults[level - 1];
+        LevelDuration = levelDurations[level - 1];
 
         foreach (var item in wallUnits)
         {
@@ -117,7 +120,6 @@ public class LevelStarter : MonoBehaviour
     {
         CurrentDifficult = difficults[0];
 
-
         gazeteGroup.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -126,12 +128,21 @@ public class LevelStarter : MonoBehaviour
 
     private void Start()
     {
-        gazete.rectTransform.DOScale(Vector2.one, gazeteAnimationTime);
-        gazete.rectTransform.DOLocalRotate(Vector3.forward * gazeteAnimationAngle, gazeteAnimationTime);
-        startButton.image.DOColor(Color.white, buttonShowTime).SetDelay(buttonShowDelay).OnComplete(() => { startButton.interactable = true; });
-        Color tColor = startButtonText.color;
-        tColor.a = 1;
-        startButtonText.DOColor(tColor, buttonShowTime).SetDelay(buttonShowDelay);
+        if (SaveManager.instance.LastGazete >= PlayerPrefs.GetInt("CurrentLevel"))
+        {
+            StartGame();
+        }
+        else
+        {
+            SaveManager.instance.LastGazete = PlayerPrefs.GetInt("CurrentLevel");
+
+            gazete.rectTransform.DOScale(Vector2.one, gazeteAnimationTime);
+            gazete.rectTransform.DOLocalRotate(Vector3.forward * gazeteAnimationAngle, gazeteAnimationTime);
+            startButton.image.DOColor(Color.white, buttonShowTime).SetDelay(buttonShowDelay).OnComplete(() => { startButton.interactable = true; });
+            Color tColor = startButtonText.color;
+            tColor.a = 1;
+            startButtonText.DOColor(tColor, buttonShowTime).SetDelay(buttonShowDelay);
+        }
     }
 
     private void StartGame()

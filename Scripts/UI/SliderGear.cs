@@ -15,7 +15,7 @@ public class SliderGear : MonoBehaviour
         slider.onValueChanged.AddListener(SetValue);    
     }
 
-    private void SetValue(float val)
+    public void SetValue(float val)
     {
         float angle = slider.normalizedValue * (maxAngle - minAngle) + minAngle;
         rotatable.localEulerAngles = rotateAxis * angle;
