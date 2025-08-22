@@ -10,6 +10,7 @@ public class MenuCameraManager : MonoBehaviour
 
     private int current;
     private ShopItem selectedItem;
+    private GazeteItem gazete;
 
     public bool SelectItem(ShopItem i)
     {
@@ -24,6 +25,22 @@ public class MenuCameraManager : MonoBehaviour
         }
 
         selectedItem = i;
+        return true;
+    }   
+    
+    public bool SelectGazete(GazeteItem i)
+    {
+        if (gazete == i)
+        {
+            return false;
+        }
+
+        if (gazete != null)
+        {
+            DropItem();
+        }
+
+        gazete = i;
         return true;
     }
 
@@ -69,6 +86,13 @@ public class MenuCameraManager : MonoBehaviour
         {
             selectedItem.Unselect();
             selectedItem = null;
+            return;
+        }    
+        
+        if (gazete != null)
+        {
+            gazete.UnSelect();
+            gazete = null;
             return;
         }
 

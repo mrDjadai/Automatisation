@@ -1,9 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public bool InPuddle;
     public bool IsMoving => inputVelocity.magnitude > 0;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float puddleSpeed;
@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform raycastPointHead;
     [SerializeField] private float raycastLength;
     [SerializeField] private RunModule runModule;
+    [SerializeField] private string longPuddleKey;
+    [SerializeField] private float longPuddleDuration;
+
+    private bool inPuddle;
+    private bool useLongPuddle;
+    private Coroutine puddleCor;
 
     private CharacterController controller;
     [SerializeField] private Transform cameraTransform;
@@ -26,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        useLongPuddle = SaveManager.instance.HasUpgrade(longPuddleKey);
     }
 
     private void Update()
@@ -81,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     private float GetSpeed()
     {
-        float speed = (InPuddle ? puddleSpeed : moveSpeed) * runModule.GetSpeedMultiplier();
+        float speed = (inPuddle ? puddleSpeed : moveSpeed) * runModule.GetSpeedMultiplier();
         if (PlayerInventory.instance.InHandItem != null)
         {
             speed *= PlayerInventory.instance.InHandItem.SpeedMultiplier;
@@ -93,6 +101,7 @@ public class PlayerController : MonoBehaviour
     {
         return controller.isGrounded || (Physics.Raycast(raycastPoint.position, Vector3.down, raycastLength));
     }    
+
     private void RotateCamera()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * PlayerPrefs.GetFloat("Sensability");
@@ -103,5 +112,32 @@ public class PlayerController : MonoBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    public void OnPuddleEnter()
+    {
+        if (puddleCor != null)
+        {
+            StopCoroutine(puddleCor);
+        }
+        inPuddle = true;
+    }
+
+    public void OnPuddleExit()
+    {
+        if (useLongPuddle)
+        {
+            puddleCor = StartCoroutine(LongPuddle());
+        }
+        else
+        {
+            inPuddle = false;
+        }
+    }
+
+    private IEnumerator LongPuddle()
+    {
+        yield return new WaitForSeconds(longPuddleDuration);
+        inPuddle = false;
     }
 }

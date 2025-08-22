@@ -14,7 +14,7 @@
         },
         {
             "key": "lose",
-            "value": "You caused the loss of expensive\nequipment. Its cost will be\ndeducted from your wages"
+            "value": "You have allowed the loss of expensive \ n equipment, its cost will be \ nch from your salary, and you will be dismissed. A new employee will come for a replacement"
         },
         {
             "key": "menu",

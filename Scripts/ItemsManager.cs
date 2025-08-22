@@ -9,6 +9,8 @@ public class ItemsManager : MonoBehaviour
     [SerializeField] private Transform textOrigin;
     [SerializeField] private TextMeshProUGUI textPrefab;
     [SerializeField] private PercentIndicator[] indicators;
+    [SerializeField] private string detailsBonusKey;
+    [SerializeField, Range(0, 1)] private float detailsBonus;
 
     private GameEnder gameEnder;
     private LevelStarter levelStarter;
@@ -25,9 +27,21 @@ public class ItemsManager : MonoBehaviour
 
     private void Awake()
     {
+        if (SaveManager.instance.HasUpgrade(detailsBonusKey))
+        {
+            float newVal = 1 - detailsBonus;
+
+            foreach (var item in items)
+            {
+                item.targetCount = Mathf.RoundToInt(item.targetCount * newVal);
+            }
+        }
+
         foreach (var item in items)
         {
             item.text = Instantiate(textPrefab, textOrigin);
+            item.textCount = Instantiate(textPrefab, item.text.transform);
+            item.textCount.alignment = TextAlignmentOptions.MidlineRight;
         }
         IndicateCount();
         foreach (var item in indicators)
@@ -93,7 +107,8 @@ public class ItemsManager : MonoBehaviour
     {
         foreach (var item in items)
         {
-            item.text.text = LocalizationManager.instance.GetLocalizedValue(item.nameKey) + ": " + item.count + "/" + item.targetCount;
+            item.text.text = LocalizationManager.instance.GetLocalizedValue(item.nameKey) + ": ";
+            item.textCount.text = item.count + "/" + item.targetCount;
         }
     }
 
@@ -117,6 +132,7 @@ public class ItemsManager : MonoBehaviour
         public int count;
         public int targetCount;
         public TextMeshProUGUI text;
+        public TextMeshProUGUI textCount;
     }
 
 }

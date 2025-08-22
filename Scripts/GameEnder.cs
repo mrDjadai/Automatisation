@@ -66,6 +66,9 @@ public class GameEnder : MonoBehaviour
             return;
         }
         isEnded = true;
+
+        SaveManager.instance.GenerateRandomName();
+
         foreach (var item in loseObjects)
         {
             item.SetActive(true);

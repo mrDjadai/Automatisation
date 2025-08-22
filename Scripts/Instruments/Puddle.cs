@@ -51,7 +51,7 @@ public class Puddle : MonoBehaviour
 
         if (other.TryGetComponent<PlayerController>(out PlayerController player))
         {
-            player.InPuddle = true;
+            player.OnPuddleEnter();
         }
 
         if (other.attachedRigidbody == null)
@@ -74,7 +74,7 @@ public class Puddle : MonoBehaviour
 
         if (other.TryGetComponent<PlayerController>(out PlayerController player))
         {
-            player.InPuddle = false;
+            player.OnPuddleExit();
         }
 
         if (other.attachedRigidbody == null)

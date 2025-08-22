@@ -103,6 +103,7 @@ public class LocalizationManager : MonoBehaviour
         Debug.Log("GetLanguagePrefs");
         LoadLocalizedText(currentLanguage);
     }
+
     public void LoadLocalizedText(string langName)
     {
         Debug.Log("StartedLoading");
@@ -133,6 +134,7 @@ public class LocalizationManager : MonoBehaviour
         OnLanguageChanged?.Invoke();
         Debug.Log("InvoleDelegate");
     }
+
 
     public string GetLocalizedValue(string key)
     {

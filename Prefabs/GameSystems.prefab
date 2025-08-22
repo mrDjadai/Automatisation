@@ -465,16 +465,20 @@ MonoBehaviour:
     count: 0
     targetCount: 10
     text: {fileID: 0}
+    textCount: {fileID: 0}
   - nameKey: boiler
     id: 1
     count: 0
     targetCount: 20
     text: {fileID: 0}
+    textCount: {fileID: 0}
   textOrigin: {fileID: 6470981710353137323}
   textPrefab: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
   indicators:
   - {fileID: 3132258060670735872}
   - {fileID: 1576482138460646174}
+  detailsBonusKey: easyPlan
+  detailsBonus: 0.1
 --- !u!1 &550486958783658934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2567,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f858fd8ff2d8b954ca7f12cba9c09ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InPuddle: 0
   moveSpeed: 4
   puddleSpeed: 6.5
   mouseSensitivity: 0.4
@@ -2575,6 +2578,8 @@ MonoBehaviour:
   raycastPointHead: {fileID: 8888543024764407348}
   raycastLength: 0.1
   runModule: {fileID: 2345172635766352645}
+  longPuddleKey: longPuddle
+  longPuddleDuration: 1
   cameraTransform: {fileID: 4354511961588958268}
 --- !u!114 &2606023521641789396
 MonoBehaviour:
@@ -2747,7 +2752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -754, y: 678}
+  m_AnchoredPosition: {x: -1379, y: 678}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357120603615035071

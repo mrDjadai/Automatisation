@@ -7,6 +7,8 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance { get; private set; }
 
     public int MaxLevel => save.maxLevel;
+    public string CharacterName => save.CharacterName;
+
     public int LastGazete
     {
         get
@@ -94,6 +96,8 @@ public class SaveManager : MonoBehaviour
 
         save.unlockedUpgrades = new List<string>();
 
+        GenerateRandomName();
+
         SaveGame();
     }
 
@@ -107,6 +111,11 @@ public class SaveManager : MonoBehaviour
         {
             save = JsonUtility.FromJson<SaveData>(Shifrator.Decrypt(File.ReadAllText(GetSavePath())));
         }
+    }
+
+    private string GetNamesPath()
+    {
+        return Application.streamingAssetsPath + "/languages/Names/" + "en_US" + ".json";
     }
 
     public void SaveGame()
@@ -142,6 +151,28 @@ public class SaveManager : MonoBehaviour
             }
         }
     }
+
+    public void GenerateRandomName()
+    {
+        NamesData data = JsonUtility.FromJson<NamesData>(File.ReadAllText(GetNamesPath()));
+        string[] names = data.names;
+        string[] secondNames = data.secondNames;
+
+        string n;
+        do
+        {
+            n = names[Random.Range(0, names.Length)] + " " + secondNames[Random.Range(0, secondNames.Length)];
+        } while (n == save.CharacterName);
+        save.CharacterName = n;
+        SaveGame();
+    }
+}
+
+[System.Serializable]
+public class NamesData
+{
+    public string[] names;
+    public string[] secondNames;
 }
 
 [System.Serializable]
@@ -154,4 +185,6 @@ public class SaveData
     public int maxLevel;
 
     public int lastGazete;
+
+    public string CharacterName;
 }
