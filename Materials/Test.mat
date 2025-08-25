@@ -116,7 +116,7 @@ Material:
     - _Metalic: -2.47
     - _Metallic: 0
     - _MinVal: 0.29
-    - _NoiseScale: 9.1
+    - _NoiseScale: 0.7
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
