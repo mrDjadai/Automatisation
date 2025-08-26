@@ -5,7 +5,7 @@ using TMPro;
 public class ItemsManager : MonoBehaviour
 {
     [SerializeField] private float indicatorChangingSpeed;
-    [SerializeField] private TargetItem[] items;
+    [SerializeField] private LevelData[] levels;
     [SerializeField] private Transform textOrigin;
     [SerializeField] private TextMeshProUGUI textPrefab;
     [SerializeField] private PercentIndicator[] indicators;
@@ -16,6 +16,7 @@ public class ItemsManager : MonoBehaviour
     private LevelStarter levelStarter;
     private float waitTime;
     private float timeFromStart;
+    private TargetItem[] items;
 
     [Inject]
     private void Construct(GameEnder ender, LevelStarter l)
@@ -23,6 +24,7 @@ public class ItemsManager : MonoBehaviour
         gameEnder = ender;
         levelStarter = l;
         waitTime = levelStarter.LevelDuration;
+        items = levels[l.Level - 1].items;
     }
 
     private void Awake()
@@ -125,14 +127,20 @@ public class ItemsManager : MonoBehaviour
     }   
     
     [System.Serializable]
+    private class LevelData
+    {
+        public TargetItem[] items;
+    }
+
+    [System.Serializable]
     private class TargetItem
     {
         public string nameKey;
         public int id;
-        public int count;
+        [HideInInspector] public int count;
         public int targetCount;
-        public TextMeshProUGUI text;
-        public TextMeshProUGUI textCount;
+        [HideInInspector] public TextMeshProUGUI text;
+        [HideInInspector] public TextMeshProUGUI textCount;
     }
 
 }

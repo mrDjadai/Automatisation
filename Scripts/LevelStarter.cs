@@ -9,8 +9,8 @@ using System.Linq;
 public class LevelStarter : MonoBehaviour
 {
     public Difficult CurrentDifficult { get; private set; }
-    public float LevelDuration { get; private set;
-    }
+    public float LevelDuration { get; private set;}
+    public int Level { get; private set; }
     private LightActivator lightActivator;
     private TickSetter tickSetter;
 
@@ -67,12 +67,12 @@ public class LevelStarter : MonoBehaviour
 
     public void Init()
     {
-        int level = PlayerPrefs.GetInt("CurrentLevel");
-        Debug.Log("Loaded level" + level);
+        Level = PlayerPrefs.GetInt("CurrentLevel");
+        Debug.Log("Loaded level" + Level);
 
-        if (level != 0)
+        if (Level != 0)
         {
-            LoadLevel(level);
+            LoadLevel(Level);
         }
         else
         {
@@ -128,13 +128,13 @@ public class LevelStarter : MonoBehaviour
 
     private void Start()
     {
-        if (SaveManager.instance.LastGazete >= PlayerPrefs.GetInt("CurrentLevel"))
+        if (SaveManager.instance.LastGazete >= Level)
         {
             StartGame();
         }
         else
         {
-            SaveManager.instance.LastGazete = PlayerPrefs.GetInt("CurrentLevel");
+            SaveManager.instance.LastGazete = Level;
 
             gazete.rectTransform.DOScale(Vector2.one, gazeteAnimationTime);
             gazete.rectTransform.DOLocalRotate(Vector3.forward * gazeteAnimationAngle, gazeteAnimationTime);

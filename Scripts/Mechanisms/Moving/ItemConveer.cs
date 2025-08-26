@@ -7,6 +7,10 @@ public class ItemConveer : Tickable, IItemConnectable
 
     [SerializeField] private ItemPoint output;
 
+    public void OverideOutput(ItemPoint p)
+    {
+        output = p;
+    }
 
     public void ConnectToInput(ItemPoint innerPoint, ItemPoint outerPoint)
     {

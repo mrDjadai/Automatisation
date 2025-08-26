@@ -459,19 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicatorChangingSpeed: 0.2
-  items:
-  - nameKey: piston
-    id: 0
-    count: 0
-    targetCount: 10
-    text: {fileID: 0}
-    textCount: {fileID: 0}
-  - nameKey: boiler
-    id: 1
-    count: 0
-    targetCount: 20
-    text: {fileID: 0}
-    textCount: {fileID: 0}
+  levels: []
   textOrigin: {fileID: 6470981710353137323}
   textPrefab: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
   indicators:
@@ -1007,6 +995,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: menu
+--- !u!1 &1134214074380904396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6039876053307795313}
+  - component: {fileID: 8601695317519520753}
+  m_Layer: 0
+  m_Name: BreakManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6039876053307795313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134214074380904396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4855190829156186514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8601695317519520753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134214074380904396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eee39520e07146c438c01842da7e794e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countToDelay:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 1
+      inSlope: -0
+      outSlope: 0.0014766844
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.47331077
+    - serializedVersion: 3
+      time: 20
+      value: 2
+      inSlope: 0.06666667
+      outSlope: 0.06666667
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1269210451038017028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,7 +2840,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 45}
+  m_CellSize: {x: 150, y: 67.5}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -3201,7 +3266,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 8
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d8540c8b389b0c34686d8efaf0f282e1, type: 2}
@@ -4254,6 +4319,7 @@ Transform:
   - {fileID: 4942920017381654220}
   - {fileID: 451384827044174771}
   - {fileID: 7521825229584524120}
+  - {fileID: 6039876053307795313}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6228032247840364001
@@ -4975,6 +5041,7 @@ MonoBehaviour:
   player: {fileID: 4615123604898750236}
   levelStarter: {fileID: 2393117993865592497}
   lightActivator: {fileID: 6610494602794534174}
+  breakManager: {fileID: 8601695317519520753}
 --- !u!1 &8232657692614643741
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,6 +58,11 @@ public class RunModule : MonoBehaviour
 
     private void Update()
     {
+        if (!isActive)
+        {
+            return;
+        }
+
         isRunning = Input.GetKey(KeyCode.LeftShift);
 
         targetAlpha = (runTime > 0) ? 1 : 0;

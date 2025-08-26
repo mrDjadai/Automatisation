@@ -3,6 +3,7 @@ using UnityEngine;
 public class HoseManager : PeriodicalBreackable
 {
     [SerializeField] private Hose hose;
+    [SerializeField] private AudioSource repairSource;
 
     protected override void OnBreak()
     {
@@ -11,6 +12,6 @@ public class HoseManager : PeriodicalBreackable
 
     protected override void OnRepair()
     {
-
+        repairSource.Play();
     }
 }

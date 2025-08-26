@@ -32,7 +32,7 @@ public class PressureButton : Breackable
         while (true)
         {
             yield return new WaitForEndOfFrame();
-            time += Time.deltaTime;
+            time += Time.deltaTime / BreakManager.DelayMultiplier;
             float angle = minAngle + (maxAngle - minAngle) * (time / timeForMax);
 
             if (isBroken)

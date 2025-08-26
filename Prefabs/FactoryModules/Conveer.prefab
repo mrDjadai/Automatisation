@@ -592,7 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48ddbdaa64484240b996a7d6afba0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breackables: []
+  breackables:
+  - {fileID: 6539956880173047068}
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
 --- !u!65 &7068522666278297690

@@ -15,13 +15,19 @@ public abstract class Breackable : MonoBehaviour
     protected bool isBroken;
 
     private LevelStarter levelStarter;
+    private BreakManager breakManager;
+
     protected LevelStarter Starter => levelStarter;
+    protected BreakManager BreakManager => breakManager;
+
     private bool useIndicator;
 
     [Inject]
-    private void Construct(LevelStarter l)
+    private void Construct(LevelStarter l, BreakManager b)
     {
         levelStarter = l;
+        breakManager = b;
+
         OnLoadSettings(levelStarter.CurrentDifficult.GetDifficultData(difficultDataId));
 
         if (breakeOnAwake)
@@ -48,6 +54,7 @@ public abstract class Breackable : MonoBehaviour
         {
             indicator.SetActive(true);
         }
+        breakManager.OnBreak();
     }
 
     protected virtual void BreakOnAwake()
@@ -67,6 +74,7 @@ public abstract class Breackable : MonoBehaviour
         {
             indicator.SetActive(true);
         }
+        breakManager.OnRepair();
     }
 
     protected abstract void OnBreak();
