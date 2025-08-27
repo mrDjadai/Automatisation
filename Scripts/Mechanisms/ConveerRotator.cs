@@ -3,7 +3,8 @@ using Zenject;
 
 public class ConveerRotator : MonoBehaviour
 {
-    [SerializeField] private Breackable[] breackables;
+    [SerializeField] private Tickable itemConveer;
+    private Breackable[] breackables;
     [SerializeField] private Transform[] rotatables;
     [SerializeField] private float speed;
     [SerializeField] private EaseAudioSourse audioSourse;
@@ -14,6 +15,11 @@ public class ConveerRotator : MonoBehaviour
     private void Construct(LevelStarter l)
     {
         levelStarter = l;
+    }
+
+    private void Awake()
+    {
+        breackables = itemConveer.breackables;
     }
 
     private void Update()

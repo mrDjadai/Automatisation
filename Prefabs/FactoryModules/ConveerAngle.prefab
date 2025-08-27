@@ -553,6 +553,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &839866095302006808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -682,6 +683,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &741793942728134023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1128,6 +1130,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &4617116777749177329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1789,6 +1792,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &3622593663536317799
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1886,6 +1890,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &210012996522246485
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3253,6 +3258,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &6280388944403201341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3854,7 +3860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbccb30e8ecd67449d757332713daa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breackables: []
+  itemConveer: {fileID: 3999075460772316811}
   rotatables:
   - {fileID: 552045157697386344}
   - {fileID: 175544277770784207}
@@ -4433,6 +4439,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &3392767779305430342
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5063,6 +5070,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &7068522666278297690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5246,6 +5254,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 0, y: 0, z: 2}
+  itemConveer: {fileID: 3999075460772316811}
 --- !u!65 &6664488956903923261
 BoxCollider:
   m_ObjectHideFlags: 0

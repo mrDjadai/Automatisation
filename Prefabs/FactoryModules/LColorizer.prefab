@@ -85,10 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbccb30e8ecd67449d757332713daa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breackables:
-  - {fileID: 7945401048167624598}
-  - {fileID: 1785528976404622991}
-  - {fileID: 986755879904184651}
+  itemConveer: {fileID: 1319515202243267973}
   rotatables:
   - {fileID: 5722586277436550052}
   - {fileID: 399574843144312454}

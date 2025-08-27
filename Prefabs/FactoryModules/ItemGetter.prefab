@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbccb30e8ecd67449d757332713daa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breackables: []
+  itemConveer: {fileID: 8309025385464145818}
   rotatables:
   - {fileID: 1191906158681605758}
   - {fileID: 8164625059312947124}

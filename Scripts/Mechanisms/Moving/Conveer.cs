@@ -4,7 +4,7 @@ using Zenject;
 public class Conveer : Tickable
 {
     [SerializeField] private Vector3 localForce;
-
+    [SerializeField] private Tickable itemConveer;
     private Vector3 force;
 
     private LevelStarter levelStarter;
@@ -21,7 +21,9 @@ public class Conveer : Tickable
 
     private void Awake()
     {
-        force = transform.localToWorldMatrix.MultiplyVector(localForce);    
+        force = transform.localToWorldMatrix.MultiplyVector(localForce);
+        breackables = itemConveer.breackables;
+
     }
 
     private void OnTriggerStay(Collider other)

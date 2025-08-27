@@ -3,7 +3,8 @@ using Zenject;
 
 public abstract class Tickable : MonoBehaviour
 {
-    [SerializeField] private Breackable[] breackables;
+
+    public Breackable[] breackables;
     [SerializeField, Min(1)] private int tickForUse = 1;
     protected GameSettings settings;
     private TickSetter tick;

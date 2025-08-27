@@ -445,8 +445,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.99607843, g: 0.6039216, b: 0.3764706, a: 1}
-  m_Intensity: 0
-  m_Range: 10
+  m_Intensity: 1.5347269
+  m_Range: 6.6109104
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -10093,8 +10093,8 @@ MonoBehaviour:
   - light: {fileID: 8057977662733209129}
     loop: 1
     animateIntensity: 1
-    intensityStart: 2.5
-    intensityEnd: 4
+    intensityStart: 1
+    intensityEnd: 2
     intensityDuration: 1
     intensityCurve:
       serializedVersion: 2
@@ -10109,8 +10109,8 @@ MonoBehaviour:
     fadeOut: 1
     fadeOutDuration: 1
     animateRange: 1
-    rangeStart: 7
-    rangeEnd: 10
+    rangeStart: 5
+    rangeEnd: 8
     rangeDuration: 0
     rangeCurve:
       serializedVersion: 2
@@ -10176,6 +10176,7 @@ MonoBehaviour:
   difficultDataId: 1
   breakeOnAwake: 0
   indicator: {fileID: 3480582617672585600}
+  canBrakeMore: 0
   upgrades:
   - key: fireDamage1
     bonus: 1.25

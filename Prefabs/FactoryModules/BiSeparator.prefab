@@ -140,6 +140,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 2, y: 0, z: 0}
+  itemConveer: {fileID: 6963218862781112757}
 --- !u!65 &6044813507697611876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -555,6 +556,7 @@ MonoBehaviour:
   breackables: []
   tickForUse: 1
   localForce: {x: 2, y: 0, z: 0}
+  itemConveer: {fileID: 6963218862781112757}
 --- !u!65 &8967241157192059241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -702,6 +704,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.024
       objectReference: {fileID: 0}
+    - target: {fileID: 7931691656941760720, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+      propertyPath: itemConveer
+      value: 
+      objectReference: {fileID: 6963218862781112757}
     - target: {fileID: 8959702241170451873, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.042009592
