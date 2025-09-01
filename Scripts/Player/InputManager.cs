@@ -5,9 +5,14 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] InputAction[] actions;
     [SerializeField] InputAction[] buttonUpActions;
+    [SerializeField] private GameEnder gameEnder;
 
     private void Update()
     {
+        if (gameEnder.IsEnded)
+        {
+            return;
+        }
         foreach (var item in actions)
         {
             if (Input.GetKeyDown(item.key))

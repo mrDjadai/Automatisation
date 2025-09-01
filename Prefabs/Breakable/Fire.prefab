@@ -445,8 +445,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.99607843, g: 0.6039216, b: 0.3764706, a: 1}
-  m_Intensity: 1.5347269
-  m_Range: 6.6109104
+  m_Intensity: 0
+  m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -10192,6 +10192,8 @@ MonoBehaviour:
   startSource: {fileID: 7039095053512008200}
   downSource: {fileID: 22200425830146416}
   source: {fileID: 8570590687253619086}
+  selfDamagePoint: 2
+  selfDamage: 2
   repairOffset: 1
   damageUpgrades:
   - key: fireDamage1

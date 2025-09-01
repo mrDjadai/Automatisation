@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private RunModule runModule;
     [SerializeField] private string longPuddleKey;
     [SerializeField] private float longPuddleDuration;
+    [SerializeField] private GameEnder gameEnder;
 
     private bool inPuddle;
     private bool useLongPuddle;
@@ -59,7 +60,10 @@ public class PlayerController : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
-        inputVelocity = transform.right * moveX + transform.forward * moveZ;
+        if (!gameEnder.IsEnded)
+        {
+            inputVelocity = transform.right * moveX + transform.forward * moveZ;
+        }
 
         Vector3 move = inputVelocity;
 
@@ -139,5 +143,10 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(longPuddleDuration);
         inPuddle = false;
+    }
+
+    private void OnDisable()
+    {
+        inputVelocity = Vector3.zero;
     }
 }

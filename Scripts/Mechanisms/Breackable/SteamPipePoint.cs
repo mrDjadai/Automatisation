@@ -16,6 +16,8 @@ public class SteamPipePoint : MonoBehaviour, ILookDetectable
     [SerializeField] private EaseAudioSourse steamSource;
     [SerializeField] private EaseAudioSourse weldingSource;
     [SerializeField] private Transform point;
+    [SerializeField] private float selfDamagePoint;
+    [SerializeField] private float selfDamage;
 
     [SerializeField] private float maxScale;
 
@@ -70,6 +72,11 @@ public class SteamPipePoint : MonoBehaviour, ILookDetectable
         if (isRepairing)
         {
             Repair(Time.deltaTime / timeToRepair, autoMode);
+        }
+
+        if (steam.localScale.x < selfDamagePoint)
+        {
+            Repair(selfDamage * Time.deltaTime, false);
         }
     }
 

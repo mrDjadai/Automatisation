@@ -519,6 +519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteamPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 742111508832874929, guid: 45420189720553c4b9d42344b7efdead, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5509480772880052728, guid: 45420189720553c4b9d42344b7efdead, type: 3}
       propertyPath: pipe
       value: 
@@ -595,6 +599,10 @@ PrefabInstance:
     - target: {fileID: 742111508832874929, guid: 45420189720553c4b9d42344b7efdead, type: 3}
       propertyPath: m_Name
       value: SteamPoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 742111508832874929, guid: 45420189720553c4b9d42344b7efdead, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5509480772880052728, guid: 45420189720553c4b9d42344b7efdead, type: 3}
       propertyPath: pipe
@@ -739,6 +747,10 @@ PrefabInstance:
     - target: {fileID: 742111508832874929, guid: 45420189720553c4b9d42344b7efdead, type: 3}
       propertyPath: m_Name
       value: SteamPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 742111508832874929, guid: 45420189720553c4b9d42344b7efdead, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5509480772880052728, guid: 45420189720553c4b9d42344b7efdead, type: 3}
       propertyPath: pipe

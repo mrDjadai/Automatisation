@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   values:
   - header: Belt
-    minFirstPeriodPercent: 0
-    minPeriod: 30
-    periodOffset: 20
+    minFirstPeriodPercent: 0.1
+    minPeriod: 50
+    periodOffset: 25
   - header: Fire
     minFirstPeriodPercent: 0.5
-    minPeriod: 35
+    minPeriod: 80
     periodOffset: 20
   - header: Gears
     minFirstPeriodPercent: 0.3

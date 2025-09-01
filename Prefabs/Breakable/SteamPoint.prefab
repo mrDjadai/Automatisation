@@ -59,9 +59,11 @@ MonoBehaviour:
   steamSource: {fileID: 6650586333468172795}
   weldingSource: {fileID: 8018493125482461059}
   point: {fileID: 8035402963828117391}
+  selfDamagePoint: 0.1
+  selfDamage: 1
   maxScale: 0.2
   weldingTime: 0.2
-  repairOffset: 0.05
+  repairOffset: 0.04
   steam: {fileID: 2238986046900771169}
   scaleBonusKey: weldingTargetScale
   scaleBonusValue: 1.5

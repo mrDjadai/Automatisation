@@ -12,6 +12,8 @@ public class Fire : PeriodicalBreackable
     [SerializeField] private AudioSource startSource;
     [SerializeField] private AudioSource downSource;
     [SerializeField] private EaseAudioSourse source;
+    [SerializeField] private float selfDamagePoint;
+    [SerializeField] private float selfDamage;
     [SerializeField] private float repairOffset;
     [SerializeField] private DamageUpgrade[] damageUpgrades;
 
@@ -67,6 +69,14 @@ public class Fire : PeriodicalBreackable
     protected override void OnRepair()
     {
         source.Stop();
+    }
+
+    private void Update()
+    {
+        if (isBroken && power < selfDamagePoint)
+        {
+            power -= selfDamage * Time.deltaTime;
+        }
     }
 
     [System.Serializable]

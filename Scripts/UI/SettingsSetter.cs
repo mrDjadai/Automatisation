@@ -37,6 +37,10 @@ public class SettingsSetter : MonoBehaviour
         if (value.Length < 3)
         {
             value = '0' + value;
+            if (value.Length < 3)
+            {
+                value = '0' + value;
+            }
         }
         text.text = value;
     }

@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class BossAngerIndicator : PercentIndicator
 {
@@ -7,12 +8,14 @@ public class BossAngerIndicator : PercentIndicator
     [SerializeField] private Light lamp;
     [SerializeField] private MeshRenderer lampRenderer;
     [SerializeField] private AngerLevel[] levels;
-    [SerializeField] private TMPro.TMP_Text percent;
+    [SerializeField] private TMP_Text percent;
 
     public override void SetValue(float v)
     {
         slider.SetValueWithoutNotify(v);
         slider.onValueChanged.Invoke(v);
+
+        SetText(percent, Mathf.RoundToInt(v * 100).ToString());
 
         for (int i = levels.Length - 1; i >= 0; i--)
         {
@@ -22,7 +25,19 @@ public class BossAngerIndicator : PercentIndicator
                 return;
             }
         }
-        percent.text = Mathf.RoundToInt(v * 100).ToString();
+    }
+
+    private void SetText(TMP_Text text, string value)
+    {
+        if (value.Length < 3)
+        {
+            value = '0' + value;
+            if (value.Length < 3)
+            {
+                value = '0' + value;
+            }
+        }
+        text.text = value;
     }
 
     private void SetColor(Color c)

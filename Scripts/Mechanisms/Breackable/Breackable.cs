@@ -74,7 +74,10 @@ public abstract class Breackable : MonoBehaviour
         {
             indicator.SetActive(true);
         }
-        breakManager.OnRepair();
+        if (breakManager != null)
+        {
+            breakManager.OnRepair();
+        }
     }
 
     protected abstract void OnBreak();

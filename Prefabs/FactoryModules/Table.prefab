@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2145844383966946427, guid: b58dd83dc83ceae44b73bf57c9caca69, type: 3}
-  respawnDistance: 0.3
+  respawnDistance: 0.5
   spawnPoint: {fileID: 3080410412155089735}
   maxCount: 100
   isLimitedMode: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2344522652515136114, guid: f07d9d455b9506c4cbcf7cca17c923e4, type: 3}
-  respawnDistance: 0.3
+  respawnDistance: 0.5
   spawnPoint: {fileID: 2658503704737350308}
   maxCount: 20
   isLimitedMode: 1
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1697510621664475858, guid: 4fe5d60f6a9783c4da7a24f9c457397e, type: 3}
-  respawnDistance: 0.3
+  respawnDistance: 0.5
   spawnPoint: {fileID: 4200713755107454284}
   maxCount: 100
   isLimitedMode: 1

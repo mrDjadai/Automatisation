@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 public class GameEnder : MonoBehaviour
 {
+    public bool IsEnded => isEnded;
     [SerializeField] private float showTime;
     [SerializeField] private Image[] images;
     [SerializeField] private TextMeshProUGUI[] textes;

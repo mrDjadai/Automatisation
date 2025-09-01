@@ -75,7 +75,7 @@ public class Interactor : MonoBehaviour
         }
 
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, interactLayers))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, interactDistance, interactLayers))
         {
             Interactable newInteractable;
             newInteractable = raycastHit.transform.GetComponent<Interactable>();
@@ -111,19 +111,8 @@ public class Interactor : MonoBehaviour
             }
             if (currentInteractable != null)
             {
-                if (raycastHit.distance <= interactDistance)
-                {
-                    indicatorColor = Color.white;
-                    canInteract = true;
-                }
-            }
-            else
-            {
-                InteractionEnd();
-                if (currentInteractable != null)
-                {
-                    currentInteractable.SetOutline(false);
-                }
+                indicatorColor = Color.white;
+                canInteract = true;
             }
         }
         interactIndicator.color = indicatorColor;

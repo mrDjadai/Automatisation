@@ -24,7 +24,10 @@ public class ItemsManager : MonoBehaviour
         gameEnder = ender;
         levelStarter = l;
         waitTime = levelStarter.LevelDuration;
-        items = levels[l.Level - 1].items;
+        if (l.Level != 0)
+        {
+            items = levels[l.Level - 1].items;
+        }
     }
 
     private void Awake()

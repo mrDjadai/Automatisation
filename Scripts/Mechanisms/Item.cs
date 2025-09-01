@@ -41,6 +41,7 @@ public class Item : MonoBehaviour
         curPoint = point;
         isMoving = true;
         tr.DOMove(point.Point.position, movingTime).SetEase(Ease.Linear).OnComplete(() => { isMoving = false; });
+        tr.DORotate(point.Point.eulerAngles, movingTime).SetEase(Ease.Linear);
         return true;
     }   
 }
