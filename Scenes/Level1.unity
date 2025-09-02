@@ -6997,6 +6997,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2393117993865592497, guid: 578879dc7dc975447aed054b561cb40c, type: 3}
+      propertyPath: levels.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393117993865592497, guid: 578879dc7dc975447aed054b561cb40c, type: 3}
+      propertyPath: 'levels.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 21bb9b47f785ac94da5192f1317e18b4, type: 2}
+    - target: {fileID: 2393117993865592497, guid: 578879dc7dc975447aed054b561cb40c, type: 3}
+      propertyPath: 'levels.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f1ce83bb36d925b478f6a35147b487cc, type: 2}
+    - target: {fileID: 2393117993865592497, guid: 578879dc7dc975447aed054b561cb40c, type: 3}
       propertyPath: wallUnits.Array.size
       value: 1
       objectReference: {fileID: 0}

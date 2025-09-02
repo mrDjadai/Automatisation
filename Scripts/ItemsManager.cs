@@ -5,7 +5,6 @@ using TMPro;
 public class ItemsManager : MonoBehaviour
 {
     [SerializeField] private float indicatorChangingSpeed;
-    [SerializeField] private LevelData[] levels;
     [SerializeField] private Transform textOrigin;
     [SerializeField] private TextMeshProUGUI textPrefab;
     [SerializeField] private PercentIndicator[] indicators;
@@ -26,7 +25,14 @@ public class ItemsManager : MonoBehaviour
         waitTime = levelStarter.LevelDuration;
         if (l.Level != 0)
         {
-            items = levels[l.Level - 1].items;
+            items = new TargetItem[l.CurLevel.items.Length];
+            for (int i = 0; i < l.CurLevel.items.Length; i++)
+            {
+                items[i] = new TargetItem();
+                items[i].id = l.CurLevel.items[i].id;
+                items[i].nameKey = l.CurLevel.items[i].nameKey;
+                items[i].targetCount = l.CurLevel.items[i].targetCount;
+            }
         }
     }
 
@@ -128,12 +134,6 @@ public class ItemsManager : MonoBehaviour
         }
         return true;
     }   
-    
-    [System.Serializable]
-    private class LevelData
-    {
-        public TargetItem[] items;
-    }
 
     [System.Serializable]
     private class TargetItem

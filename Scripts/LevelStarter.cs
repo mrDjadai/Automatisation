@@ -10,6 +10,7 @@ public class LevelStarter : MonoBehaviour
 {
     public Difficult CurrentDifficult { get; private set; }
     public float LevelDuration { get; private set;}
+    public LevelData CurLevel => curLevel;
     public int Level { get; private set; }
     private LightActivator lightActivator;
     private TickSetter tickSetter;
@@ -27,10 +28,8 @@ public class LevelStarter : MonoBehaviour
     [SerializeField] private AudioSource punchSource;
     [SerializeField] private WallUnit[] wallUnits;
     [SerializeField] private ObjectUnit[] objectUnits;
-    [SerializeField] private Difficult[] difficults;
-    [SerializeField] private float[] levelDurations;
+    [SerializeField] private LevelData[] levels;
     [SerializeField] private Image gazete;
-    [SerializeField] private Sprite[] gazeteSprites;
     [SerializeField] private Button startButton;
     [SerializeField] private TMP_Text startButtonText;
     [SerializeField] private float gazeteAnimationTime;
@@ -41,6 +40,7 @@ public class LevelStarter : MonoBehaviour
     [SerializeField] private UpgradeLevel[] upgrades;
 
     private bool isStarted;
+    private LevelData curLevel;
 
     [Inject]
     private void Construct(TickSetter t, LightActivator a)
@@ -82,8 +82,9 @@ public class LevelStarter : MonoBehaviour
 
     private void LoadLevel(int level)
     {
-        CurrentDifficult = difficults[level - 1];
-        LevelDuration = levelDurations[level - 1];
+        curLevel = levels[level - 1];
+        CurrentDifficult = curLevel.difficult;
+        LevelDuration = curLevel.duration;
 
         foreach (var item in wallUnits)
         {
@@ -99,7 +100,7 @@ public class LevelStarter : MonoBehaviour
         }
 
         gazete.rectTransform.localScale = Vector2.zero;
-        gazete.sprite = gazeteSprites[level - 1];
+        gazete.sprite = curLevel.gazete;
         startButton.onClick.AddListener(StartGame);
         startButton.image.color = Color.clear;
         Color tColor = startButtonText.color;
@@ -118,7 +119,7 @@ public class LevelStarter : MonoBehaviour
 
     private void LoadTutorial()
     {
-        CurrentDifficult = difficults[0];
+        CurrentDifficult = levels[0].difficult;
 
         gazeteGroup.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
