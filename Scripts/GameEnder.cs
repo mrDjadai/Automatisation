@@ -19,6 +19,23 @@ public class GameEnder : MonoBehaviour
 
     private bool isEnded;
 
+    private void Awake()
+    {
+        foreach (var item in textes)
+        {
+            Color c = item.color;
+            c.a = 0;
+            item.color = c;
+        }
+
+        foreach (var item in images)
+        {
+            Color c = item.color;
+            c.a = 0;
+            item.color = c;
+        }
+    }
+
     private int GetReward()
     {
         return 10;

@@ -10,10 +10,14 @@ public class GearPlace : MonoBehaviour, ILookDetectable
     [SerializeField] private float rotatingSpeed;
     [SerializeField] private string autoKey;
     private bool automised;
+    private Transform tr;
+    private Transform gearTr;
 
     private void Awake()
     {
         automised = SaveManager.instance.HasUpgrade(autoKey);
+        tr = transform;
+        gearTr = gear.transform;
     }
 
     public bool IsBroken()
@@ -23,10 +27,10 @@ public class GearPlace : MonoBehaviour, ILookDetectable
 
     public void Rotate()
     {
-        transform.RotateAround(transform.forward, rotatingSpeed * Time.deltaTime);
+        tr.RotateAround(tr.forward, rotatingSpeed * Time.deltaTime);
         if (gear != null)
         {
-            gear.transform.RotateAround(transform.forward, rotatingSpeed * Time.deltaTime);
+            gearTr.RotateAround(tr.forward, rotatingSpeed * Time.deltaTime);
         }
     }
 
@@ -42,17 +46,15 @@ public class GearPlace : MonoBehaviour, ILookDetectable
 
     public void Take()
     {
-    /*    if (gear != null)
-        {
-            gear.GetComponent<Rigidbody>().isKinematic = true;
-        }*/
         gear = null;
+        gearTr = null;
         manager.Check();
     }
 
     public void Place(Gear g)
     {
         gear = g;
+        gearTr = g.transform;
         g.GetComponent<Rigidbody>().isKinematic = true;
         manager.Check();
     }

@@ -8,6 +8,7 @@ public class Instrument : Interactable
     public int DefaultLayer { get; private set; }
     public float SpeedMultiplier { get; protected set; }
     public int ID => id;
+    public bool IsMoveAnimating { get; private set; }
 
     [SerializeField] private Vector3 itemRotation;
     [SerializeField] private int id;
@@ -67,6 +68,7 @@ public class Instrument : Interactable
             StopCoroutine(moveCor);
             moveCor = null;
         }
+        IsMoveAnimating = true;
     }
 
     public virtual void Use()
@@ -89,7 +91,7 @@ public class Instrument : Interactable
     protected IEnumerator GoToPoint(Transform target, Action onArrive)
     {
         Quaternion targetQuanternion;
-
+        IsMoveAnimating = true;
         while (true)
         {
             float stoppingDistance = PlayerInventory.instance.ItemMovingSpeed;
@@ -113,6 +115,7 @@ public class Instrument : Interactable
             yield return new WaitForEndOfFrame();
         }
         moveCor = null;
+        IsMoveAnimating = false;
     }
 
     [Serializable] private struct SpeedBoostUpgrade

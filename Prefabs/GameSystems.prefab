@@ -459,7 +459,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicatorChangingSpeed: 0.2
-  levels: []
   textOrigin: {fileID: 6470981710353137323}
   textPrefab: {fileID: 5287087532580266370, guid: ea500a0b0b315a1408d89b73ab251b37, type: 3}
   indicators:
@@ -2257,13 +2256,8 @@ MonoBehaviour:
   punchSource: {fileID: 8345359670534385591}
   wallUnits: []
   objectUnits: []
-  difficults:
-  - {fileID: 11400000, guid: 436ec579e7345ac47bd839162883b11f, type: 2}
-  levelDurations:
-  - 300
+  levels: []
   gazete: {fileID: 2660087471164582593}
-  gazeteSprites:
-  - {fileID: 21300000, guid: bcbb7928c5e69e04a842b5d4b3cc6002, type: 3}
   startButton: {fileID: 8601283336797685998}
   startButtonText: {fileID: 3371134321504289450}
   gazeteAnimationTime: 2
