@@ -23,7 +23,7 @@ public class OutputOverrider : Tickable
         if (input.IsEmpty == false)
         {
             Item i = input.Pop();
-            manager.Add(i.ID, i.ColorID);
+            manager.Add(i.ID);
 
             Destroy(i.gameObject);
         }

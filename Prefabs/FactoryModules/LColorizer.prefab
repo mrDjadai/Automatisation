@@ -69,9 +69,10 @@ MonoBehaviour:
   publicOutput: {fileID: 0}
   tickToChange: 40
   applyTick: 5
-  colorId: 2
+  colorId: 00000000
   changingTime: 10
-  pt: {fileID: 8153911453314800983}
+  pt:
+  - {fileID: 8153911453314800983}
   sourse: {fileID: 7994629788961973741}
 --- !u!114 &3732020484732778189
 MonoBehaviour:

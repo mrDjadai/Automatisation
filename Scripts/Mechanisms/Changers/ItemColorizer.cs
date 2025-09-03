@@ -2,30 +2,39 @@ using UnityEngine;
 
 public class ItemColorizer : ObjectChanger
 {
-    [SerializeField] private int colorId;
+    [SerializeField] private int[] colorId;
     [SerializeField] private float changingTime;
-    [SerializeField] private ParticleSystem pt;
+    [SerializeField] private ParticleSystem[] pt;
     [SerializeField] private EaseAudioSourse sourse;
     private bool isChanging;
 
     private void Start()
     {
-        ParticleSystem.MainModule m = pt.main;
-        m.startColor = settings.Colors[colorId];
+        for (int i = 0; i < pt.Length; i++)
+        {
+            ParticleSystem.MainModule m = pt[i].main;
+            m.startColor = settings.Colors[colorId[i]];
+        }
     }
 
     private void Update()
     {
-        if (isChanging != pt.isPlaying || isChanging == IsBroken())
+        if (isChanging != pt[0].isPlaying || isChanging == IsBroken())
         {
             if (isChanging && IsBroken() == false)
             {
-                pt.Play();
+                foreach (var item in pt)
+                {
+                    item.Play();
+                }
                 sourse.Play();
             }
             else
             {
-                pt.Stop();
+                foreach (var item in pt)
+                {
+                    item.Stop();
+                }
                 sourse.Stop();
             }
         }
@@ -34,7 +43,10 @@ public class ItemColorizer : ObjectChanger
     protected override void OnChangeEnd()
     {
         base.OnChangeEnd();
-        pt.Stop();
+        foreach (var item in pt)
+        {
+            item.Stop();
+        }
         sourse.Stop();
         isChanging = false;
     }
@@ -42,7 +54,10 @@ public class ItemColorizer : ObjectChanger
     protected override void OnChangeStart()
     {
         base.OnChangeStart();
-        pt.Play();
+        foreach (var item in pt)
+        {
+            item.Play();
+        }
         sourse.Play();
         isChanging = true;
     }

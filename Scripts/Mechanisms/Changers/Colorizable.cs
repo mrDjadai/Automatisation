@@ -4,7 +4,8 @@ using System.Collections;
 [RequireComponent(typeof(Item))]
 public class Colorizable : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer[] renderers;
+    [SerializeField] private int baseID;
+    [SerializeField] private Renderer[] renderers;
     private Item item;
 
     private Color[] colors => item.Settings.Colors;
@@ -12,29 +13,33 @@ public class Colorizable : MonoBehaviour
     public void Init()
     {
         item = GetComponent<Item>();
-        foreach (var i in renderers)
+    }
+
+    public void Colorize(float time, int[] colorIds)
+    {
+        StartCoroutine(SetColor(time, colorIds));
+        foreach (var r in renderers)
         {
-            foreach (var c in i.materials)
+            foreach (var i in r.renderers)
             {
-                c.SetColor("_MainColor", colors[item.ColorID]);
+                foreach (var c in i.materials)
+                {
+                    c.SetColor("_MainColor", colors[baseID]);
+                }
             }
         }
     }
 
-    public void Colorize(float time, int colorId)
+    private IEnumerator SetColor(float useTime, int[] colorIds)
     {
-        item.ColorID = colorId;
-
-        StartCoroutine(SetColor(time, colorId));
-    }
-
-    private IEnumerator SetColor(float useTime, int colorId)
-    {
-        foreach (var i in renderers)
+        for (int i = 0; i < renderers.Length; i++)
         {
-            foreach (var c in i.materials)
+            foreach (var r in renderers[i].renderers)
             {
-                c.SetColor("_NewColor", colors[colorId]);
+                foreach (var c in r.materials)
+                {
+                    c.SetColor("_NewColor", colors[colorIds[i]]);
+                }
             }
         }
 
@@ -48,11 +53,20 @@ public class Colorizable : MonoBehaviour
 
             foreach (var i in renderers)
             {
-                foreach (var c in i.materials)
+                foreach (var item in i.renderers)
                 {
-                    c.SetFloat("_Percent", val);
+                    foreach (var c in item.materials)
+                    {
+                        c.SetFloat("_Percent", val);
+                    }
                 }
             }
         }
+    }
+
+    [System.Serializable] 
+    private struct Renderer
+    {
+        public MeshRenderer[] renderers;
     }
 }

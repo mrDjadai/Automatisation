@@ -11,6 +11,9 @@ public class ItemGenerator : Tickable, IItemConnectable
     [SerializeField] private float spawnDuration;
     [SerializeField] private float spawnHeight;
     [SerializeField] private AudioSource spawnSource;
+    [SerializeField] private bool useOneTime;
+
+    private bool spawned;
 
     public void ConnectToInput(ItemPoint innerPoint, ItemPoint outerPoint)
     {
@@ -24,8 +27,13 @@ public class ItemGenerator : Tickable, IItemConnectable
 
     protected override void OnTick()
     {
+        if (useOneTime && spawned)
+        {
+            return;
+        }
         if (point.IsEmpty)
         {
+            spawned = true;
             Item item = Instantiate(generatedPrefab, spawnPoint.position + Vector3.up * spawnHeight, spawnPoint.rotation);
             item.Init(settings);
 

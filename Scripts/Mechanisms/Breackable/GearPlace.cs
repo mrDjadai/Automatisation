@@ -17,7 +17,10 @@ public class GearPlace : MonoBehaviour, ILookDetectable
     {
         automised = SaveManager.instance.HasUpgrade(autoKey);
         tr = transform;
-        gearTr = gear.transform;
+        if (gear != null)
+        {
+            gearTr = gear.transform;
+        }
     }
 
     public bool IsBroken()

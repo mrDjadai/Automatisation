@@ -71,10 +71,9 @@ public class ItemsManager : MonoBehaviour
         LocalizationManager.instance.OnLanguageChanged -= IndicateCount;
     }
 
-    public void Add(int id, int colorId)
+    public void Add(int id)
     {
         Debug.Log(id);
-        Debug.Log(colorId);
         foreach (var item in items)
         {
             if (item.id == id)

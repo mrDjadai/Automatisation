@@ -7,7 +7,6 @@ public class Item : MonoBehaviour
     public bool IsMoving => isMoving;
     public GameSettings Settings => settings;
     [SerializeField] private int id;
-    public int ColorID;
 
     private float movingTime;
     private bool isMoving;

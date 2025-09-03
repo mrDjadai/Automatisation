@@ -25,7 +25,7 @@ public class ItemGetter : Tickable, IItemConnectable
         if (endPoint.IsEmpty == false)
         {
             Item i = endPoint.Pop();
-            manager.Add(i.ID, i.ColorID);
+            manager.Add(i.ID);
 
             Destroy(i.gameObject);
         }

@@ -131,7 +131,10 @@ public class LevelStarter : MonoBehaviour
     {
         if (SaveManager.instance.LastGazete >= Level)
         {
-            StartGame();
+            if (Level != 0)
+            {
+                StartGame();
+            }
         }
         else
         {
