@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class TutorialEnder : MonoBehaviour
     [SerializeField] private PlayerController controller;
     [SerializeField] private Interactor interactor;
     [SerializeField] private Image centerPointer;
+    [SerializeField] private float delay;
 
     public void Show()
     {
@@ -43,11 +45,17 @@ public class TutorialEnder : MonoBehaviour
         if (activator.IsBroken == false)
         {
             enabled = false;
-            if (SaveManager.instance.MaxLevel == 0)
-            {
-                SaveManager.instance.NextLevel();
-            }
-            Show();
+            StartCoroutine(End());
         }
+    }
+
+    private IEnumerator End()
+    {
+        yield return new WaitForSeconds(delay);
+        if (SaveManager.instance.MaxLevel == 0)
+        {
+            SaveManager.instance.NextLevel();
+        }
+        Show();
     }
 }

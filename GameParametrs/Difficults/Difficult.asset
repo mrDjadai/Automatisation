@@ -16,7 +16,7 @@ MonoBehaviour:
   - header: Belt
     minFirstPeriodPercent: 0.1
     minPeriod: 50
-    periodOffset: 25
+    periodOffset: 15
   - header: Fire
     minFirstPeriodPercent: 0.5
     minPeriod: 80
@@ -27,8 +27,8 @@ MonoBehaviour:
     periodOffset: 30
   - header: Hose
     minFirstPeriodPercent: 0.2
-    minPeriod: 30
-    periodOffset: 35
+    minPeriod: 50
+    periodOffset: 20
   - header: LightBox
     minFirstPeriodPercent: 3
     minPeriod: 50

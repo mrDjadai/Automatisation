@@ -249,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2095228559749986197, guid: d9ee4768d536cae41bf316e1d003e625, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.46816128
+      value: 0.492
       objectReference: {fileID: 0}
     - target: {fileID: 2095228559749986197, guid: d9ee4768d536cae41bf316e1d003e625, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1803,6 +1803,10 @@ PrefabInstance:
       value: TutorialDoor
       objectReference: {fileID: 0}
     - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
+      propertyPath: delay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
       propertyPath: breakables.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1972,6 +1976,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 673534010284873081, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.261
+      objectReference: {fileID: 0}
+    - target: {fileID: 673534010284873081, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 673534010284873081, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 673534010284873081, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 673534010284873081, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 673534010284873081, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 1613567187210340917, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2038,27 +2066,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704070972110137541, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
       propertyPath: spawnPoints.Array.data[0].x
-      value: -0.0941205
+      value: 0.85530627
       objectReference: {fileID: 0}
     - target: {fileID: 4704070972110137541, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
       propertyPath: spawnPoints.Array.data[0].y
-      value: -2.0012128
+      value: -1.9653856
       objectReference: {fileID: 0}
     - target: {fileID: 4704070972110137541, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
       propertyPath: spawnPoints.Array.data[0].z
-      value: -3.2828512
+      value: -3.283828
       objectReference: {fileID: 0}
     - target: {fileID: 4704070972110137541, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
       propertyPath: spawnPoints.Array.data[1].x
-      value: 1.5240438
+      value: 1.8788755
       objectReference: {fileID: 0}
     - target: {fileID: 4704070972110137541, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
       propertyPath: spawnPoints.Array.data[1].y
-      value: -2.8188398
+      value: -1.3827807
       objectReference: {fileID: 0}
     - target: {fileID: 4704070972110137541, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
       propertyPath: spawnPoints.Array.data[1].z
-      value: -2.2606347
+      value: -3.444961
       objectReference: {fileID: 0}
     - target: {fileID: 4704070972110137541, guid: 3aee6ccbb9ae1984fba3ea77131a9a20, type: 3}
       propertyPath: spawnPoints.Array.data[2].x
@@ -2305,6 +2333,7 @@ MonoBehaviour:
   controller: {fileID: 540729183}
   interactor: {fileID: 540729182}
   centerPointer: {fileID: 540729181}
+  delay: 2
 --- !u!4 &480129736
 Transform:
   m_ObjectHideFlags: 0
@@ -3537,7 +3566,7 @@ GameObject:
   - component: {fileID: 872073318}
   - component: {fileID: 872073317}
   - component: {fileID: 872073316}
-  - component: {fileID: 872073315}
+  - component: {fileID: 872073319}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -3545,28 +3574,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &872073315
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872073314}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &872073316
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3638,6 +3645,27 @@ Transform:
   - {fileID: 1020701811}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &872073319
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872073314}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1.02, z: 10}
+  m_Center: {x: 0, y: -0.51, z: 0}
 --- !u!1001 &877587578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3649,6 +3677,10 @@ PrefabInstance:
     - target: {fileID: 3741626368536047687, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
       propertyPath: m_Name
       value: TutorialDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
+      propertyPath: delay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
       propertyPath: breakables.Array.size
@@ -4282,7 +4314,7 @@ GameObject:
   - component: {fileID: 1020701811}
   - component: {fileID: 1020701814}
   - component: {fileID: 1020701813}
-  - component: {fileID: 1020701812}
+  - component: {fileID: 1020701815}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -4305,28 +4337,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 872073318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1020701812
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020701810}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1020701813
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4380,6 +4390,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020701810}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1020701815
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020701810}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1.02, z: 10}
+  m_Center: {x: 0, y: -0.51, z: 0}
 --- !u!1001 &1107857244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6002,6 +6033,10 @@ PrefabInstance:
       value: TutorialDoor (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
+      propertyPath: delay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
       propertyPath: breakables.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -6157,6 +6192,10 @@ PrefabInstance:
     - target: {fileID: 3741626368536047687, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
       propertyPath: m_Name
       value: TutorialDoor (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
+      propertyPath: delay
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
       propertyPath: breakables.Array.size
@@ -6420,6 +6459,10 @@ PrefabInstance:
       value: TutorialDoor (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
+      propertyPath: delay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737279522574312344, guid: 60547c63d22c97a4bb79abbc288dfbaa, type: 3}
       propertyPath: breakables.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -6618,7 +6661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 833981376830940609, guid: 20b23950693495c499ea7a096ca7e546, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.37816128
+      value: 0.514
       objectReference: {fileID: 0}
     - target: {fileID: 833981376830940609, guid: 20b23950693495c499ea7a096ca7e546, type: 3}
       propertyPath: m_LocalPosition.z

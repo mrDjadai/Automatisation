@@ -80,7 +80,7 @@ public class SteamPipePoint : MonoBehaviour, ILookDetectable
         }
     }
 
-    public void OnRepair()
+    private void OnRepair()
     {
         steamSource.Stop();
         weldingSource.Stop();
@@ -101,16 +101,17 @@ public class SteamPipePoint : MonoBehaviour, ILookDetectable
         if (scale <= repairOffset)
         {
             connectedPoint = null;
-
-            pipe.TryRepair();
             steam.localScale = Vector3.zero;
+
+            OnRepair();
+            pipe.TryRepair();
         }
 
         if (cor != null)
         {
             StopCoroutine(cor);
         }
-        weldingSource.Play();
+
         if (gameObject.activeSelf)
         {
             cor = StartCoroutine(Stop());
@@ -142,11 +143,13 @@ public class SteamPipePoint : MonoBehaviour, ILookDetectable
     public void OnLook()
     {
         isRepairing = true;
+        weldingSource.Play();
     }
 
     public void OnUnLook()
     {
         isRepairing = false;
+        weldingSource.Stop();
     }
 
     public virtual void OnStartLook()

@@ -14,9 +14,6 @@ public class GameEnder : MonoBehaviour
     [SerializeField] private GameObject[] winObjects;
     [SerializeField] private GameObject[] loseObjects;
 
-    [SerializeField] private string rewardKey;
-    [SerializeField] private TextMeshProUGUI rewardText;
-
     private bool isEnded;
 
     private void Awake()
@@ -57,9 +54,9 @@ public class GameEnder : MonoBehaviour
         int level = PlayerPrefs.GetInt("CurrentLevel");
 
 
-        rewardText.gameObject.SetActive(true);
+     /*   rewardText.gameObject.SetActive(true);
         rewardText.text = LocalizationManager.instance.GetLocalizedValue(rewardKey) + UpgradePointsTextSetter.GetText(GetReward())
-            + '\\' + UpgradePointsTextSetter.GetText(GetMaxReward());
+            + '\\' + UpgradePointsTextSetter.GetText(GetMaxReward());*/
 
         if (SaveManager.instance.MaxLevel == level)
         {

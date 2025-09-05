@@ -1895,7 +1895,7 @@ PrefabInstance:
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: output
       value: 
-      objectReference: {fileID: 456105989}
+      objectReference: {fileID: 1702677381}
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: 'breackables.Array.data[0]'
       value: 
@@ -2043,7 +2043,7 @@ PrefabInstance:
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: output
       value: 
-      objectReference: {fileID: 585222862}
+      objectReference: {fileID: 1335149518}
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: 'breackables.Array.data[0]'
       value: 
@@ -2210,7 +2210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6539956880173047068, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: spawnPoints.Array.size
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6539956880173047068, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: 'spawnPoints.Array.data[10]'
@@ -2656,6 +2656,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6644861167992941124, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
   m_PrefabInstance: {fileID: 379915667}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &401093073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6219286413381555687, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+  m_PrefabInstance: {fileID: 1314083593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec631741d9252ab47afcc7bf61169072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &409497506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2667,7 +2678,7 @@ PrefabInstance:
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: output
       value: 
-      objectReference: {fileID: 1335149518}
+      objectReference: {fileID: 263540432}
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: 'breackables.Array.data[0]'
       value: 
@@ -3939,7 +3950,7 @@ PrefabInstance:
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: output
       value: 
-      objectReference: {fileID: 263540432}
+      objectReference: {fileID: 409497507}
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: 'breackables.Array.data[0]'
       value: 
@@ -4415,6 +4426,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1905186058}
     m_Modifications:
+    - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+      propertyPath: 'breackables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 442507174}
+    - target: {fileID: 4357627963518808256, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357627963518808256, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357627963518808256, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6225235021720407121, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: m_Name
       value: Conveer (53)
@@ -4459,7 +4486,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6539956880173047068, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6930,7 +6958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 451384827044174771, guid: 578879dc7dc975447aed054b561cb40c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.91
+      value: 14.33
       objectReference: {fileID: 0}
     - target: {fileID: 451384827044174771, guid: 578879dc7dc975447aed054b561cb40c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8788,7 +8816,7 @@ PrefabInstance:
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: output
       value: 
-      objectReference: {fileID: 1702677381}
+      objectReference: {fileID: 238298872}
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: 'breackables.Array.data[0]'
       value: 
@@ -8993,7 +9021,7 @@ PrefabInstance:
     - target: {fileID: 616936755700229865, guid: 0725d26246baba14aa81f99de9e4b4c0, type: 3}
       propertyPath: publicOutput
       value: 
-      objectReference: {fileID: 238298872}
+      objectReference: {fileID: 401093073}
     - target: {fileID: 833981376830940609, guid: 0725d26246baba14aa81f99de9e4b4c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.051000595
@@ -9104,6 +9132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391f54aac3a05df4a91b7559fe549f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseID: 0
   renderers: []
 --- !u!114 &1327160131
 MonoBehaviour:
@@ -9118,7 +9147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  ColorID: 0
 --- !u!1001 &1335149517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9130,11 +9158,23 @@ PrefabInstance:
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: output
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 585222862}
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: 'breackables.Array.data[0]'
       value: 
       objectReference: {fileID: 442507174}
+    - target: {fileID: 4357627963518808256, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357627963518808256, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357627963518808256, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6225235021720407121, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: m_Name
       value: Conveer (52)
@@ -9179,7 +9219,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6539956880173047068, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11920,7 +11961,7 @@ PrefabInstance:
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: output
       value: 
-      objectReference: {fileID: 409497507}
+      objectReference: {fileID: 456105989}
     - target: {fileID: 3999075460772316811, guid: 49b5d0e46f31da441b86a604c827169e, type: 3}
       propertyPath: 'breackables.Array.data[0]'
       value: 

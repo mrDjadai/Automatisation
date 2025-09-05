@@ -54,9 +54,5 @@ public class SteamPipe : PeriodicalBreackable
 
     protected override void OnRepair()
     {
-        foreach (var item in points)
-        {
-            item.OnRepair();
-        }
     }
 }

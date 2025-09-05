@@ -22,8 +22,12 @@ public class InstrumentReturner : MonoBehaviour
         }
         else
         {
-            if (other.attachedRigidbody && other.attachedRigidbody.GetComponent<Instrument>())
+            if (other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<Instrument>(out Instrument i))
             {
+                if (PlayerInventory.instance.InHandItem == i)
+                {
+                    PlayerInventory.instance.DropItem();
+                }
                 other.attachedRigidbody.transform.position = player.transform.position;
             }
         }
