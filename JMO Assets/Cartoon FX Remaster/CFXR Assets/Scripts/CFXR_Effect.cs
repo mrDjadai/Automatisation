@@ -84,6 +84,9 @@ namespace CartoonFX
 			public bool perlinColor;
 			public float perlinColorSpeed = 1f;
 
+
+			public Transform tr;
+
 			public void animate(float time)
 			{
 #if UNITY_EDITOR
@@ -101,6 +104,11 @@ namespace CartoonFX
 						delta = perlinIntensity ? Mathf.PerlinNoise(Time.time * perlinIntensitySpeed, 0f) : intensityCurve.Evaluate(delta);
 						light.intensity = Mathf.LerpUnclamped(intensityEnd, intensityStart, delta);
 
+                        if (tr != null)
+                        {
+							light.intensity *= tr.localScale.x;
+						}
+
 						if (fadeIn && time < fadeInDuration)
 						{
 							light.intensity *= Mathf.Clamp01(time / fadeInDuration);
@@ -112,6 +120,10 @@ namespace CartoonFX
 						float delta = loop ? Mathf.Clamp01((time % rangeDuration)/rangeDuration) : Mathf.Clamp01(time/rangeDuration);
 						delta = perlinRange ? Mathf.PerlinNoise(Time.time * perlinRangeSpeed, 10f) : rangeCurve.Evaluate(delta);
 						light.range = Mathf.LerpUnclamped(rangeEnd, rangeStart, delta);
+						if (tr != null)
+						{
+							light.range *= tr.localScale.x;
+						}
 					}
 
 					if (animateColor)
@@ -488,6 +500,11 @@ namespace CartoonFX
 #if !DISABLE_CAMERA_SHAKE || !DISABLE_CLEAR_BEHAVIOR
 		void Awake()
 		{
+            foreach (var item in animatedLights)
+            {
+				item.tr = transform;
+			}
+
 	#if !DISABLE_CAMERA_SHAKE
 			if (cameraShake != null && cameraShake.enabled)
 			{

@@ -72,6 +72,7 @@ public class MultipleItemReplacer : Tickable, IItemConnectable
                 changedMoved = inputs[0].center.Move(output);
                 if (changedMoved)
                 {
+                    tickAfterChange = 0;
                     foreach (var item in outSimulated)
                     {
                         item.DOLocalRotate(openAnle,

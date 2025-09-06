@@ -73,9 +73,9 @@ public class Fire : PeriodicalBreackable
 
     private void Update()
     {
-        if (isBroken && power < selfDamagePoint)
+        if (power > 0 && power < selfDamagePoint)
         {
-            power -= selfDamage * Time.deltaTime;
+            Power -= selfDamage * Time.deltaTime;
         }
     }
 

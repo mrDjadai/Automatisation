@@ -17,7 +17,7 @@ public class SceneLoader : MonoBehaviour
         if (PlayerPrefs.GetInt("UseTransition") == 1 || PlayerPrefs.GetInt("CurrentLevel") == 0)
         {
             PlayerPrefs.SetInt("UseTransition", 0);
-            bgImage.DOColor(Color.clear, animationDuration);
+            bgImage.DOColor(Color.clear, animationDuration * 2);
         }
         else
         {
