@@ -239,11 +239,11 @@ MonoBehaviour:
   interpolation: 0
   simulation:
     enabled: 1
-    resolution: 60
-    massPerMeter: 3
+    resolution: 300
+    massPerMeter: 2
     stiffness: 1
     energyLoss: 0.01
-    lengthMultiplier: 0.5
+    lengthMultiplier: 0.7
     gravityMultiplier: 1
     useCustomGravity: 0
     customGravity:
@@ -255,9 +255,9 @@ MonoBehaviour:
   collisions:
     enabled: 1
     influenceRigidbodies: 0
-    stride: 2
-    friction: 0.1
-    collisionMargin: 0.08
+    stride: 1
+    friction: 0
+    collisionMargin: 0.15
     ignoreLayers:
       serializedVersion: 2
       m_Bits: 2752

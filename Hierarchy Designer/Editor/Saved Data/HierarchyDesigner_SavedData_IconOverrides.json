@@ -4,6 +4,11 @@
             "globalId": "GlobalObjectId_V1-2-fe4bb97868b22ee48a16e1a78f6b9c6c-5654375808742879226-1314083593",
             "source": "builtin",
             "value": "d_Transform Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-0445d4e6ae05c6244b3be4477017e3a6-610298211-0",
+            "source": "builtin",
+            "value": "d_SpriteRenderer Icon"
         }
     ]
 }
