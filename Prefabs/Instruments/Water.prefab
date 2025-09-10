@@ -239,7 +239,7 @@ MonoBehaviour:
   interpolation: 0
   simulation:
     enabled: 1
-    resolution: 300
+    resolution: 500
     massPerMeter: 2
     stiffness: 1
     energyLoss: 0.01
@@ -257,7 +257,7 @@ MonoBehaviour:
     influenceRigidbodies: 0
     stride: 1
     friction: 0
-    collisionMargin: 0.15
+    collisionMargin: 0.07
     ignoreLayers:
       serializedVersion: 2
       m_Bits: 2752

@@ -32,6 +32,14 @@ public abstract class Tickable : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        if (addedEvent)
+        {
+            tick.OnTick -= HandleTick;
+        }
+    }
+
     public bool IsBroken()
     {
         foreach (var item in breackables)

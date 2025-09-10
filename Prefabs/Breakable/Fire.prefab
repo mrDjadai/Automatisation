@@ -188,7 +188,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 14d175c9e5f88fb4e87805d8496dc43f, type: 3}
   m_Resource: {fileID: 8300000, guid: 14d175c9e5f88fb4e87805d8496dc43f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10160,6 +10160,7 @@ MonoBehaviour:
       m_RotationOrder: 0
     perlinColor: 0
     perlinColorSpeed: 1
+    tr: {fileID: 0}
   fadeOutReference: {fileID: 194920357126855134}
 --- !u!114 &5051376652833722465
 MonoBehaviour:
