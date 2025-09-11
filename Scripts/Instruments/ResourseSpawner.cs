@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class ResourseSpawner : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ResourseSpawner : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private int maxCount = 50;
     [SerializeField] private bool isLimitedMode;
+    [SerializeField] private float spawnDelay;
 
     private List<Transform> spawned = new List<Transform>();
     private Transform lastSpawned;
@@ -16,6 +18,12 @@ public class ResourseSpawner : MonoBehaviour
     {
         lastSpawned = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation).transform;
         lastSpawned.GetComponent<IResourse>().SetSpawner(this);
+    }
+
+    private IEnumerator Spawn()
+    {
+        yield return new WaitForSeconds(spawnDelay);
+        Start();
     }
 
     private void Update()
@@ -30,7 +38,7 @@ public class ResourseSpawner : MonoBehaviour
         {
             spawned.Add(lastSpawned);
             CheckLength();
-            Start();
+            StartCoroutine(Spawn());
         }
     }
 

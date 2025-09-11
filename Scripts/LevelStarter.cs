@@ -129,7 +129,7 @@ public class LevelStarter : MonoBehaviour
 
     private void Start()
     {
-        if (SaveManager.instance.LastGazete >= Level)
+        if (DemoHandler.IsDemo || SaveManager.instance.LastGazete >= Level)
         {
             if (Level != 0)
             {

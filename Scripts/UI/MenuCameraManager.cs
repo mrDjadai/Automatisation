@@ -1,12 +1,14 @@
 using UnityEngine;
 using Unity.Cinemachine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class MenuCameraManager : MonoBehaviour
 {
     [SerializeField] private CameraPoint[] points;
     [SerializeField] private int activePriority;
     [SerializeField] private int inactivePriority;
+    [SerializeField] private float moveTime;
 
     private int current;
     private ShopItem selectedItem;
@@ -66,7 +68,20 @@ public class MenuCameraManager : MonoBehaviour
         points[current].cam.Priority = inactivePriority;
         current = id;
         points[current].cam.Priority = activePriority;
-        points[current].onOpen.Invoke();
+        if (points[current].eventOnEnd == false)
+        {
+            points[current].onOpen.Invoke();
+        }
+        else
+        {
+            StartCoroutine(DoDelayed(points[current].onOpen));
+        }
+    }
+
+    private IEnumerator DoDelayed(UnityEvent e)
+    {
+        yield return new WaitForSeconds(moveTime);
+        e.Invoke();
     }
 
     public void DropItem()
@@ -111,6 +126,7 @@ public class MenuCameraManager : MonoBehaviour
 
     [System.Serializable] private struct CameraPoint
     {
+        public bool eventOnEnd;
         public CinemachineCamera cam;
         public CinemachineCamera previousCam;
         public UnityEvent onOpen;

@@ -49,6 +49,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 3080410412155089735}
   maxCount: 100
   isLimitedMode: 1
+  spawnDelay: 0.5
 --- !u!1 &1613567187210340917
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +99,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 2658503704737350308}
   maxCount: 20
   isLimitedMode: 1
+  spawnDelay: 6
 --- !u!1 &3314208015003489424
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +186,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 4200713755107454284}
   maxCount: 100
   isLimitedMode: 1
+  spawnDelay: 0.5
   variants:
   - key: gearsCount2
     prefab: {fileID: 5069087469042443879, guid: 88c9ee8f7ee3eb947a6aa127a16e205a, type: 3}

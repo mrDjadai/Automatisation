@@ -119,6 +119,12 @@ public class ItemsManager : MonoBehaviour
         {
             item.text.text = LocalizationManager.instance.GetLocalizedValue(item.nameKey) + ": ";
             item.textCount.text = item.count + "/" + item.targetCount;
+
+            if (item.count >= item.targetCount)
+            {
+                item.text.fontStyle= FontStyles.Strikethrough;
+                item.textCount.fontStyle= FontStyles.Strikethrough;
+            }
         }
     }
 

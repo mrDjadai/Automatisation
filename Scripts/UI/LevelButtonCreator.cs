@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class LevelButtonCreator : MonoBehaviour
 {
+    public bool canOpen { get; set; }
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private int[] levelScenes;
 
@@ -78,6 +79,10 @@ public class LevelButtonCreator : MonoBehaviour
 
     private void OpenLevel(int num)
     {
+        if (!canOpen)
+        {
+            return;
+        }
         PlayerPrefs.SetInt("CurrentLevel", num);
         sceneLoader.LoadScene(levelScenes[num]);
     }
