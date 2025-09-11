@@ -1560,6 +1560,7 @@ GameObject:
   - component: {fileID: 1079863689540986666}
   - component: {fileID: 283986814618486361}
   - component: {fileID: 4303656503006318371}
+  - component: {fileID: 2829351384596941126}
   m_Layer: 8
   m_Name: Gilz
   m_TagString: Untagged
@@ -1615,7 +1616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
-  ColorID: 0
 --- !u!114 &283986814618486361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,27 +1628,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391f54aac3a05df4a91b7559fe549f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseID: 0
   renderers:
-  - {fileID: 7201910337999416944}
-  - {fileID: 7226688718993993236}
-  - {fileID: 7857360815170529181}
-  - {fileID: 7240181459691168775}
-  - {fileID: 8008746419220211936}
-  - {fileID: 7597539148313974513}
-  - {fileID: 7912396969914818897}
-  - {fileID: 6814928906076918722}
-  - {fileID: 1246801452190581989}
-  - {fileID: 259861767817439030}
-  - {fileID: 4546985561113883033}
-  - {fileID: 6987906385073681807}
-  - {fileID: 365821697419578187}
-  - {fileID: 7242676237445871961}
-  - {fileID: 1171497990162117802}
-  - {fileID: 7648302144628573363}
-  - {fileID: 6729238250403685657}
-  - {fileID: 7774281559638354122}
-  - {fileID: 7924097209700640022}
-  - {fileID: 2482331399856407525}
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
+  - renderers: []
 --- !u!65 &4303656503006318371
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1670,6 +1671,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18183517, y: 0.07650566, z: 0.15266609}
   m_Center: {x: 0.0006942749, y: -0.057562828, z: -0.018057823}
+--- !u!54 &2829351384596941126
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8049383400313638100}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8567906466989189349
 GameObject:
   m_ObjectHideFlags: 0

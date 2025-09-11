@@ -32,7 +32,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int i)
     {
-        if (i == 0)
+       // if (i == 0)
         {
             PlayerPrefs.SetInt("UseTransition", 1);
         }

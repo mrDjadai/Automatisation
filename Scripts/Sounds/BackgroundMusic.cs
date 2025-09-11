@@ -6,21 +6,24 @@ public class BackgroundMusic : MonoBehaviour
 {
     public static BackgroundMusic instance { get; private set; }
     [SerializeField] private AudioClip[] musicClips;
+    [SerializeField] private bool isMono;
     private AudioSource audioSource;
 
     private void Awake()
     {
-        if (instance == null)
+        if (isMono)
         {
-            instance = this;
-        }
+            if (instance == null)
+            {
+                instance = this;
+            }
 
-        if (instance != this)
-        {
-            Destroy(gameObject);
+            if (instance != this)
+            {
+                Destroy(gameObject);
+            }
+            DontDestroyOnLoad(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
-
         StopAllCoroutines();
         StartCoroutine(CheckMusic());
     }

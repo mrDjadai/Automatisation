@@ -21,6 +21,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3994709460275280578, guid: b63f6a0f9314aca41b937ec37a6b6e0b, type: 3}
+      propertyPath: animate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994709460275280578, guid: b63f6a0f9314aca41b937ec37a6b6e0b, type: 3}
       propertyPath: scaleBonus
       value: 1
       objectReference: {fileID: 0}

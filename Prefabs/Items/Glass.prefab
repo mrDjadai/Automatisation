@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7877220913625092356}
   - component: {fileID: 3638159024364200611}
   - component: {fileID: 4231579924682772263}
+  - component: {fileID: 8026663699371713465}
   m_Layer: 8
   m_Name: Glass
   m_TagString: Untagged
@@ -47,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  ColorID: 0
 --- !u!114 &4231579924682772263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +60,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391f54aac3a05df4a91b7559fe549f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseID: 0
   renderers: []
+--- !u!54 &8026663699371713465
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357608841482506829}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &10614648212216910
 PrefabInstance:
   m_ObjectHideFlags: 0

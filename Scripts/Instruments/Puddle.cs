@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Puddle : MonoBehaviour
 {
+    [SerializeField] private bool animate = true;
     [SerializeField] private PhysicsMaterial itemMaterial;
     [SerializeField] private DecalProjector decalProjector;
     [SerializeField] private BoxCollider boxCollider;
@@ -17,29 +18,32 @@ public class Puddle : MonoBehaviour
 
     private IEnumerator Start()
     {
-        float t = 0;
-        transform.localEulerAngles = rotateAxis * Random.Range(0, 360f);
-
-        if (SaveManager.instance.HasUpgrade(scaleBonusKey))
+        if (animate)
         {
-            targetWidth *= scaleBonus;
-            targetHeight *= scaleBonus;
-            targetColliderScale *= scaleBonus;
+            float t = 0;
+            transform.localEulerAngles = rotateAxis * Random.Range(0, 360f);
+
+            if (SaveManager.instance.HasUpgrade(scaleBonusKey))
+            {
+                targetWidth *= scaleBonus;
+                targetHeight *= scaleBonus;
+                targetColliderScale *= scaleBonus;
+            }
+
+            do
+            {
+                t += Time.deltaTime;
+                float p = t / animationTime;
+                float w = Mathf.Lerp(0, targetWidth, p);
+                float h = Mathf.Lerp(0, targetHeight, p);
+                float z = decalProjector.size.z;
+
+                decalProjector.size = new Vector3(w, h, z);
+                boxCollider.size = Vector3.Lerp(Vector3.zero, targetColliderScale, p);
+
+                yield return new WaitForEndOfFrame();
+            } while (t < animationTime);
         }
-
-        do
-        {
-            t += Time.deltaTime;
-            float p = t / animationTime;
-            float w = Mathf.Lerp(0, targetWidth, p);
-            float h = Mathf.Lerp(0, targetHeight, p);
-            float z = decalProjector.size.z;
-
-            decalProjector.size = new Vector3(w, h, z);
-            boxCollider.size = Vector3.Lerp(Vector3.zero, targetColliderScale, p);
-
-            yield return new WaitForEndOfFrame();
-        } while (t < animationTime);
     }
 
     private void OnTriggerStay(Collider other)
