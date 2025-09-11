@@ -13,6 +13,7 @@ public class ResourseSpawner : MonoBehaviour
 
     private List<Transform> spawned = new List<Transform>();
     private Transform lastSpawned;
+    private bool staredSpawn;
 
     private void Start()
     {
@@ -22,13 +23,15 @@ public class ResourseSpawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
+        staredSpawn = true;
         yield return new WaitForSeconds(spawnDelay);
         Start();
+        staredSpawn = false;
     }
 
     private void Update()
     {
-        if (isLimitedMode && spawned.Count >= maxCount)
+        if (staredSpawn || isLimitedMode && spawned.Count >= maxCount)
         {
             this.enabled = false;
             return;
