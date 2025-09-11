@@ -50,56 +50,6 @@ MonoBehaviour:
   maxCount: 100
   isLimitedMode: 1
   spawnDelay: 0.5
---- !u!1 &1613567187210340917
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2658503704737350308}
-  - component: {fileID: 607666876544174423}
-  m_Layer: 0
-  m_Name: SpawnWelding
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2658503704737350308
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613567187210340917}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.022920609, y: 0.68000007, z: 0.12481737}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3333268813103790529}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &607666876544174423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613567187210340917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d209de82227fd4d4ca580a9d6b50947e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 2344522652515136114, guid: f07d9d455b9506c4cbcf7cca17c923e4, type: 3}
-  respawnDistance: 0.5
-  spawnPoint: {fileID: 2658503704737350308}
-  maxCount: 20
-  isLimitedMode: 1
-  spawnDelay: 6
 --- !u!1 &3314208015003489424
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +80,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8495205133618544141}
-  - {fileID: 2658503704737350308}
   - {fileID: 6700881822504367796}
   - {fileID: 8761394559278661597}
   - {fileID: 2625101501165426948}

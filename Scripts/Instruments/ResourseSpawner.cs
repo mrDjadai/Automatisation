@@ -6,19 +6,20 @@ public class ResourseSpawner : MonoBehaviour
 {
     [SerializeField] protected GameObject prefab;
     [SerializeField] private float respawnDistance;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] protected Transform spawnPoint;
     [SerializeField] private int maxCount = 50;
     [SerializeField] private bool isLimitedMode;
     [SerializeField] private float spawnDelay;
 
     private List<Transform> spawned = new List<Transform>();
-    private Transform lastSpawned;
+    protected Transform lastSpawned;
     private bool staredSpawn;
 
     private void Start()
     {
         lastSpawned = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation).transform;
         lastSpawned.GetComponent<IResourse>().SetSpawner(this);
+        HandleSpawn(lastSpawned);
     }
 
     private IEnumerator Spawn()
@@ -29,7 +30,7 @@ public class ResourseSpawner : MonoBehaviour
         staredSpawn = false;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (staredSpawn || isLimitedMode && spawned.Count >= maxCount)
         {
@@ -40,10 +41,16 @@ public class ResourseSpawner : MonoBehaviour
         if (Vector3.Distance(lastSpawned.position, spawnPoint.position) > respawnDistance)
         {
             spawned.Add(lastSpawned);
+            lastSpawned = null;
             CheckLength();
             StartCoroutine(Spawn());
         }
     }
+
+    protected virtual void HandleSpawn(Transform item)
+    {
+
+    }    
 
     private void CheckLength()
     {
